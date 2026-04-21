@@ -19,9 +19,9 @@
   --container: 1320px;
   --gap: clamp(24px, 3vw, 40px);
 
-  --font-display: 'Syne', system-ui, sans-serif;
+  --font-display: 'Montserrat', system-ui, sans-serif;
   --font-editorial: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
