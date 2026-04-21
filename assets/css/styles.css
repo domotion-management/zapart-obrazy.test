@@ -20,7 +20,7 @@
   --gap: clamp(24px, 3vw, 40px);
 
   --font-display: 'Montserrat', system-ui, sans-serif;
-  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Open Sans', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
