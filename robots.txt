@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zapart-obrazy.com/sitemap.xml

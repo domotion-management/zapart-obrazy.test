@@ -1,0 +1,22 @@
+{
+  "name": "Włodzimierz Zapart — Malarz",
+  "short_name": "Zapart Obrazy",
+  "description": "Malarz abstrakcjonista z Krakowa. Poznaj prace, zamów obraz.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#141210",
+  "theme_color": "#141210",
+  "lang": "pl",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

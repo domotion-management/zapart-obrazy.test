@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "zapart-website",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["/Users/patrykadvox/Documents/CLAUDE PROJECTS/Włodzimierz Zapart Website/WEBSITE/serve.sh"],
+      "port": 3456
+    }
+  ]
+}
