@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://zapart-obrazy.com/" />
   <meta property="og:title" content="Włodzimierz Zapart — Malarz | Kraków" />
-  <meta property="og:description" content="Malarz abstrakcjonista z Krakowa. Ponad 30 lat twórczości, 200+ obrazów w kolekcjach. Poznaj prace, zamów obraz." />
+  <meta property="og:description" content="Malarz abstrakcjonista z Krakowa. Ponad 30 lat twórczości, 200+ obrazów w kolekcjach." />
   <meta property="og:image" content="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG-2200-768x544.jpg" />
   <meta property="og:image:width" content="768" />
   <meta property="og:image:height" content="544" />
@@ -35,1000 +35,1623 @@
   <meta name="geo.position" content="50.0647;19.9450" />
   <meta name="ICBM" content="50.0647, 19.9450" />
 
-  <!-- PWA / Theme -->
+  <!-- PWA -->
   <meta name="theme-color" content="#141210" />
   <link rel="manifest" href="manifest.json" />
 
-  <!-- Structured Data: Person + ArtGallery + ItemList(VisualArtwork) -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://zapart-obrazy.com/#artist",
-        "name": "Włodzimierz Zapart",
-        "jobTitle": "Malarz",
-        "description": "Malarz abstrakcjonista z Krakowa. Twórca abstrakcji i kompozycji przestrzennych, absolwent Akademii Sztuk Pięknych. Ponad 30 lat twórczości, 200+ obrazów w kolekcjach prywatnych i galeriach w Polsce i za granicą.",
-        "url": "https://zapart-obrazy.com",
-        "email": "kontakt@zapart-obrazy.com",
-        "telephone": "+48123456789",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kraków",
-          "addressRegion": "Małopolska",
-          "addressCountry": "PL"
-        },
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "Akademia Sztuk Pięknych w Krakowie"
-        },
-        "knowsAbout": ["Malarstwo abstrakcyjne", "Akryl", "Olej na płótnie", "Technika mieszana", "Doradztwo wnętrzarskie"],
-        "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6946-768x794.jpeg",
-        "sameAs": ["https://warsztatywyobrazni.com.pl", "https://zapart-obrazy.com"]
-      },
-      {
-        "@type": ["LocalBusiness", "ArtGallery"],
-        "@id": "https://zapart-obrazy.com/#studio",
-        "name": "Pracownia Malarska Włodzimierz Zapart",
-        "url": "https://zapart-obrazy.com",
-        "email": "kontakt@zapart-obrazy.com",
-        "telephone": "+48123456789",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kraków",
-          "addressRegion": "Małopolska",
-          "addressCountry": "PL"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "50.0647",
-          "longitude": "19.9450"
-        },
-        "priceRange": "Zapytaj o cenę",
-        "currenciesAccepted": "PLN"
-      },
-      {
-        "@type": "ItemList",
-        "name": "Obrazy Włodzimierza Zaparta — galeria",
-        "description": "Kolekcja prac malarskich dostępnych w sprzedaży i do zamówienia",
-        "url": "https://zapart-obrazy.com/#galeria",
-        "numberOfItems": 9,
-        "itemListElement": [
-          {
-            "@type": "ListItem", "position": 1,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "Klimtowisko I",
-              "description": "Hołd złożony mistrzowi secesji — złociste płaszczyzny przeplatają się z dekoracyjną ornamentyką, tworząc mozaikę barw i faktur.",
-              "artMedium": "Olej na płótnie",
-              "width": {"@type": "QuantitativeValue", "value": 80, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 80, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6972-768x768.jpeg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          },
-          {
-            "@type": "ListItem", "position": 2,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "Klimtowisko II",
-              "description": "Druga odsłona cyklu inspirowanego Klimtem — chłodniejsze akcenty tworzą dialog między złotem a błękitem.",
-              "artMedium": "Olej na płótnie",
-              "width": {"@type": "QuantitativeValue", "value": 80, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 80, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6970-e1751121615226-768x796.jpeg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          },
-          {
-            "@type": "ListItem", "position": 3,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "W oczekiwaniu na lato",
-              "artMedium": "Akryl",
-              "width": {"@type": "QuantitativeValue", "value": 120, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 80, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6975-768x510.jpeg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          },
-          {
-            "@type": "ListItem", "position": 4,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "Anioł nadziei",
-              "artMedium": "Olej na płótnie",
-              "width": {"@type": "QuantitativeValue", "value": 70, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 70, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          },
-          {
-            "@type": "ListItem", "position": 5,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "Złotousta",
-              "artMedium": "Akryl",
-              "width": {"@type": "QuantitativeValue", "value": 60, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 60, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          },
-          {
-            "@type": "ListItem", "position": 6,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "Kardiolożka",
-              "artMedium": "Technika mieszana",
-              "width": {"@type": "QuantitativeValue", "value": 80, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 80, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          },
-          {
-            "@type": "ListItem", "position": 7,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "Złota polska jesień",
-              "artMedium": "Olej na płótnie",
-              "width": {"@type": "QuantitativeValue", "value": 60, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 80, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          },
-          {
-            "@type": "ListItem", "position": 8,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "Słonecznikowy zachwyt",
-              "artMedium": "Akryl",
-              "width": {"@type": "QuantitativeValue", "value": 60, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 90, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          },
-          {
-            "@type": "ListItem", "position": 9,
-            "item": {
-              "@type": "VisualArtwork",
-              "name": "Anioł sprawiedliwości",
-              "artMedium": "Technika mieszana",
-              "width": {"@type": "QuantitativeValue", "value": 70, "unitCode": "CMT"},
-              "height": {"@type": "QuantitativeValue", "value": 70, "unitCode": "CMT"},
-              "creator": {"@id": "https://zapart-obrazy.com/#artist"},
-              "image": "https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg",
-              "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "PLN"}
-            }
-          }
-        ]
-      }
-    ]
-  }
+  {"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://zapart-obrazy.com/#artist","name":"Włodzimierz Zapart","jobTitle":"Malarz","description":"Malarz abstrakcjonista z Krakowa. Absolwent ASP. Ponad 30 lat twórczości, 200+ obrazów w kolekcjach prywatnych i galeriach w Polsce i za granicą.","url":"https://zapart-obrazy.com","email":"kontakt@zapart-obrazy.com","telephone":"+48123456789","address":{"@type":"PostalAddress","addressLocality":"Kraków","addressRegion":"Małopolska","addressCountry":"PL"},"alumniOf":{"@type":"EducationalOrganization","name":"Akademia Sztuk Pięknych w Krakowie"},"knowsAbout":["Malarstwo abstrakcyjne","Akryl","Olej na płótnie","Technika mieszana","Doradztwo wnętrzarskie"],"image":"https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6946-768x794.jpeg","sameAs":["https://warsztatywyobrazni.com.pl","https://zapart-obrazy.com"]},{"@type":["LocalBusiness","ArtGallery"],"@id":"https://zapart-obrazy.com/#studio","name":"Pracownia Malarska Włodzimierz Zapart","url":"https://zapart-obrazy.com","email":"kontakt@zapart-obrazy.com","telephone":"+48123456789","address":{"@type":"PostalAddress","addressLocality":"Kraków","addressRegion":"Małopolska","addressCountry":"PL"},"geo":{"@type":"GeoCoordinates","latitude":"50.0647","longitude":"19.9450"},"priceRange":"Zapytaj o cenę","currenciesAccepted":"PLN"}]}
   </script>
 
-  <!-- Performance: resource hints -->
+  <!-- Resource hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://warsztatywyobrazni.com.pl" />
   <link rel="preconnect" href="https://warsztatywyobrazni.com.pl" crossorigin />
-
-  <!-- LCP preload — hero background image -->
   <link rel="preload" as="image" href="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG-2200-768x544.jpg" fetchpriority="high" />
 
-  <!-- Non-blocking Google Fonts -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap" />
-  </noscript>
+  <!-- Fonts: Montserrat + Open Sans + Inter -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas:  '#FAF8F5',
+            'canvas-warm': '#F5F0E8',
+            'canvas-dark': '#141210',
+            ink:     '#1A1A1A',
+            'ink-muted': '#5C574F',
+            gold:    '#C8963E',
+            'gold-light': '#E8B860',
+            'gold-pale':  '#F5E8C8',
+            sage:    '#8A9E8C',
+            cream:   '#EDE8DE',
+          },
+          fontFamily: {
+            display:  ['Montserrat', 'system-ui', 'sans-serif'],
+            editorial:['Open Sans',  'system-ui', 'sans-serif'],
+            body:     ['Inter',      'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* ── Design tokens ─────────────────────────────────────────── */
+    :root {
+      --bg:         #FAF8F5;
+      --bg-warm:    #F5F0E8;
+      --bg-dark:    #141210;
+      --ink:        #1A1A1A;
+      --ink-muted:  #5C574F;
+      --gold:       #C8963E;
+      --gold-light: #E8B860;
+      --gold-pale:  #F5E8C8;
+      --sage:       #8A9E8C;
+      --cream:      #EDE8DE;
+      --nav-h:      72px;
+      --section-pad: clamp(80px, 10vw, 140px);
+      --container:  1320px;
+      --gap:        clamp(24px, 3vw, 40px);
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out:cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); -webkit-font-smoothing: antialiased; }
+    body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, sans-serif; font-weight: 300; line-height: 1.65; overflow-x: hidden; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    ::selection { background: var(--gold-pale); color: var(--ink); }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+    :focus { outline: none; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+
+    /* ── Container ─────────────────────────────────────────────── */
+    .container {
+      width: min(var(--container), 100% - 2 * clamp(24px, 5vw, 80px));
+      margin-inline: auto;
+    }
+
+    /* ── Typography helpers ────────────────────────────────────── */
+    .t-label { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
+
+    /* ── Section label (gold line + text) ─────────────────────── */
+    .section-label { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+    .section-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+
+    /* ── Reveal animation ──────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+    .reveal.delay-1 { transition-delay: 0.1s; }
+    .reveal.delay-2 { transition-delay: 0.2s; }
+    .reveal.delay-3 { transition-delay: 0.3s; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── Skip nav ──────────────────────────────────────────────── */
+    .skip-nav { position: absolute; top: -100%; left: 16px; z-index: 9999; padding: 12px 24px; background: var(--gold); color: var(--bg-dark); font-family: 'Inter', sans-serif; font-size: .875rem; font-weight: 600; border-radius: 0 0 4px 4px; }
+    .skip-nav:focus { top: 0; }
+
+    /* ── NAV ───────────────────────────────────────────────────── */
+    .nav { position: fixed; inset: 0 0 auto 0; z-index: 100; height: var(--nav-h); display: flex; align-items: center; transition: background 0.4s var(--ease-in-out), box-shadow 0.4s var(--ease-in-out); }
+    .nav.scrolled { background: rgba(250,248,245,.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(26,26,26,.08); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .nav__logo { display: flex; flex-direction: column; line-height: 1; }
+    .nav__logo-name { font-family: 'Montserrat', sans-serif; font-size: clamp(1.3rem, 2vw, 1.65rem); font-weight: 700; letter-spacing: -0.03em; color: var(--bg); transition: color 0.4s; }
+    .nav.scrolled .nav__logo-name { color: var(--ink); }
+    .nav__logo-tag { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: 0.65rem; color: var(--gold-light); letter-spacing: 0.08em; transition: color 0.4s; }
+    .nav.scrolled .nav__logo-tag { color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); }
+    .nav__link { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,248,245,.8); position: relative; transition: color 0.3s; }
+    .nav__link::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 100%; height: 1px; background: var(--gold); transition: right 0.3s var(--ease-out); }
+    .nav__link:hover { color: #FAF8F5; }
+    .nav__link:hover::after { right: 0; }
+    .nav.scrolled .nav__link { color: var(--ink-muted); }
+    .nav.scrolled .nav__link:hover { color: var(--ink); }
+    .nav__cta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 10px 22px; border: 1px solid rgba(250,248,245,.4); color: rgba(250,248,245,.9); border-radius: 2px; transition: all 0.3s; }
+    .nav__cta:hover { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+    .nav.scrolled .nav__cta { border-color: var(--gold); color: var(--gold); }
+    .nav.scrolled .nav__cta:hover { background: var(--gold); color: var(--bg); }
+    .nav__toggle { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+    .nav__toggle span { display: block; width: 22px; height: 1.5px; background: var(--bg); transition: background 0.4s, transform 0.3s; }
+    .nav.scrolled .nav__toggle span { background: var(--ink); }
+
+    /* ── Mobile nav ────────────────────────────────────────────── */
+    .mobile-nav { position: fixed; inset: 0; z-index: 99; background: var(--bg-dark); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 40px; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav a { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 8vw, 3rem); font-weight: 700; color: rgba(250,248,245,.6); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--gold-light); }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background: url('https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG-2200-768x544.jpg') center/cover no-repeat;
+      filter: brightness(3.5) saturate(0) blur(14px);
+      transform: scale(1.1) translateY(2%);
+      transition: filter 2.6s cubic-bezier(0.16,1,0.3,1), transform 3.2s cubic-bezier(0.16,1,0.3,1);
+      will-change: filter, transform;
+    }
+    .hero__bg.loaded { filter: brightness(1) saturate(1.06) blur(0); transform: scale(1.15) translateY(0); }
+    .hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14,11,8,.1) 0%, rgba(14,11,8,.3) 40%, rgba(14,11,8,.82) 100%); }
+    @keyframes grain { 0%{transform:translate(0,0)} 11%{transform:translate(-4%,-8%)} 22%{transform:translate(7%,3%)} 33%{transform:translate(-2%,9%)} 44%{transform:translate(8%,-4%)} 55%{transform:translate(-8%,3%)} 66%{transform:translate(3%,-7%)} 77%{transform:translate(-5%,7%)} 88%{transform:translate(9%,-2%)} 100%{transform:translate(-3%,5%)} }
+    .hero__grain { position: absolute; inset: -12%; width: 124%; height: 124%; opacity: .042; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 200px 200px; pointer-events: none; animation: grain .85s steps(10) infinite; }
+    .hero__content { position: relative; z-index: 2; padding: clamp(60px,10vw,120px) 0 clamp(60px,8vw,100px); }
+    @keyframes blurReveal { from{opacity:0;filter:blur(10px);transform:translateY(6px)} to{opacity:1;filter:blur(0);transform:translateY(0)} }
+    @keyframes fadeIn { to{opacity:1} from{opacity:0} }
+    @keyframes scrollLine { 0%{top:-100%} 50%{top:0} 100%{top:100%} }
+    .hero__label { color: var(--gold-light); margin-bottom: 24px; opacity: 0; animation: blurReveal .9s .5s var(--ease-out) forwards; }
+    .hero__title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(2rem,9vw,8rem); line-height: .9; letter-spacing: -.05em; color: var(--bg); margin-bottom: 32px; opacity: 0; animation: blurReveal 1.1s .85s var(--ease-out) forwards; }
+    .hero__title em { font-style: italic; color: var(--gold-light); }
+    .hero__tagline { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: clamp(1.15rem,2.5vw,1.75rem); letter-spacing: .01em; color: rgba(250,248,245,.78); max-width: 520px; margin-bottom: 48px; opacity: 0; animation: blurReveal 1s 1.2s var(--ease-out) forwards; }
+    .hero__actions { display: flex; align-items: center; gap: 24px; opacity: 0; animation: blurReveal .9s 1.55s var(--ease-out) forwards; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; background: var(--gold); color: var(--bg-dark); font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; border-radius: 2px; transition: background .3s, transform .2s; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 16px 0; color: rgba(250,248,245,.7); font-size: .78rem; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; border-bottom: 1px solid rgba(250,248,245,.25); transition: color .3s, border-color .3s; }
+    .btn-ghost:hover { color: #FAF8F5; border-color: var(--gold); }
+    .hero__scroll-line { position: absolute; bottom: 40px; right: clamp(24px,5vw,80px); display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0; animation: fadeIn 1s 1.2s forwards; }
+    .hero__scroll-text { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(250,248,245,.4); writing-mode: vertical-rl; }
+    .hero__scroll-bar { width: 1px; height: 60px; background: rgba(250,248,245,.2); position: relative; overflow: hidden; }
+    .hero__scroll-bar::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--gold); animation: scrollLine 2s 1.5s ease-in-out infinite; }
+
+    /* ── About ─────────────────────────────────────────────────── */
+    .about { padding: var(--section-pad) 0; background: var(--bg); }
+    .about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px,8vw,120px); align-items: center; }
+    .about__photo-wrap { position: relative; }
+    .about__photo-frame { position: absolute; inset: -16px -16px auto auto; width: 60%; height: 60%; border: 1px solid var(--gold); opacity: .5; border-radius: 2px; }
+    .about__photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 2px; filter: grayscale(20%); transition: filter .5s; }
+    .about__photo:hover { filter: grayscale(0%); }
+    .about__photo-caption { position: absolute; bottom: -20px; left: 0; right: 20%; background: var(--bg-dark); color: var(--bg); padding: 16px 20px; font-family: 'Open Sans', sans-serif; font-style: italic; font-size: .85rem; border-left: 3px solid var(--gold); }
+    .about__text { padding: 24px 0; }
+    .about__title { font-family: 'Montserrat', sans-serif; font-size: clamp(2.4rem,4.5vw,4rem); font-weight: 700; line-height: 1.0; letter-spacing: -.04em; margin-bottom: 28px; color: var(--ink); }
+    .about__title span { font-style: italic; color: var(--gold); }
+    .about__lead { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: clamp(1.1rem,1.5vw,1.3rem); line-height: 1.65; letter-spacing: .01em; color: var(--ink-muted); margin-bottom: 24px; }
+    .about__body { font-size: .95rem; line-height: 1.8; color: var(--ink-muted); margin-bottom: 36px; }
+    .about__motto { border-left: 2px solid var(--gold); padding: 16px 24px; background: var(--gold-pale); border-radius: 0 2px 2px 0; margin-bottom: 36px; }
+    .about__motto-latin { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: 1.05rem; color: var(--ink); margin-bottom: 6px; }
+    .about__motto-trans { font-size: .78rem; color: var(--ink-muted); letter-spacing: .03em; }
+    .about__stats { display: flex; gap: 32px; }
+    .about__stat-num { font-family: 'Montserrat', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .about__stat-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-muted); }
+
+    /* ── Featured works ────────────────────────────────────────── */
+    .featured { padding: var(--section-pad) 0; background: var(--bg-dark); position: relative; overflow: hidden; }
+    .featured::before { content: 'ZAPART'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Montserrat', sans-serif; font-size: clamp(8rem,18vw,22rem); font-weight: 900; color: rgba(255,255,255,.02); white-space: nowrap; pointer-events: none; letter-spacing: -.05em; }
+    .featured__header { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 64px; }
+    .featured__title { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem,4vw,3.5rem); font-weight: 700; letter-spacing: -.04em; color: var(--bg); line-height: 1.0; }
+    .featured__title em { font-style: italic; color: var(--gold-light); }
+    .featured__link { display: flex; align-items: center; gap: 8px; color: var(--gold); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; border-bottom: 1px solid rgba(200,150,62,.3); padding-bottom: 2px; transition: border-color .3s; }
+    .featured__link:hover { border-color: var(--gold); }
+    .featured__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--gap); }
+    .art-card { position: relative; overflow: hidden; border-radius: 2px; cursor: pointer; }
+    .art-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform .7s var(--ease-out), filter .5s; filter: brightness(.92); }
+    .art-card:hover .art-card__img { transform: scale(1.04); filter: brightness(1); }
+    .art-card__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,11,8,.85) 0%, transparent 55%); opacity: 0; transition: opacity .4s; }
+    .art-card:hover .art-card__overlay { opacity: 1; }
+    .art-card__info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; transform: translateY(8px); opacity: 0; transition: opacity .4s var(--ease-out), transform .4s var(--ease-out); }
+    .art-card:hover .art-card__info { opacity: 1; transform: translateY(0); }
+    .art-card__title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--bg); margin-bottom: 4px; }
+    .art-card__spec { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-light); }
+
+    /* ── Gallery ───────────────────────────────────────────────── */
+    .gallery { padding: var(--section-pad) 0; background: var(--bg); }
+    .gallery__header { text-align: center; margin-bottom: 72px; }
+    .gallery__title { font-family: 'Montserrat', sans-serif; font-size: clamp(2.4rem,5vw,4.5rem); font-weight: 700; letter-spacing: -.04em; color: var(--ink); line-height: .98; margin-bottom: 16px; }
+    .gallery__subtitle { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: clamp(1.05rem,1.8vw,1.3rem); letter-spacing: .01em; color: var(--ink-muted); }
+    .gallery__filters { display: flex; justify-content: center; gap: 8px; margin-bottom: 56px; flex-wrap: wrap; }
+    .filter-btn { padding: 8px 20px; font-size: .72rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); border: 1px solid var(--cream); border-radius: 2px; transition: all .25s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+    .gallery__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--gap); }
+
+    /* Listing card */
+    .listing-card { background: var(--bg); border-radius: 4px; overflow: hidden; border: 1px solid var(--cream); transition: box-shadow .4s var(--ease-out), transform .4s var(--ease-out); }
+    .listing-card:hover { box-shadow: 0 16px 48px rgba(26,26,26,.12); transform: translateY(-4px); }
+    .listing-card__img-wrap { position: relative; overflow: hidden; cursor: zoom-in; }
+    .listing-card__img { width: 100%; aspect-ratio: 4/3; object-fit: cover; min-height: 180px; display: block; transition: transform .6s var(--ease-out), opacity .25s ease; }
+    .listing-card:hover .listing-card__img { transform: scale(1.04); }
+    .listing-card__img.is-switching { opacity: 0; }
+    .listing-card__badge-wrap { position: absolute; top: 12px; right: 12px; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+    .listing-card__badge { display: inline-block; padding: 4px 10px; border-radius: 2px; font-size: .62rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .listing-card__badge--size { background: rgba(14,11,8,.7); color: var(--gold-light); }
+    .listing-card__badge--tech { background: rgba(200,150,62,.85); color: var(--bg-dark); }
+    .listing-card__body { padding: 20px 22px 24px; }
+    .listing-card__title { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -.025em; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+    .listing-card__desc { font-size: 1rem; line-height: 1.72; color: var(--ink-muted); margin-bottom: 16px; }
+    .listing-card__footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--cream); }
+    .listing-card__spec-inline { display: flex; gap: 8px; align-items: center; }
+    .listing-card__spec-item { font-size: .78rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+    .listing-card__spec-sep { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; }
+    .listing-card__cta { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 4px; transition: gap .2s; }
+    .listing-card:hover .listing-card__cta { gap: 8px; }
+
+    /* Image switcher */
+    .img-switcher { position: absolute; bottom: 10px; left: 10px; display: flex; gap: 6px; z-index: 4; }
+    .img-switcher__btn { position: relative; width: 52px; height: 52px; padding: 0; border: 2px solid rgba(250,248,245,.35); border-radius: 3px; overflow: hidden; background: rgba(14,11,8,.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); cursor: pointer; transition: border-color .2s, transform .2s; flex-shrink: 0; }
+    .img-switcher__btn:hover:not(.is-active) { border-color: rgba(250,248,245,.75); transform: scale(1.06); }
+    .img-switcher__btn.is-active { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+    .img-switcher__btn > img { width: 100%; height: 100%; object-fit: cover; display: block; transition: none; }
+    .img-switcher__label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(14,11,8,.78); color: rgba(250,248,245,.9); font-family: 'Inter', sans-serif; font-size: .44rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; text-align: center; padding: 2px 0 3px; pointer-events: none; }
+
+    /* ── Contact ───────────────────────────────────────────────── */
+    .contact { padding: var(--section-pad) 0; background: var(--bg-warm); }
+    .contact__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(48px,8vw,100px); align-items: start; }
+    .contact__info-title { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem,4vw,3.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -.04em; color: var(--ink); margin-bottom: 24px; }
+    .contact__info-title em { font-style: italic; color: var(--gold); }
+    .contact__info-lead { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: 1.1rem; letter-spacing: .01em; color: var(--ink-muted); margin-bottom: 40px; line-height: 1.68; }
+    .contact__detail-list { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+    .contact__detail { display: flex; align-items: flex-start; gap: 14px; }
+    .contact__detail-icon { width: 42px; height: 42px; background: var(--gold-pale); border: 1px solid rgba(200,150,62,.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); transition: background .25s, transform .2s, box-shadow .25s; }
+    .contact__detail:hover .contact__detail-icon { background: var(--gold); color: var(--bg); transform: scale(1.06); box-shadow: 0 8px 24px rgba(200,150,62,.35); }
+    .contact__detail-text strong { display: block; font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 2px; }
+    .contact__detail-text a, .contact__detail-text span { font-size: .9rem; color: var(--ink); transition: color .2s; }
+    .contact__detail-text a:hover { color: var(--gold); }
+    .contact__social { display: flex; gap: 12px; }
+    .social-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid var(--cream); border-radius: 100px; font-size: .72rem; font-weight: 500; letter-spacing: .05em; color: var(--ink-muted); transition: all .25s; }
+    .social-pill:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-pale); }
+    .contact__form { background: var(--bg); padding: clamp(32px,5vw,56px); border-radius: 4px; border: 1px solid var(--cream); box-shadow: 0 8px 40px rgba(26,26,26,.06); }
+    .form__title { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: -.03em; color: var(--ink); margin-bottom: 32px; }
+    .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form__group { margin-bottom: 20px; position: relative; }
+    .form__label { display: block; font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 8px; }
+    .form__input, .form__textarea { width: 100%; padding: 13px 16px; font-family: 'Inter', sans-serif; font-size: .92rem; color: var(--ink); background: var(--bg); border: 1px solid var(--cream); border-radius: 3px; outline: none; transition: border-color .25s, box-shadow .25s; -webkit-appearance: none; }
+    .form__input::placeholder, .form__textarea::placeholder { color: rgba(26,26,26,.3); }
+    .form__input:focus, .form__textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,150,62,.12); }
+    .form__textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+    .form__error-msg { display: none; font-size: .72rem; color: #C0392B; margin-top: 5px; }
+    .form__group.has-error .form__error-msg { display: block; }
+    .form__checkbox-wrap { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 28px; }
+    .form__checkbox { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; accent-color: var(--gold); }
+    .form__checkbox-label { font-size: .78rem; color: var(--ink-muted); line-height: 1.5; }
+    .form__checkbox-label a { color: var(--gold); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .form__checkbox-label a:hover { border-color: var(--gold); }
+    .btn-submit { width: 100%; padding: 16px 32px; background: var(--ink); color: var(--bg); font-family: 'Inter', sans-serif; font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; border-radius: 3px; position: relative; overflow: hidden; transition: background .3s, transform .2s; }
+    .btn-submit::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-100%); transition: transform .4s var(--ease-out); }
+    .btn-submit:hover::before { transform: translateX(0); }
+    .btn-submit span { position: relative; z-index: 1; }
+    .btn-submit:hover { transform: translateY(-1px); }
+    .form__success { display: none; text-align: center; padding: 40px 20px; }
+    .form__success.visible { display: block; }
+    .form__success-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .form__success h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; color: var(--ink); margin-bottom: 8px; }
+    .form__success p { font-size: .9rem; color: var(--ink-muted); }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    .footer { background: var(--bg-dark); padding: 64px 0 40px; color: rgba(250,248,245,.5); }
+    .footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-bottom: 48px; }
+    .footer__brand-name { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -.03em; color: var(--bg); }
+    .footer__brand-sub { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: .9rem; letter-spacing: .01em; color: var(--gold); margin-top: 4px; }
+    .footer__nav { display: flex; gap: clamp(16px,3vw,40px); }
+    .footer__nav a { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(250,248,245,.4); transition: color .2s; }
+    .footer__nav a:hover { color: var(--gold); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.06); font-size: .72rem; }
+    .footer__copy { color: rgba(250,248,245,.25); }
+    .footer__tagline { font-family: 'Open Sans', sans-serif; font-style: italic; color: rgba(200,150,62,.5); }
+
+    /* ── Nav social icons ──────────────────────────────────────── */
+    .nav__social { display: flex; align-items: center; gap: 14px; }
+    .nav__social-link { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; color: rgba(250,248,245,.6); border: 1px solid rgba(250,248,245,.2); transition: color .25s, border-color .25s, background .25s; }
+    .nav__social-link:hover { color: var(--gold); border-color: var(--gold); background: rgba(200,150,62,.08); }
+    .nav.scrolled .nav__social-link { color: var(--ink-muted); border-color: var(--cream); }
+    .nav.scrolled .nav__social-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── Lightbox ──────────────────────────────────────────── */
+    dialog.lightbox { position: fixed; inset: 0; width: 100%; height: 100%; max-width: 100%; max-height: 100%; padding: 0; margin: 0; border: none; background: #0C0907; color: var(--bg); flex-direction: column; opacity: 0; transition: opacity 0.3s var(--ease-out); z-index: 1000; overflow: hidden; }
+    dialog.lightbox[open] { display: flex; }
+    dialog.lightbox.is-open { opacity: 1; }
+    dialog.lightbox::backdrop { display: none; }
+    .lightbox__close { position: absolute; top: 16px; right: 16px; z-index: 10; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(250,248,245,.08); border: 1px solid rgba(250,248,245,.15); border-radius: 50%; color: rgba(250,248,245,.75); cursor: pointer; transition: background .2s, color .2s, transform .2s; }
+    .lightbox__close:hover { background: rgba(250,248,245,.16); color: var(--bg); transform: rotate(90deg); }
+    .lightbox__main { position: relative; flex: 1 1 auto; display: flex; align-items: center; justify-content: center; overflow: hidden; min-height: 0; }
+    .lightbox__figure { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; margin: 0; }
+    .lightbox__img { display: block; max-width: calc(100% - 128px); max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 2px; opacity: 1; transition: opacity 0.25s ease; user-select: none; -webkit-user-drag: none; }
+    .lightbox__img.is-switching { opacity: 0; }
+    .lightbox__nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: rgba(250,248,245,.07); border: 1px solid rgba(250,248,245,.15); border-radius: 50%; color: rgba(250,248,245,.7); cursor: pointer; transition: background .2s, color .2s; }
+    .lightbox__nav:hover { background: rgba(250,248,245,.15); color: var(--bg); }
+    .lightbox__nav--prev { left: 16px; }
+    .lightbox__nav--next { right: 16px; }
+    .lightbox__nav:disabled { opacity: .25; cursor: default; pointer-events: none; }
+    .lightbox__footer { flex-shrink: 0; padding: 14px 20px 18px; background: rgba(12,9,7,.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(250,248,245,.08); display: flex; flex-direction: column; gap: 12px; }
+    .lightbox__info-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .lightbox__title { font-family: 'Open Sans', sans-serif; font-size: clamp(1rem,2.5vw,1.25rem); font-weight: 600; color: var(--bg); letter-spacing: .01em; flex: 1 1 auto; }
+    .lightbox__spec { font-family: 'Inter', sans-serif; font-size: .75rem; font-weight: 500; color: rgba(250,248,245,.5); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+    .lightbox__counter { font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 600; color: rgba(250,248,245,.35); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+    .lightbox__desc { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: clamp(.85rem,1.8vw,1rem); color: rgba(250,248,245,.55); line-height: 1.6; margin: 0; }
+    .lightbox__desc:empty { display: none; }
+    .lightbox__strip-wrap { overflow: hidden; }
+    .lightbox__strip { display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px; }
+    .lightbox__strip::-webkit-scrollbar { display: none; }
+    .lightbox__strip-btn { flex-shrink: 0; width: 52px; height: 52px; padding: 0; border: 2px solid rgba(250,248,245,.18); border-radius: 3px; overflow: hidden; background: rgba(14,11,8,.5); cursor: pointer; scroll-snap-align: center; transition: border-color .2s, transform .2s; opacity: .55; }
+    .lightbox__strip-btn:hover { border-color: rgba(250,248,245,.6); opacity: .85; transform: scale(1.05); }
+    .lightbox__strip-btn.is-active { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); opacity: 1; }
+    .lightbox__strip-btn img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+    .lightbox__view-pill { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; background: rgba(14,11,8,.68); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(250,248,245,.18); border-radius: 100px; overflow: hidden; z-index: 6; opacity: 0; transition: opacity .25s ease; pointer-events: none; white-space: nowrap; }
+    .lightbox__figure:hover .lightbox__view-pill, .lightbox__figure.always-show-pill .lightbox__view-pill { opacity: 1; pointer-events: auto; }
+    .lightbox__view-btn { padding: 8px 22px; background: transparent; border: none; color: rgba(250,248,245,.5); font-family: 'Inter', sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: color .18s, background .18s; position: relative; }
+    .lightbox__view-btn + .lightbox__view-btn::before { content: ''; position: absolute; left: 0; top: 20%; height: 60%; width: 1px; background: rgba(250,248,245,.18); }
+    .lightbox__view-btn:hover { color: rgba(250,248,245,.85); }
+    .lightbox__view-btn.is-active { background: rgba(200,150,62,.22); color: var(--gold-light); }
+    .lightbox__figure.has-variants { cursor: pointer; }
+    @media (max-width: 600px) { .lightbox__img { max-width: calc(100% - 80px); } .lightbox__nav { width: 40px; height: 40px; } .lightbox__nav--prev { left: 8px; } .lightbox__nav--next { right: 8px; } .lightbox__footer { padding: 10px 14px 14px; gap: 10px; } .lightbox__strip-btn { width: 44px; height: 44px; } }
+
+    /* ── Gallery load-more ─────────────────────────────────── */
+    .gallery__load-more { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 56px; padding-bottom: 8px; }
+    .gallery__load-more.is-hidden { display: none; }
+    .load-more-counter { font-family: 'Inter', sans-serif; font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); }
+    .load-more-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 40px; border: 1px solid rgba(26,26,26,.18); background: transparent; color: var(--ink); font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; cursor: pointer; transition: border-color .3s, color .3s; }
+    .load-more-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .load-more-btn:disabled { opacity: .35; cursor: not-allowed; }
+    .load-more-btn:hover svg { transform: translateY(3px); }
+    .load-more-btn svg { transition: transform .3s var(--ease-out); }
+    .listing-card--enter { opacity: 0; transform: translateY(22px); }
+
+    /* ── WCAG accessibility widget ─────────────────────────────── */
+    .wcag-bar { position: fixed; bottom: 24px; right: 24px; z-index: 200; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+    .wcag-btn { width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(200,150,62,.4); background: var(--bg); color: var(--ink); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .85rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 16px rgba(26,26,26,.12); transition: all .2s var(--ease-out); }
+    .wcag-btn:hover { border-color: var(--gold); background: var(--gold); color: var(--bg); transform: scale(1.08); }
+    .wcag-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .wcag-btn--contrast { font-size: 1.1rem; }
+    .wcag-btn--contrast.is-active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .wcag-label { font-family: 'Inter', sans-serif; font-size: .52rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); margin-top: -4px; }
+
+    /* High contrast mode */
+    html.high-contrast { filter: contrast(1.5) brightness(.95); }
+    html.high-contrast body { background: #fff; color: #000; }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .featured__grid { grid-template-columns: repeat(2,1fr); }
+      .gallery__grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__cta { display: none; }
+      .nav__social { display: none; }
+      .nav__toggle { display: flex; }
+      .about__grid { grid-template-columns: 1fr; gap: 48px; }
+      .about__photo-caption { position: static; margin-top: 12px; }
+      .featured__grid { grid-template-columns: 1fr; }
+      .featured__grid .art-card:first-child { grid-column: auto; }
+      .featured__grid .art-card:first-child .art-card__img { aspect-ratio: 4/3; }
+      .featured__header { flex-direction: column; align-items: flex-start; }
+      .gallery__grid { grid-template-columns: 1fr; }
+      .contact__grid { grid-template-columns: 1fr; }
+      .form__row { grid-template-columns: 1fr; }
+      .footer__inner { flex-direction: column; align-items: flex-start; }
+      .footer__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+    @media (max-width: 480px) {
+      .hero__actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Skip navigation — WCAG 2.1 SC 2.4.1 -->
-  <a href="#main-content" class="skip-nav">Przejdź do treści</a>
+<a href="#main-content" class="skip-nav">Przejdź do treści</a>
 
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
-  <nav class="nav" id="nav" aria-label="Nawigacja główna">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="#" class="nav__logo" aria-label="Włodzimierz Zapart — strona główna">
-          <span class="nav__logo-name">Włodzimierz Zapart</span>
-          <span class="nav__logo-tag">To nazwisko ma w sobie sztukę</span>
+<!-- ============================================================
+     [Component: Navbar]  →  src/components/Navbar.tsx
+     Sanity: siteSettings.nav
+============================================================ -->
+<nav class="nav" id="nav" aria-label="Nawigacja główna">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Włodzimierz Zapart — strona główna">
+        <span class="nav__logo-name">Włodzimierz Zapart</span>
+        <span class="nav__logo-tag">To nazwisko ma w sobie sztukę</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="#o-mnie"        class="nav__link">O mnie</a></li>
+        <li><a href="#wybrane-prace" class="nav__link">Wybrane prace</a></li>
+        <li><a href="#galeria"       class="nav__link">Galeria</a></li>
+        <li><a href="#kontakt"       class="nav__cta">Kontakt</a></li>
+      </ul>
+      <div class="nav__social" aria-label="Social media">
+        <a href="https://www.instagram.com/warsztatywyobrazni/" target="_blank" rel="noopener noreferrer" class="nav__social-link" aria-label="Instagram Włodzimierz Zapart">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <ul class="nav__links" role="list">
-          <li><a href="#o-mnie" class="nav__link">O mnie</a></li>
-          <li><a href="#wybrane-prace" class="nav__link">Wybrane prace</a></li>
-          <li><a href="#galeria" class="nav__link">Galeria</a></li>
-          <li><a href="#kontakt" class="nav__cta">Kontakt</a></li>
-        </ul>
-        <button class="nav__toggle" id="navToggle"
-          aria-label="Otwórz menu nawigacji"
-          aria-expanded="false"
-          aria-controls="mobileNav">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
+        <a href="https://www.facebook.com/warsztatywyobrazni" target="_blank" rel="noopener noreferrer" class="nav__social-link" aria-label="Facebook Włodzimierz Zapart">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobileNav">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu mobilne" aria-hidden="true">
+  <a href="#o-mnie"        onclick="closeMobileNav()">O mnie</a>
+  <a href="#wybrane-prace" onclick="closeMobileNav()">Wybrane prace</a>
+  <a href="#galeria"       onclick="closeMobileNav()">Galeria</a>
+  <a href="#kontakt"       onclick="closeMobileNav()">Kontakt</a>
+</div>
+
+<main id="main-content">
+
+<!-- ============================================================
+     [Component: Hero]  →  src/components/Hero.tsx
+     Sanity: siteSettings.hero { headline, tagline, image }
+============================================================ -->
+<section class="hero" id="hero" aria-label="Sekcja główna">
+  <div class="hero__bg" id="heroBg" role="img" aria-label="Abstrakcja akrylowa Włodzimierza Zaparta"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__grain"   aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <div class="container">
+      <p class="t-label hero__label">Malarz · Kraków · Polska</p>
+      <h1 class="hero__title">
+        Włodzimierz<br/><em>Zapart</em>
+      </h1>
+      <p class="hero__tagline">
+        Abstrakcja jako język ciszy —<br/>
+        barwy mówią to, czego słowa nie dosięgają.
+      </p>
+      <div class="hero__actions">
+        <a href="#galeria" class="btn-primary">
+          <span>Poznaj moje prace</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#kontakt" class="btn-ghost">
+          Zamów obraz
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
-  </nav>
-
-  <!-- Mobile nav -->
-  <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu mobilne" aria-hidden="true">
-    <a href="#o-mnie" class="mobile-link">O mnie</a>
-    <a href="#wybrane-prace" class="mobile-link">Wybrane prace</a>
-    <a href="#galeria" class="mobile-link">Galeria</a>
-    <a href="#kontakt" class="mobile-link">Kontakt</a>
   </div>
 
-  <main id="main-content">
+  <div class="hero__scroll-line" aria-hidden="true">
+    <span class="hero__scroll-text">Scroll</span>
+    <div class="hero__scroll-bar"></div>
+  </div>
+</section>
 
-  <!-- ============================================================
-       HERO
-  ============================================================ -->
-  <section class="hero" id="hero" aria-label="Sekcja główna">
-    <div class="hero__bg" id="heroBg" role="img" aria-label="Obraz olejny — abstrakcja akrylowa Włodzimierza Zaparta"></div>
-    <div class="hero__overlay" aria-hidden="true"></div>
-    <div class="hero__grain" aria-hidden="true"></div>
+<!-- ============================================================
+     [Component: About]  →  src/components/About.tsx
+     Sanity: artist { photo, bio, lead, motto, stats[] }
+============================================================ -->
+<section class="about" id="o-mnie" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about__grid">
 
-    <div class="hero__content">
-      <div class="container">
-        <p class="t-label hero__label">Malarz · Kraków · Polska</p>
-        <h1 class="hero__title">
-          Włodzimierz<br/><em>Zapart</em>
-        </h1>
-        <p class="hero__tagline">
-          Abstrakcja jako język ciszy —<br/>
-          barwy mówią to, czego słowa nie dosięgają.
-        </p>
-        <div class="hero__actions">
-          <a href="#galeria" class="btn-primary">
-            <span>Poznaj moje prace</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
-              <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="#kontakt" class="btn-ghost">
-            Zamów obraz
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
-              <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+      <div class="about__photo-wrap reveal">
+        <div class="about__photo-frame" aria-hidden="true"></div>
+        <img
+          src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6946-768x794.jpeg"
+          alt="Włodzimierz Zapart — malarz z Krakowa"
+          class="about__photo"
+          width="768" height="794"
+          loading="lazy" decoding="async"
+        />
+        <div class="about__photo-caption">
+          „Maluję, bo inaczej milczę zbyt głośno."
         </div>
       </div>
-    </div>
 
-    <div class="hero__scroll-line" aria-hidden="true">
-      <span class="hero__scroll-text">Scroll</span>
-      <div class="hero__scroll-bar"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       O MNIE
-  ============================================================ -->
-  <section class="about" id="o-mnie" aria-labelledby="about-heading">
-    <div class="container">
-      <div class="about__grid">
-
-        <div class="about__photo-wrap reveal">
-          <div class="about__photo-frame" aria-hidden="true"></div>
-          <img
-            src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6946-768x794.jpeg"
-            alt="Włodzimierz Zapart — malarz z Krakowa, przy pracy w pracowni"
-            class="about__photo"
-            width="768"
-            height="794"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="about__photo-caption">
-            „Maluję, bo inaczej milczę zbyt głośno."
-          </div>
+      <div class="about__text reveal delay-2">
+        <div class="section-label">
+          <span class="t-label" style="color:var(--gold)">O mnie</span>
         </div>
-
-        <div class="about__text reveal delay-2">
-          <div class="section-label">
-            <span class="t-label" style="color: var(--gold)">O mnie</span>
-          </div>
-
-          <h2 id="about-heading" class="about__title">
-            Malarz<br/>
-            <span>wyobraźni</span><br/>
-            i koloru
-          </h2>
-
-          <p class="about__lead">
-            Od ponad trzech dekad tłumaczę wewnętrzny świat na język płótna i farby.
-            Moje obrazy to nie dekoracja — to rozmowa.
-          </p>
-
-          <p class="about__body">
-            Włodzimierz Zapart — artysta malarz z Krakowa. Twórca abstrakcji i kompozycji przestrzennych,
-            absolwent Akademii Sztuk Pięknych. Jego prace można znaleźć w kolekcjach prywatnych i galeriach
-            w Polsce i za granicą. Oprócz malarstwa zajmuje się doradztwem wnętrzarskim, łącząc sztukę
-            z przestrzenią życiową.
-          </p>
-
-          <div class="about__motto" role="blockquote">
-            <p class="about__motto-latin">De gustibus non disputandum est.</p>
-            <p class="about__motto-trans">O gustach się nie dyskutuje — ale warto je rozwijać.</p>
-          </div>
-
-          <div class="about__stats" aria-label="Statystyki twórczości">
-            <div class="about__stat">
-              <div class="about__stat-num" aria-label="Ponad 30 lat twórczości">30+</div>
-              <div class="about__stat-label">Lat twórczości</div>
-            </div>
-            <div class="about__stat">
-              <div class="about__stat-num" aria-label="Ponad 200 obrazów w kolekcjach">200+</div>
-              <div class="about__stat-label">Obrazów w kolekcjach</div>
-            </div>
-            <div class="about__stat">
-              <div class="about__stat-num" aria-label="Ponad 40 wystaw indywidualnych">40+</div>
-              <div class="about__stat-label">Wystaw indywidualnych</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       WYBRANE PRACE
-  ============================================================ -->
-  <section class="featured" id="wybrane-prace" aria-labelledby="featured-heading">
-    <div class="container">
-      <div class="featured__header reveal">
-        <h2 id="featured-heading" class="featured__title">
-          Wybrane<br/><em>prace</em>
+        <h2 id="about-heading" class="about__title">
+          Malarz<br/>
+          <span>wyobraźni</span><br/>
+          i koloru
         </h2>
-        <a href="#galeria" class="featured__link">
-          Zobacz całą galerię
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
-            <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-
-      <div class="featured__grid">
-        <article class="art-card reveal" aria-label="Uwikłani — olej na płótnie, 100×80 cm">
-          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6946-768x794.jpeg" alt="Uwikłani — obraz olejny, abstrakcja, Włodzimierz Zapart" class="art-card__img" width="768" height="794" loading="lazy" decoding="async" />
-          <div class="art-card__overlay" aria-hidden="true"></div>
-          <div class="art-card__info" aria-hidden="true">
-            <div class="art-card__title">Uwikłani</div>
-            <div class="art-card__spec">olej na płótnie · 100×80 cm</div>
-          </div>
-        </article>
-        <article class="art-card reveal delay-1" aria-label="Impresja o wschodzie słońca — akryl, 100×60 cm">
-          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6961-768x499.jpeg" alt="Impresja o wschodzie słońca — akryl, Włodzimierz Zapart" class="art-card__img" width="768" height="499" loading="lazy" decoding="async" />
-          <div class="art-card__overlay" aria-hidden="true"></div>
-          <div class="art-card__info" aria-hidden="true">
-            <div class="art-card__title">Impresja o wschodzie słońca</div>
-            <div class="art-card__spec">akryl · 100×60 cm</div>
-          </div>
-        </article>
-        <article class="art-card reveal delay-2" aria-label="Zbliżenia z jesienią — olej na płótnie, 80×80 cm">
-          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6952-768x780.jpeg" alt="Zbliżenia z jesienią — obraz olejny, Włodzimierz Zapart" class="art-card__img" width="768" height="780" loading="lazy" decoding="async" />
-          <div class="art-card__overlay" aria-hidden="true"></div>
-          <div class="art-card__info" aria-hidden="true">
-            <div class="art-card__title">Zbliżenia z jesienią</div>
-            <div class="art-card__spec">olej na płótnie · 80×80 cm</div>
-          </div>
-        </article>
-        <article class="art-card reveal delay-1" aria-label="Horyzontalność — technika mieszana, 120×50 cm">
-          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6947-768x382.jpeg" alt="Horyzontalność — technika mieszana, Włodzimierz Zapart" class="art-card__img" width="768" height="382" loading="lazy" decoding="async" />
-          <div class="art-card__overlay" aria-hidden="true"></div>
-          <div class="art-card__info" aria-hidden="true">
-            <div class="art-card__title">Horyzontalność</div>
-            <div class="art-card__spec">technika mieszana · 120×50 cm</div>
-          </div>
-        </article>
-        <article class="art-card reveal delay-2" aria-label="Głębia głębin — olej na płótnie, 90×70 cm">
-          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG-2200-768x544.jpg" alt="Głębia głębin — obraz olejny, abstrakcja akrylowa, Włodzimierz Zapart" class="art-card__img" width="768" height="544" loading="lazy" decoding="async" />
-          <div class="art-card__overlay" aria-hidden="true"></div>
-          <div class="art-card__info" aria-hidden="true">
-            <div class="art-card__title">Głębia głębin</div>
-            <div class="art-card__spec">olej na płótnie · 90×70 cm</div>
-          </div>
-        </article>
-        <article class="art-card reveal delay-3" aria-label="Trajektoria lotu — akryl, 80×60 cm">
-          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/06/IMG_0710-1-768x628.jpg" alt="Trajektoria lotu — akryl, abstrakcja, Włodzimierz Zapart" class="art-card__img" width="768" height="628" loading="lazy" decoding="async" />
-          <div class="art-card__overlay" aria-hidden="true"></div>
-          <div class="art-card__info" aria-hidden="true">
-            <div class="art-card__title">Trajektoria lotu</div>
-            <div class="art-card__spec">akryl · 80×60 cm</div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       GALERIA — LISTING
-  ============================================================ -->
-  <section class="gallery" id="galeria" aria-labelledby="gallery-heading">
-    <div class="container">
-
-      <div class="gallery__header reveal">
-        <div class="section-label" style="justify-content: center; margin-bottom: 16px;">
-          <span class="t-label" style="color: var(--gold)">Galeria</span>
-        </div>
-        <h2 id="gallery-heading" class="gallery__title">Wszystkie obrazy</h2>
-        <p class="gallery__subtitle">
-          Pełna kolekcja prac dostępnych w sprzedaży i do zamówienia
+        <p class="about__lead">
+          Od ponad trzech dekad tłumaczę wewnętrzny świat na język płótna i farby.
+          Moje obrazy to nie dekoracja — to rozmowa.
         </p>
+        <p class="about__body">
+          Włodzimierz Zapart — artysta malarz z Krakowa. Twórca abstrakcji i kompozycji
+          przestrzennych, absolwent Akademii Sztuk Pięknych. Jego prace można znaleźć
+          w kolekcjach prywatnych i galeriach w Polsce i za granicą. Oprócz malarstwa
+          zajmuje się doradztwem wnętrzarskim, łącząc sztukę z przestrzenią życiową.
+        </p>
+        <div class="about__motto" role="blockquote">
+          <p class="about__motto-latin">De gustibus non disputandum est.</p>
+          <p class="about__motto-trans">O gustach się nie dyskutuje — ale warto je rozwijać.</p>
+        </div>
+        <div class="about__stats" aria-label="Statystyki twórczości">
+          <div class="about__stat">
+            <div class="about__stat-num" aria-label="Ponad 30 lat twórczości">30+</div>
+            <div class="about__stat-label">Lat twórczości</div>
+          </div>
+          <div class="about__stat">
+            <div class="about__stat-num" aria-label="Ponad 200 obrazów">200+</div>
+            <div class="about__stat-label">Obrazów w kolekcjach</div>
+          </div>
+          <div class="about__stat">
+            <div class="about__stat-num" aria-label="Ponad 40 wystaw">40+</div>
+            <div class="about__stat-label">Wystaw indywidualnych</div>
+          </div>
+        </div>
       </div>
 
-      <div class="gallery__filters reveal delay-1" role="group" aria-label="Filtruj obrazy według techniki">
-        <button class="filter-btn active" data-filter="all" aria-pressed="true">Wszystkie</button>
-        <button class="filter-btn" data-filter="olej" aria-pressed="false">Olej</button>
-        <button class="filter-btn" data-filter="akryl" aria-pressed="false">Akryl</button>
-        <button class="filter-btn" data-filter="mieszana" aria-pressed="false">Technika mieszana</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     [Component: FeaturedWorks]  →  src/components/FeaturedWorks.tsx
+     Sanity: artworks[featured==true][0..5]
+============================================================ -->
+<section class="featured" id="wybrane-prace" aria-labelledby="featured-heading">
+  <div class="container">
+    <div class="featured__header reveal">
+      <h2 id="featured-heading" class="featured__title">
+        Wybrane<br/><em>prace</em>
+      </h2>
+      <a href="#galeria" class="featured__link">
+        Zobacz całą galerię
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="featured__grid">
+      <article class="art-card reveal" aria-label="Uwikłani — olej na płótnie, 100×80 cm">
+        <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6946-768x794.jpeg" alt="Uwikłani — obraz olejny" class="art-card__img" loading="lazy" decoding="async" />
+        <div class="art-card__overlay" aria-hidden="true"></div>
+        <div class="art-card__info" aria-hidden="true">
+          <div class="art-card__title">Uwikłani</div>
+          <div class="art-card__spec">olej na płótnie · 100×80 cm</div>
+        </div>
+      </article>
+      <article class="art-card reveal delay-1" aria-label="Impresja o wschodzie słońca — akryl, 100×60 cm">
+        <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6961-768x499.jpeg" alt="Impresja o wschodzie słońca" class="art-card__img" loading="lazy" decoding="async" />
+        <div class="art-card__overlay" aria-hidden="true"></div>
+        <div class="art-card__info" aria-hidden="true">
+          <div class="art-card__title">Impresja o wschodzie słońca</div>
+          <div class="art-card__spec">akryl · 100×60 cm</div>
+        </div>
+      </article>
+      <article class="art-card reveal delay-2" aria-label="Zbliżenia z jesienią — olej, 80×80 cm">
+        <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6952-768x780.jpeg" alt="Zbliżenia z jesienią" class="art-card__img" loading="lazy" decoding="async" />
+        <div class="art-card__overlay" aria-hidden="true"></div>
+        <div class="art-card__info" aria-hidden="true">
+          <div class="art-card__title">Zbliżenia z jesienią</div>
+          <div class="art-card__spec">olej na płótnie · 80×80 cm</div>
+        </div>
+      </article>
+      <article class="art-card reveal delay-1" aria-label="Horyzontalność — technika mieszana, 120×50 cm">
+        <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6947-768x382.jpeg" alt="Horyzontalność" class="art-card__img" loading="lazy" decoding="async" />
+        <div class="art-card__overlay" aria-hidden="true"></div>
+        <div class="art-card__info" aria-hidden="true">
+          <div class="art-card__title">Horyzontalność</div>
+          <div class="art-card__spec">technika mieszana · 120×50 cm</div>
+        </div>
+      </article>
+      <article class="art-card reveal delay-2" aria-label="Głębia głębin — olej, 90×70 cm">
+        <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG-2200-768x544.jpg" alt="Głębia głębin" class="art-card__img" loading="lazy" decoding="async" />
+        <div class="art-card__overlay" aria-hidden="true"></div>
+        <div class="art-card__info" aria-hidden="true">
+          <div class="art-card__title">Głębia głębin</div>
+          <div class="art-card__spec">olej na płótnie · 90×70 cm</div>
+        </div>
+      </article>
+      <article class="art-card reveal delay-3" aria-label="Trajektoria lotu — akryl, 80×60 cm">
+        <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/06/IMG_0710-1-768x628.jpg" alt="Trajektoria lotu" class="art-card__img" loading="lazy" decoding="async" />
+        <div class="art-card__overlay" aria-hidden="true"></div>
+        <div class="art-card__info" aria-hidden="true">
+          <div class="art-card__title">Trajektoria lotu</div>
+          <div class="art-card__spec">akryl · 80×60 cm</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     [Component: Gallery]  →  src/components/Gallery.tsx
+     Sanity: artworks[] with technique filter
+============================================================ -->
+<section class="gallery" id="galeria" aria-labelledby="gallery-heading">
+  <div class="container">
+
+    <div class="gallery__header reveal">
+      <div class="section-label" style="justify-content:center;margin-bottom:16px">
+        <span class="t-label" style="color:var(--gold)">Galeria</span>
       </div>
+      <h2 id="gallery-heading" class="gallery__title">Wszystkie obrazy</h2>
+      <p class="gallery__subtitle">Pełna kolekcja prac dostępnych w sprzedaży i do zamówienia</p>
+    </div>
 
-      <div class="gallery__grid" id="galleryGrid" aria-live="polite" aria-label="Lista obrazów">
+    <div class="gallery__filters reveal delay-1" role="group" aria-label="Filtruj obrazy według techniki">
+      <button class="filter-btn active" data-filter="all"      aria-pressed="true">Wszystkie</button>
+      <button class="filter-btn"        data-filter="olej"     aria-pressed="false">Olej</button>
+      <button class="filter-btn"        data-filter="akryl"    aria-pressed="false">Akryl</button>
+      <button class="filter-btn"        data-filter="mieszana" aria-pressed="false">Technika mieszana</button>
+    </div>
 
-        <article class="listing-card reveal" data-tech="olej">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6972-768x768.jpeg" alt="Klimtowisko I — olej na płótnie 80×80 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6972-768x768.jpeg"
-                      data-alt="Klimtowisko I — obraz, olej na płótnie">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6972-768x768.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <!-- Zastąp src wizualizacją wnętrza -->
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg"
-                      data-alt="Klimtowisko I — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">80 × 80 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Olej na płótnie</span>
-            </div>
-          </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">Klimtowisko I</h3>
-            <p class="listing-card__desc">Hołd złożony mistrzowi secesji — złociste płaszczyzny przeplatają się z dekoracyjną ornamentyką, tworząc mozaikę barw i faktur. Obraz łączy tradycję z ekspresją współczesnej abstrakcji.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="80 × 80 cm, Olej na płótnie">
-                <span class="listing-card__spec-item">80 × 80 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Olej na płótnie</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
+    <div class="gallery__grid" id="galleryGrid" aria-live="polite" aria-label="Lista obrazów">
 
-        <article class="listing-card reveal delay-1" data-tech="olej">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6970-e1751121615226-768x796.jpeg" alt="Klimtowisko II — olej na płótnie 80×80 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="796" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6970-e1751121615226-768x796.jpeg"
-                      data-alt="Klimtowisko II — obraz, olej na płótnie">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6970-e1751121615226-768x796.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg"
-                      data-alt="Klimtowisko II — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">80 × 80 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Olej na płótnie</span>
-            </div>
+      <!-- [ListingCard] Klimtowisko I -->
+      <article class="listing-card reveal" data-tech="olej">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6972-768x768.jpeg"
+               alt="Klimtowisko I — olej na płótnie 80×80 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" style="aspect-ratio:1/1" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6972-768x768.jpeg"
+                    data-alt="Klimtowisko I — obraz, olej na płótnie">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6972-768x768.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg"
+                    data-alt="Klimtowisko I — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
           </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">Klimtowisko II</h3>
-            <p class="listing-card__desc">Druga odsłona cyklu inspirowanego Klimtem — tym razem dominują chłodniejsze akcenty, tworząc dialog między złotem a błękitem. Praca pełna napięcia kolorystycznego i bogatej faktury.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="80 × 80 cm, Olej na płótnie">
-                <span class="listing-card__spec-item">80 × 80 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Olej na płótnie</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">80 × 80 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Olej na płótnie</span>
           </div>
-        </article>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">Klimtowisko I</h3>
+          <p class="listing-card__desc">Hołd złożony mistrzowi secesji — złociste płaszczyzny przeplatają się z dekoracyjną ornamentyką, tworząc mozaikę barw i faktur. Obraz łączy tradycję z ekspresją współczesnej abstrakcji.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="80 × 80 cm, Olej na płótnie">
+              <span class="listing-card__spec-item">80 × 80 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Olej na płótnie</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-        <article class="listing-card reveal delay-2" data-tech="akryl">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6975-768x510.jpeg" alt="W oczekiwaniu na lato — akryl 120×80 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="510" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6975-768x510.jpeg"
-                      data-alt="W oczekiwaniu na lato — obraz, akryl">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6975-768x510.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6952-768x780.jpeg"
-                      data-alt="W oczekiwaniu na lato — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6952-768x780.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">120 × 80 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Akryl</span>
-            </div>
+      <!-- [ListingCard] Klimtowisko II -->
+      <article class="listing-card reveal delay-1" data-tech="olej">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6970-e1751121615226-768x796.jpeg"
+               alt="Klimtowisko II — olej na płótnie 80×80 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="796" loading="lazy" decoding="async" style="aspect-ratio:1/1" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6970-e1751121615226-768x796.jpeg"
+                    data-alt="Klimtowisko II — obraz, olej na płótnie">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6970-e1751121615226-768x796.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg"
+                    data-alt="Klimtowisko II — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
           </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">W oczekiwaniu na lato</h3>
-            <p class="listing-card__desc">Horyzontalna kompozycja wypełniona świetlistymi barwami zapowiadającymi ciepło. Obraz promieniuje spokojnym optymizmem — jest jak westchnienie ulgi po długiej zimie.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="120 × 80 cm, Akryl">
-                <span class="listing-card__spec-item">120 × 80 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Akryl</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">80 × 80 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Olej na płótnie</span>
           </div>
-        </article>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">Klimtowisko II</h3>
+          <p class="listing-card__desc">Druga odsłona cyklu inspirowanego Klimtem — tym razem dominują chłodniejsze akcenty, tworząc dialog między złotem a błękitem. Praca pełna napięcia kolorystycznego i bogatej faktury.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="80 × 80 cm, Olej na płótnie">
+              <span class="listing-card__spec-item">80 × 80 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Olej na płótnie</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-        <article class="listing-card reveal" data-tech="olej">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg" alt="Anioł nadziei — olej na płótnie 70×70 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg"
-                      data-alt="Anioł nadziei — obraz, olej na płótnie">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg"
-                      data-alt="Anioł nadziei — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">70 × 70 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Olej na płótnie</span>
-            </div>
+      <!-- [ListingCard] W oczekiwaniu na lato -->
+      <article class="listing-card reveal delay-2" data-tech="akryl">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6975-768x510.jpeg"
+               alt="W oczekiwaniu na lato — akryl 120×80 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="510" loading="lazy" decoding="async" style="aspect-ratio:3/2" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6975-768x510.jpeg"
+                    data-alt="W oczekiwaniu na lato — obraz, akryl">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6975-768x510.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6952-768x780.jpeg"
+                    data-alt="W oczekiwaniu na lato — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6952-768x780.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
           </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">Anioł nadziei</h3>
-            <p class="listing-card__desc">Figuratywna kompozycja przesiąknięta symboliką duchową. Anielska postać wyłania się z gęstej, impastowej materii malarskiej — obecna, lecz nieuchwytna jak sama nadzieja.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="70 × 70 cm, Olej na płótnie">
-                <span class="listing-card__spec-item">70 × 70 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Olej na płótnie</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">120 × 80 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Akryl</span>
           </div>
-        </article>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">W oczekiwaniu na lato</h3>
+          <p class="listing-card__desc">Horyzontalna kompozycja wypełniona świetlistymi barwami zapowiadającymi ciepło. Obraz promieniuje spokojnym optymizmem — jest jak westchnienie ulgi po długiej zimie.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="120 × 80 cm, Akryl">
+              <span class="listing-card__spec-item">120 × 80 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Akryl</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-        <article class="listing-card reveal delay-1" data-tech="akryl">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg" alt="Złotousta — akryl 60×60 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg"
-                      data-alt="Złotousta — obraz, akryl">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg"
-                      data-alt="Złotousta — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">60 × 60 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Akryl</span>
-            </div>
+      <!-- [ListingCard] Anioł nadziei -->
+      <article class="listing-card reveal" data-tech="olej">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg"
+               alt="Anioł nadziei — olej na płótnie 70×70 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" style="aspect-ratio:1/1" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg"
+                    data-alt="Anioł nadziei — obraz, olej na płótnie">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg"
+                    data-alt="Anioł nadziei — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
           </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">Złotousta</h3>
-            <p class="listing-card__desc">Portret o złotej aurze — twarz wyłaniająca się z gęstego tła niczym coś cennego, skrytego dotąd w cieniu. Intensywne złoto skontrastowane z chłodną bielą tworzy niepowtarzalne napięcie.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="60 × 60 cm, Akryl">
-                <span class="listing-card__spec-item">60 × 60 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Akryl</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">70 × 70 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Olej na płótnie</span>
           </div>
-        </article>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">Anioł nadziei</h3>
+          <p class="listing-card__desc">Figuratywna kompozycja przesiąknięta symboliką duchową. Anielska postać wyłania się z gęstej, impastowej materii malarskiej — obecna, lecz nieuchwytna jak sama nadzieja.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="70 × 70 cm, Olej na płótnie">
+              <span class="listing-card__spec-item">70 × 70 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Olej na płótnie</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-        <article class="listing-card reveal delay-2" data-tech="mieszana">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg" alt="Kardiolożka — technika mieszana 80×80 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg"
-                      data-alt="Kardiolożka — obraz, technika mieszana">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg"
-                      data-alt="Kardiolożka — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">80 × 80 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Technika mieszana</span>
-            </div>
+      <!-- [ListingCard] Złotousta -->
+      <article class="listing-card reveal delay-1" data-tech="akryl">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg"
+               alt="Złotousta — akryl 60×60 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" style="aspect-ratio:1/1" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg"
+                    data-alt="Złotousta — obraz, akryl">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg"
+                    data-alt="Złotousta — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4641-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
           </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">Kardiolożka</h3>
-            <p class="listing-card__desc">Jeden z obrazów z serii (NIE)ZNAJOMI — portret kobiety, której obecność wychodzi poza ramy płótna. Wielowarstwowa technika mieszana nadaje twarzy głębię i tajemnicę.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="80 × 80 cm, Technika mieszana">
-                <span class="listing-card__spec-item">80 × 80 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Technika mieszana</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">60 × 60 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Akryl</span>
           </div>
-        </article>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">Złotousta</h3>
+          <p class="listing-card__desc">Portret o złotej aurze — twarz wyłaniająca się z gęstego tła niczym coś cennego, skrytego dotąd w cieniu. Intensywne złoto skontrastowane z chłodną bielą tworzy niepowtarzalne napięcie.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="60 × 60 cm, Akryl">
+              <span class="listing-card__spec-item">60 × 60 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Akryl</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-        <article class="listing-card reveal" data-tech="olej">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg" alt="Złota polska jesień — olej na płótnie 60×80 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="1024" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg"
-                      data-alt="Złota polska jesień — obraz, olej na płótnie">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6947-768x382.jpeg"
-                      data-alt="Złota polska jesień — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6947-768x382.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">60 × 80 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Olej na płótnie</span>
-            </div>
+      <!-- [ListingCard] Kardiolożka -->
+      <article class="listing-card reveal delay-2" data-tech="mieszana">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg"
+               alt="Kardiolożka — technika mieszana 80×80 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" style="aspect-ratio:1/1" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg"
+                    data-alt="Kardiolożka — obraz, technika mieszana">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg"
+                    data-alt="Kardiolożka — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/07/IMG_4629-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
           </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">Złota polska jesień</h3>
-            <p class="listing-card__desc">Bursztynowe i ochrowe tony opowiadają o polskiej jesieni — tej, którą pamięta się przez całe życie. Obraz jest ciepły, nasycony i głęboko nostalgiczny.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="60 × 80 cm, Olej na płótnie">
-                <span class="listing-card__spec-item">60 × 80 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Olej na płótnie</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">80 × 80 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Technika mieszana</span>
           </div>
-        </article>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">Kardiolożka</h3>
+          <p class="listing-card__desc">Jeden z obrazów z serii (NIE)ZNAJOMI — portret kobiety, której obecność wychodzi poza ramy płótna. Wielowarstwowa technika mieszana nadaje twarzy głębię i tajemnicę.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="80 × 80 cm, Technika mieszana">
+              <span class="listing-card__spec-item">80 × 80 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Technika mieszana</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-        <article class="listing-card reveal delay-1" data-tech="akryl">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg" alt="Słonecznikowy zachwyt — akryl 60×90 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="1024" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg"
-                      data-alt="Słonecznikowy zachwyt — obraz, akryl">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6961-768x499.jpeg"
-                      data-alt="Słonecznikowy zachwyt — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6961-768x499.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">60 × 90 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Akryl</span>
-            </div>
+      <!-- [ListingCard] Złota polska jesień -->
+      <article class="listing-card reveal" data-tech="olej">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg"
+               alt="Złota polska jesień — olej na płótnie 60×80 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="1024" loading="lazy" decoding="async" style="aspect-ratio:3/4" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg"
+                    data-alt="Złota polska jesień — obraz, olej na płótnie">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6958-768x1024.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6947-768x382.jpeg"
+                    data-alt="Złota polska jesień — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6947-768x382.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
           </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">Słonecznikowy zachwyt</h3>
-            <p class="listing-card__desc">Radosna, ekspresyjna kompozycja kwiatowa pulsująca życiem. Żółcienie i zielenie wibrują na płótnie, oddając nie tyle wygląd, co poczucie patrzenia na słonecznik w letnim południu.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="60 × 90 cm, Akryl">
-                <span class="listing-card__spec-item">60 × 90 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Akryl</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">60 × 80 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Olej na płótnie</span>
           </div>
-        </article>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">Złota polska jesień</h3>
+          <p class="listing-card__desc">Bursztynowe i ochrowe tony opowiadają o polskiej jesieni — tej, którą pamięta się przez całe życie. Obraz jest ciepły, nasycony i głęboko nostalgiczny.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="60 × 80 cm, Olej na płótnie">
+              <span class="listing-card__spec-item">60 × 80 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Olej na płótnie</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-        <article class="listing-card reveal delay-2" data-tech="mieszana">
-          <div class="listing-card__img-wrap">
-            <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg" alt="Anioł sprawiedliwości — technika mieszana 70×70 cm, Włodzimierz Zapart" class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" />
-            <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
-              <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg"
-                      data-alt="Anioł sprawiedliwości — obraz, technika mieszana">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Obraz</span>
-              </button>
-              <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
-                      data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg"
-                      data-alt="Anioł sprawiedliwości — wizualizacja we wnętrzu">
-                <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
-                <span class="img-switcher__label">Wnętrze</span>
-              </button>
-            </div>
-            <div class="listing-card__badge-wrap" aria-hidden="true">
-              <span class="listing-card__badge listing-card__badge--size">70 × 70 cm</span>
-              <span class="listing-card__badge listing-card__badge--tech">Technika mieszana</span>
-            </div>
+      <!-- [ListingCard] Słonecznikowy zachwyt -->
+      <article class="listing-card reveal delay-1" data-tech="akryl">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg"
+               alt="Słonecznikowy zachwyt — akryl 60×90 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="1024" loading="lazy" decoding="async" style="aspect-ratio:2/3" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg"
+                    data-alt="Słonecznikowy zachwyt — obraz, akryl">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7051-768x1024.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6961-768x499.jpeg"
+                    data-alt="Słonecznikowy zachwyt — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_6961-768x499.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
           </div>
-          <div class="listing-card__body">
-            <h3 class="listing-card__title">Anioł sprawiedliwości</h3>
-            <p class="listing-card__desc">Mocna, ekspresyjna figura o symbolicznym ciężarze. Artysta sięga po wątki eschatologiczne, nadając postaci dramatyczny wyraz przez zderzenie gestycznego malarstwa z delikatną linearną kreską.</p>
-            <div class="listing-card__footer">
-              <div class="listing-card__spec-inline" aria-label="70 × 70 cm, Technika mieszana">
-                <span class="listing-card__spec-item">70 × 70 cm</span>
-                <div class="listing-card__spec-sep" aria-hidden="true"></div>
-                <span class="listing-card__spec-item">Technika mieszana</span>
-              </div>
-              <a href="#kontakt" class="listing-card__cta">
-                Zapytaj
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true" focusable="false">
-                  <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">60 × 90 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Akryl</span>
           </div>
-        </article>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">Słonecznikowy zachwyt</h3>
+          <p class="listing-card__desc">Radosna, ekspresyjna kompozycja kwiatowa pulsująca życiem. Żółcienie i zielenie wibrują na płótnie, oddając nie tyle wygląd, co poczucie patrzenia na słonecznik w letnim południu.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="60 × 90 cm, Akryl">
+              <span class="listing-card__spec-item">60 × 90 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Akryl</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
 
-      </div>
+      <!-- [ListingCard] Anioł sprawiedliwości -->
+      <article class="listing-card reveal delay-2" data-tech="mieszana">
+        <div class="listing-card__img-wrap">
+          <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg"
+               alt="Anioł sprawiedliwości — technika mieszana 70×70 cm, Włodzimierz Zapart"
+               class="listing-card__img" width="768" height="768" loading="lazy" decoding="async" style="aspect-ratio:1/1" />
+          <div class="img-switcher" role="tablist" aria-label="Widoki obrazu">
+            <button class="img-switcher__btn is-active" role="tab" aria-selected="true" aria-label="Zdjęcie obrazu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg"
+                    data-alt="Anioł sprawiedliwości — obraz, technika mieszana">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2025/06/IMG_7012-768x768.jpeg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Obraz</span>
+            </button>
+            <button class="img-switcher__btn" role="tab" aria-selected="false" aria-label="Wizualizacja we wnętrzu"
+                    data-src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg"
+                    data-alt="Anioł sprawiedliwości — wizualizacja we wnętrzu">
+              <img src="https://warsztatywyobrazni.com.pl/wp-content/uploads/2022/04/IMG_9700-768x768.jpg" alt="" aria-hidden="true" width="52" height="52" loading="lazy" decoding="async" />
+              <span class="img-switcher__label">Wnętrze</span>
+            </button>
+          </div>
+          <div class="listing-card__badge-wrap" aria-hidden="true">
+            <span class="listing-card__badge listing-card__badge--size">70 × 70 cm</span>
+            <span class="listing-card__badge listing-card__badge--tech">Technika mieszana</span>
+          </div>
+        </div>
+        <div class="listing-card__body">
+          <h3 class="listing-card__title">Anioł sprawiedliwości</h3>
+          <p class="listing-card__desc">Mocna, ekspresyjna figura o symbolicznym ciężarze. Artysta sięga po wątki eschatologiczne, nadając postaci dramatyczny wyraz przez zderzenie gestycznego malarstwa z delikatną linearną kreską.</p>
+          <div class="listing-card__footer">
+            <div class="listing-card__spec-inline" aria-label="70 × 70 cm, Technika mieszana">
+              <span class="listing-card__spec-item">70 × 70 cm</span>
+              <div class="listing-card__spec-sep" aria-hidden="true"></div>
+              <span class="listing-card__spec-item">Technika mieszana</span>
+            </div>
+            <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /gallery__grid -->
 
       <div class="gallery__load-more" id="galleryLoadMore">
         <p class="load-more-counter" id="loadMoreCounter">9 z 30 obrazów</p>
         <button class="load-more-btn" id="loadMoreBtn" aria-label="Załaduj więcej obrazów">
           <span>Załaduj więcej</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M7 1v12M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>
 
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       KONTAKT
-  ============================================================ -->
-  <section class="contact" id="kontakt" aria-labelledby="contact-heading">
-    <div class="container">
-      <div class="contact__grid">
+<!-- ============================================================
+     [Component: Contact]  →  src/components/Contact.tsx
+     Sanity: siteSettings.contact { email, phone, address }
+============================================================ -->
+<section class="contact" id="kontakt" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="contact__grid">
 
-        <div class="reveal">
-          <div class="section-label">
-            <span class="t-label" style="color: var(--gold)">Kontakt</span>
-          </div>
-          <h2 id="contact-heading" class="contact__info-title">
-            Porozmawiajmy<br/>
-            o <em>sztuce</em>
-          </h2>
-          <p class="contact__info-lead">
-            Zainteresowany zakupem obrazu, zleceniem pracy na zamówienie
-            lub doradztwem wnętrzarskim? Skontaktuj się — odpowiem w ciągu 48 godzin.
-          </p>
+      <div class="reveal">
+        <div class="section-label">
+          <span class="t-label" style="color:var(--gold)">Kontakt</span>
+        </div>
+        <h2 id="contact-heading" class="contact__info-title">
+          Porozmawiajmy<br/>o <em>sztuce</em>
+        </h2>
+        <p class="contact__info-lead">
+          Zainteresowany zakupem obrazu, zleceniem pracy na zamówienie
+          lub doradztwem wnętrzarskim? Skontaktuj się — odpowiem w ciągu 48 godzin.
+        </p>
 
-          <div class="contact__detail-list">
-            <div class="contact__detail">
-              <div class="contact__detail-icon" aria-hidden="true">✉</div>
-              <div class="contact__detail-text">
-                <strong>E-mail</strong>
-                <a href="mailto:kontakt@zapart-obrazy.com">kontakt@zapart-obrazy.com</a>
-              </div>
+        <div class="contact__detail-list">
+          <div class="contact__detail">
+            <div class="contact__detail-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
             </div>
-            <div class="contact__detail">
-              <div class="contact__detail-icon" aria-hidden="true">☎</div>
-              <div class="contact__detail-text">
-                <strong>Telefon</strong>
-                <a href="tel:+48123456789">+48 123 456 789</a>
-              </div>
-            </div>
-            <div class="contact__detail">
-              <div class="contact__detail-icon" aria-hidden="true">⌘</div>
-              <div class="contact__detail-text">
-                <strong>Pracownia</strong>
-                <span>Kraków, Polska</span>
-              </div>
+            <div class="contact__detail-text">
+              <strong>E-mail</strong>
+              <a href="mailto:kontakt@zapart-obrazy.com">kontakt@zapart-obrazy.com</a>
             </div>
           </div>
-
-          <div class="contact__social">
-            <a href="#" class="social-pill" aria-label="Instagram Włodzimierza Zaparta">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-              Instagram
-            </a>
-            <a href="#" class="social-pill" aria-label="Facebook Włodzimierza Zaparta">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-              Facebook
-            </a>
+          <div class="contact__detail">
+            <div class="contact__detail-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact__detail-text">
+              <strong>Telefon</strong>
+              <a href="tel:+48123456789">+48 123 456 789</a>
+            </div>
+          </div>
+          <div class="contact__detail">
+            <div class="contact__detail-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <div class="contact__detail-text">
+              <strong>Pracownia</strong>
+              <span>Kraków, Polska</span>
+            </div>
           </div>
         </div>
 
-        <!-- Form -->
-        <div class="contact__form reveal delay-2" id="contactFormWrap">
-          <div id="formContent">
-            <p class="form__title" id="form-title">Wyślij wiadomość</p>
-
-            <form id="contactForm" novalidate aria-labelledby="form-title">
-              <div class="form__row">
-                <div class="form__group" id="group-name">
-                  <label class="form__label" for="name">Imię i nazwisko</label>
-                  <input class="form__input" type="text" id="name" name="name"
-                    placeholder="Jan Kowalski"
-                    autocomplete="name"
-                    aria-required="true"
-                    aria-describedby="error-name" />
-                  <span class="form__error-msg" id="error-name" role="alert" aria-live="polite">Podaj swoje imię i nazwisko.</span>
-                </div>
-                <div class="form__group" id="group-email">
-                  <label class="form__label" for="email">Adres e-mail</label>
-                  <input class="form__input" type="email" id="email" name="email"
-                    placeholder="jan@przykład.pl"
-                    autocomplete="email"
-                    aria-required="true"
-                    aria-describedby="error-email" />
-                  <span class="form__error-msg" id="error-email" role="alert" aria-live="polite">Podaj prawidłowy adres e-mail.</span>
-                </div>
-              </div>
-
-              <div class="form__group" id="group-subject">
-                <label class="form__label" for="subject">Temat</label>
-                <input class="form__input" type="text" id="subject" name="subject"
-                  placeholder="Zapytanie o obraz / Zamówienie / Współpraca"
-                  aria-required="true"
-                  aria-describedby="error-subject" />
-                <span class="form__error-msg" id="error-subject" role="alert" aria-live="polite">Podaj temat wiadomości.</span>
-              </div>
-
-              <div class="form__group" id="group-message">
-                <label class="form__label" for="message">Wiadomość</label>
-                <textarea class="form__textarea" id="message" name="message"
-                  placeholder="Opisz, co Cię interesuje — chętnie odpiszę..."
-                  aria-required="true"
-                  aria-describedby="error-message"></textarea>
-                <span class="form__error-msg" id="error-message" role="alert" aria-live="polite">Napisz swoją wiadomość.</span>
-              </div>
-
-              <div class="form__checkbox-wrap">
-                <input type="checkbox" class="form__checkbox" id="consent" name="consent" aria-required="true" />
-                <label class="form__checkbox-label" for="consent">
-                  Wyrażam zgodę na przetwarzanie moich danych osobowych w celu udzielenia odpowiedzi na zapytanie.
-                  <a href="#">Polityka prywatności</a>.
-                </label>
-              </div>
-
-              <button type="submit" class="btn-submit">
-                <span>Wyślij wiadomość</span>
-              </button>
-            </form>
-          </div>
-
-          <div class="form__success" id="formSuccess" role="status" aria-live="polite" aria-atomic="true">
-            <div class="form__success-icon" aria-hidden="true">✦</div>
-            <h3>Wiadomość wysłana!</h3>
-            <p>Dziękuję za kontakt. Odezwę się w ciągu 48 godzin.</p>
-          </div>
+        <div class="contact__social">
+          <a href="https://www.instagram.com/warsztatywyobrazni/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/warsztatywyobrazni" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
         </div>
-
       </div>
-    </div>
-  </section>
 
-  </main>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <div class="footer__brand-name">Włodzimierz Zapart</div>
-          <div class="footer__brand-sub">zapart-obrazy.com</div>
+      <!-- Form -->
+      <div class="contact__form reveal delay-2" id="contactFormWrap">
+        <div id="formContent">
+          <p class="form__title" id="form-title">Wyślij wiadomość</p>
+          <form id="contactForm" novalidate aria-labelledby="form-title">
+            <div class="form__row">
+              <div class="form__group" id="group-name">
+                <label class="form__label" for="name">Imię i nazwisko</label>
+                <input class="form__input" type="text" id="name" name="name" placeholder="Jan Kowalski" autocomplete="name" aria-required="true" aria-describedby="error-name" />
+                <span class="form__error-msg" id="error-name" role="alert" aria-live="polite">Podaj swoje imię i nazwisko.</span>
+              </div>
+              <div class="form__group" id="group-email">
+                <label class="form__label" for="email">Adres e-mail</label>
+                <input class="form__input" type="email" id="email" name="email" placeholder="jan@przykład.pl" autocomplete="email" aria-required="true" aria-describedby="error-email" />
+                <span class="form__error-msg" id="error-email" role="alert" aria-live="polite">Podaj prawidłowy adres e-mail.</span>
+              </div>
+            </div>
+            <div class="form__group" id="group-subject">
+              <label class="form__label" for="subject">Temat</label>
+              <input class="form__input" type="text" id="subject" name="subject" placeholder="Zapytanie o obraz / Zamówienie / Współpraca" aria-required="true" aria-describedby="error-subject" />
+              <span class="form__error-msg" id="error-subject" role="alert" aria-live="polite">Podaj temat wiadomości.</span>
+            </div>
+            <div class="form__group" id="group-message">
+              <label class="form__label" for="message">Wiadomość</label>
+              <textarea class="form__textarea" id="message" name="message" placeholder="Opisz, co Cię interesuje — chętnie odpiszę..." aria-required="true" aria-describedby="error-message"></textarea>
+              <span class="form__error-msg" id="error-message" role="alert" aria-live="polite">Napisz swoją wiadomość.</span>
+            </div>
+            <div class="form__checkbox-wrap">
+              <input type="checkbox" class="form__checkbox" id="consent" name="consent" aria-required="true" />
+              <label class="form__checkbox-label" for="consent">
+                Wyrażam zgodę na przetwarzanie moich danych osobowych w celu udzielenia odpowiedzi na zapytanie.
+                <a href="#">Polityka prywatności</a>.
+              </label>
+            </div>
+            <button type="submit" class="btn-submit"><span>Wyślij wiadomość</span></button>
+          </form>
         </div>
-        <nav class="footer__nav" aria-label="Nawigacja w stopce">
-          <a href="#o-mnie">O mnie</a>
-          <a href="#wybrane-prace">Prace</a>
-          <a href="#galeria">Galeria</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
+        <div class="form__success" id="formSuccess" role="status" aria-live="polite" aria-atomic="true">
+          <div class="form__success-icon" aria-hidden="true">✦</div>
+          <h3>Wiadomość wysłana!</h3>
+          <p>Dziękuję za kontakt. Odezwę się w ciągu 48 godzin.</p>
+        </div>
       </div>
-      <div class="footer__bottom">
-        <span class="footer__copy">© 2025 Włodzimierz Zapart. Wszelkie prawa zastrzeżone.</span>
-        <span class="footer__tagline">De gustibus non disputandum est.</span>
-      </div>
-    </div>
-  </footer>
 
-  <script src="assets/js/main.js" defer></script>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     [Component: Footer]  →  src/components/Footer.tsx
+     Sanity: siteSettings.footer
+============================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand-name">Włodzimierz Zapart</div>
+        <div class="footer__brand-sub">zapart-obrazy.com</div>
+      </div>
+      <nav class="footer__nav" aria-label="Nawigacja w stopce">
+        <a href="#o-mnie">O mnie</a>
+        <a href="#wybrane-prace">Prace</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© <span id="currentYear"></span> Włodzimierz Zapart. Wszelkie prawa zastrzeżone.</span>
+      <span class="footer__tagline">De gustibus non disputandum est.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── JS ─────────────────────────────────────────────────────── -->
+<script>
+  /* Year */
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  /* ── Nav scroll ─────────────────────────────────────────── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+  /* ── Hero blur-reveal ───────────────────────────────────── */
+  const heroBg = document.getElementById('heroBg');
+  if (heroBg) setTimeout(() => heroBg.classList.add('loaded'), 100);
+
+  /* ── Reveal on scroll ───────────────────────────────────── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* ── Mobile nav ─────────────────────────────────────────── */
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  let mobileOpen = false;
+  function closeMobileNav() {
+    mobileOpen = false;
+    mobileNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Otwórz menu');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  navToggle.addEventListener('click', () => {
+    mobileOpen = !mobileOpen;
+    mobileNav.classList.toggle('open', mobileOpen);
+    navToggle.setAttribute('aria-expanded', mobileOpen);
+    navToggle.setAttribute('aria-label', mobileOpen ? 'Zamknij menu' : 'Otwórz menu');
+    mobileNav.setAttribute('aria-hidden', !mobileOpen);
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+  });
+
+  /* ── Gallery filter + load-more ─────────────────────────── */
+  const PLACEHOLDER_DATA = [
+    { title: 'Sen o morzu',            tech: 'olej',     techLabel: 'Olej na płótnie',   size: '90 × 70 cm',  w: 90, h: 70,  desc: 'Morska cisza ujęta w tonacjach granatu i srebra — obraz przywołuje spokój wczesnego poranka nad wodą.',                                  c1: '#0f1f3d', c2: '#2a5f8a' },
+    { title: 'Kompozycja w błękicie',  tech: 'akryl',    techLabel: 'Akryl',              size: '70 × 50 cm',  w: 70, h: 50,  desc: 'Abstrakcyjna symfonia niebieskiego — warstwy farby nakładają się tworząc iluzję głębi i przestrzeni.',                                 c1: '#0a2a6a', c2: '#1a6ab0' },
+    { title: 'Wieczorne refleksy',     tech: 'olej',     techLabel: 'Olej na płótnie',   size: '80 × 60 cm',  w: 80, h: 60,  desc: 'Ostatnie promienie dnia odbite w nieruchomej wodzie. Czas zatrzymany między dniem a nocą.',                                            c1: '#2a0a3a', c2: '#7a3a8a' },
+    { title: 'Taniec form',            tech: 'akryl',    techLabel: 'Akryl',              size: '60 × 60 cm',  w: 60, h: 60,  desc: 'Energia ruchu zamknięta w abstrakcyjnym tańcu kształtów. Kompozycja wibruje dynamizmem i rytmem.',                                     c1: '#7a2a0a', c2: '#c05a1a' },
+    { title: 'Jesienne lamento',       tech: 'olej',     techLabel: 'Olej na płótnie',   size: '100 × 80 cm', w: 100, h: 80, desc: 'Melancholia późnego lata — ugry i brązy mówią o przemijaniu piękniej niż słowa.',                                                      c1: '#2a1a0a', c2: '#8a5a1a' },
+    { title: 'Przestrzeń wewnętrzna',  tech: 'mieszana', techLabel: 'Technika mieszana', size: '70 × 70 cm',  w: 70, h: 70,  desc: 'Głębia, którą można poczuć tylko zamykając oczy. Wielowarstwowa eksploracja wewnętrznego krajobrazu.',                                 c1: '#0a0a1a', c2: '#3a3a6a' },
+    { title: 'Przesilenie',            tech: 'akryl',    techLabel: 'Akryl',              size: '80 × 80 cm',  w: 80, h: 80,  desc: 'Moment równowagi między przeciwieństwami — biel i czerń, ciepło i chłód, spokój i napięcie.',                                         c1: '#1a1a1a', c2: '#5a5a5a' },
+    { title: 'Cisza przed burzą',      tech: 'olej',     techLabel: 'Olej na płótnie',   size: '120 × 90 cm', w: 120, h: 90, desc: 'Chwila bezdechu — niebo nabrzmiałe elektrycznością, horyzont w oczekiwaniu na to, co nieuchronne.',                                    c1: '#0a0a1a', c2: '#1a2a4a' },
+    { title: 'Mgła nad rzeką',         tech: 'akryl',    techLabel: 'Akryl',              size: '60 × 90 cm',  w: 60, h: 90,  desc: 'Delikatna zasłona porannej mgły spowalnia czas. Kontury topią się w szarościach i zieleniach.',                                       c1: '#1a2a1a', c2: '#3a6a4a' },
+    { title: 'Złoty środek',           tech: 'mieszana', techLabel: 'Technika mieszana', size: '80 × 80 cm',  w: 80, h: 80,  desc: 'Harmonia jako cel i droga — złoto dominuje w kompozycji symbolizując doskonałość i spełnienie.',                                       c1: '#3a2a0a', c2: '#aa7a10' },
+    { title: 'Pole słoneczne',         tech: 'akryl',    techLabel: 'Akryl',              size: '100 × 70 cm', w: 100, h: 70, desc: 'Wybuch żółcieni i zieleni — radość letnia uchwycona w ekspresjonistycznym geście malarskim.',                                         c1: '#1a2a0a', c2: '#7a9a00' },
+    { title: 'Portret nieznajomej',    tech: 'olej',     techLabel: 'Olej na płótnie',   size: '60 × 80 cm',  w: 60, h: 80,  desc: 'Twarz wyłaniająca się z mroku — fragment serii (NIE)ZNAJOMI. Kim jest? To pytanie pozostaje otwarte.',                                 c1: '#1a0a0a', c2: '#5a2a2a' },
+    { title: 'Architektura duszy',     tech: 'mieszana', techLabel: 'Technika mieszana', size: '90 × 90 cm',  w: 90, h: 90,  desc: 'Geometria emocji — linie i płaszczyzny budują wewnętrzną architekturę człowieka. Poważna, monumentalna praca.',                        c1: '#0a1a2a', c2: '#2a4a6a' },
+    { title: 'Błysk',                  tech: 'akryl',    techLabel: 'Akryl',              size: '50 × 50 cm',  w: 50, h: 50,  desc: 'Krótka, intensywna chwila olśnienia — mały format kontrastuje z siłą przekazu.',                                                      c1: '#2a0a0a', c2: '#9a1010' },
+    { title: 'Stare miasto w deszczu', tech: 'olej',     techLabel: 'Olej na płótnie',   size: '80 × 60 cm',  w: 80, h: 60,  desc: 'Pejzaż miejski rozmyty przez deszcz i nostalgię. Odbicia latarni tańczą na mokrym bruku.',                                            c1: '#0a0a1a', c2: '#2a2a4a' },
+    { title: 'Meridian',               tech: 'mieszana', techLabel: 'Technika mieszana', size: '70 × 100 cm', w: 70, h: 100, desc: 'Pionowa eksploracja przestrzeni — obraz czyta się od dołu do góry jak wiersz.',                                                        c1: '#0a1a2a', c2: '#1a4a7a' },
+    { title: 'Burza w farbach',        tech: 'akryl',    techLabel: 'Akryl',              size: '120 × 80 cm', w: 120, h: 80, desc: 'Gwałtowność gestu malarskiego — farba narzucana szpachlą i pędzlem w eksplozji energii.',                                             c1: '#0a0a0a', c2: '#3a0a3a' },
+    { title: 'Czas zatrzymany',        tech: 'olej',     techLabel: 'Olej na płótnie',   size: '60 × 60 cm',  w: 60, h: 60,  desc: 'Medytacja nad przemijaniem — obraz wymaga długiego patrzenia, nie szybkiego odejścia.',                                                c1: '#1a1a0a', c2: '#4a4a1a' },
+    { title: 'Korzenie',               tech: 'mieszana', techLabel: 'Technika mieszana', size: '90 × 70 cm',  w: 90, h: 70,  desc: 'Co nas trzyma? Faktura ziemi i gliny, głębia brązów i ochr opowiada o przynależności do miejsca.',                                     c1: '#1a0a0a', c2: '#4a1a0a' },
+    { title: 'Płomień',                tech: 'akryl',    techLabel: 'Akryl',              size: '60 × 80 cm',  w: 60, h: 80,  desc: 'Dynamika ognia w abstrakcyjnej formie — czerwień i pomarańcz walczą o dominację na płótnie.',                                         c1: '#2a0a00', c2: '#8a2a00' },
+    { title: 'Horyzont wewnętrzny',    tech: 'olej',     techLabel: 'Olej na płótnie',   size: '100 × 60 cm', w: 100, h: 60, desc: 'Panoramiczna kompozycja eksploruje granicę między tym, co widzialne, a tym, co przeczuwalne.',                                         c1: '#0a0a1a', c2: '#1a2a4a' },
+  ];
+
+  const TOTAL_ARTWORKS = 9 + PLACEHOLDER_DATA.length;
+  const PAGE_SIZE = 9;
+  let galleryRendered = 9;
+  let galleryFilter = 'all';
+
+  function makePlaceholderSvg(c1, c2, w, h, idx) {
+    const id = 'pg' + idx;
+    const decos = [
+      `<ellipse cx="${w*.5}" cy="${h*.45}" rx="${w*.38}" ry="${h*.22}" fill="rgba(255,255,255,0.05)" transform="rotate(${20+idx*3} ${w*.5} ${h*.5})"/>`,
+      `<rect x="${w*.12}" y="${h*.12}" width="${w*.76}" height="${h*.76}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>`,
+      `<circle cx="${w*.5}" cy="${h*.38}" r="${Math.min(w,h)*.28}" fill="rgba(255,255,255,0.05)"/>`,
+      `<rect x="${w*.35}" y="0" width="${w*.3}" height="${h}" fill="rgba(255,255,255,0.04)"/>`,
+      `<line x1="${w*.15}" y1="${h*.5}" x2="${w*.85}" y2="${h*.5}" stroke="rgba(255,255,255,0.07)" stroke-width="1"/><line x1="${w*.5}" y1="${h*.15}" x2="${w*.5}" y2="${h*.85}" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>`,
+      `<line x1="0" y1="0" x2="${w*.65}" y2="${h}" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>`,
+    ];
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"><defs><linearGradient id="${id}" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/></linearGradient></defs><rect width="${w}" height="${h}" fill="url(#${id})"/>${decos[idx % 6]}</svg>`;
+    return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }
+
+  function renderPlaceholderCard(item, dataIdx) {
+    const ratio = item.w + '/' + item.h;
+    const src = makePlaceholderSvg(item.c1, item.c2, item.w, item.h, dataIdx);
+    const card = document.createElement('article');
+    card.className = 'listing-card listing-card--enter';
+    card.setAttribute('data-tech', item.tech);
+    card.setAttribute('aria-label', item.title + ' — ' + item.techLabel + ', ' + item.size);
+    card.innerHTML = `
+      <div class="listing-card__img-wrap">
+        <img src="${src}" alt="${item.title} — ${item.techLabel}, Włodzimierz Zapart"
+             class="listing-card__img" width="${item.w}" height="${item.h}"
+             style="aspect-ratio:${ratio}" loading="lazy" decoding="async" />
+        <div class="listing-card__badge-wrap" aria-hidden="true">
+          <span class="listing-card__badge listing-card__badge--size">${item.size}</span>
+          <span class="listing-card__badge listing-card__badge--tech">${item.techLabel}</span>
+        </div>
+      </div>
+      <div class="listing-card__body">
+        <h3 class="listing-card__title">${item.title}</h3>
+        <p class="listing-card__desc">${item.desc}</p>
+        <div class="listing-card__footer">
+          <div class="listing-card__spec-inline" aria-label="${item.size}, ${item.techLabel}">
+            <span class="listing-card__spec-item">${item.size}</span>
+            <div class="listing-card__spec-sep" aria-hidden="true"></div>
+            <span class="listing-card__spec-item">${item.techLabel}</span>
+          </div>
+          <a href="#kontakt" class="listing-card__cta">Zapytaj <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>`;
+    return card;
+  }
+
+  function updateLoadMoreUI() {
+    const wrap = document.getElementById('galleryLoadMore');
+    const btn  = document.getElementById('loadMoreBtn');
+    const ctr  = document.getElementById('loadMoreCounter');
+    if (!wrap) return;
+    if (galleryRendered >= TOTAL_ARTWORKS) { wrap.classList.add('is-hidden'); return; }
+    wrap.classList.remove('is-hidden');
+    ctr.textContent = galleryRendered + ' z ' + TOTAL_ARTWORKS + ' obrazów';
+    const next = Math.min(PAGE_SIZE, TOTAL_ARTWORKS - galleryRendered);
+    btn.querySelector('span').textContent = 'Załaduj więcej (' + next + ')';
+  }
+
+  function loadMoreCards() {
+    const grid  = document.getElementById('galleryGrid');
+    const start = galleryRendered - 9;
+    const end   = Math.min(start + PAGE_SIZE, PLACEHOLDER_DATA.length);
+    let delay   = 0;
+    for (let i = start; i < end; i++) {
+      const card = renderPlaceholderCard(PLACEHOLDER_DATA[i], i);
+      const show = galleryFilter === 'all' || PLACEHOLDER_DATA[i].tech === galleryFilter;
+      if (!show) card.style.display = 'none';
+      grid.appendChild(card);
+      if (show) {
+        const d = delay;
+        requestAnimationFrame(() => setTimeout(() => {
+          card.style.transition = 'opacity .45s ease, transform .45s ease';
+          card.classList.remove('listing-card--enter');
+        }, d));
+        delay += 70;
+      }
+    }
+    galleryRendered += (end - start);
+    updateLoadMoreUI();
+    // wire lightbox on new cards
+    Lightbox.collect();
+  }
+
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  function applyGalleryFilter(filter) {
+    galleryFilter = filter;
+    document.querySelectorAll('#galleryGrid .listing-card').forEach(card => {
+      const show = filter === 'all' || card.dataset.tech === filter;
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(16px)';
+      setTimeout(() => {
+        card.style.display = show ? '' : 'none';
+        if (show) requestAnimationFrame(() => {
+          card.style.transition = 'opacity .4s ease, transform .4s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        });
+      }, 200);
+    });
+  }
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      btn.classList.add('active'); btn.setAttribute('aria-pressed', 'true');
+      applyGalleryFilter(btn.dataset.filter);
+    });
+  });
+
+  document.getElementById('loadMoreBtn').addEventListener('click', loadMoreCards);
+  updateLoadMoreUI();
+
+  /* ── Image variant switcher ─────────────────────────────── */
+  document.querySelectorAll('.img-switcher').forEach(switcher => {
+    const card = switcher.closest('.listing-card');
+    const mainImg = card.querySelector('.listing-card__img');
+    switcher.querySelectorAll('.img-switcher__btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('is-active')) return;
+        switcher.querySelectorAll('.img-switcher__btn').forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('is-active'); btn.setAttribute('aria-selected', 'true');
+        mainImg.classList.add('is-switching');
+        const preload = new Image();
+        preload.onload = () => { mainImg.src = btn.dataset.src; mainImg.alt = btn.dataset.alt; mainImg.classList.remove('is-switching'); };
+        preload.onerror = () => mainImg.classList.remove('is-switching');
+        preload.src = btn.dataset.src;
+      });
+    });
+  });
+
+  /* ── Contact form ────────────────────────────────────────── */
+  const form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
+      [['name','group-name','error-name'], ['email','group-email','error-email'], ['subject','group-subject','error-subject'], ['message','group-message','error-message']].forEach(([id, grpId, errId]) => {
+        const el = document.getElementById(id);
+        const grp = document.getElementById(grpId);
+        const isOk = id === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()) : el.value.trim().length > 0;
+        grp.classList.toggle('has-error', !isOk);
+        if (!isOk) valid = false;
+      });
+      const consent = document.getElementById('consent');
+      if (!consent.checked) { valid = false; }
+      if (valid) {
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      }
+    });
+  }
+
+  /* ── Lightbox ────────────────────────────────────────────── */
+  const Lightbox = (() => {
+    let items = [], current = 0, variantIdx = 0;
+    let dialog, imgEl, figureEl, titleEl, specEl, counterEl, descEl, stripEl, viewBtns, prevBtn, nextBtn;
+
+    function build() {
+      dialog = document.createElement('dialog');
+      dialog.className = 'lightbox';
+      dialog.setAttribute('aria-modal', 'true');
+      dialog.setAttribute('aria-label', 'Podgląd obrazu');
+      dialog.innerHTML = `
+        <button class="lightbox__close" aria-label="Zamknij podgląd">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="lightbox__main">
+          <button class="lightbox__nav lightbox__nav--prev" aria-label="Poprzedni obraz">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><polyline points="13,4 7,10 13,16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <figure class="lightbox__figure">
+            <img class="lightbox__img" src="" alt="" draggable="false" />
+            <div class="lightbox__view-pill" role="group" aria-label="Widok obrazu">
+              <button class="lightbox__view-btn is-active" data-variant="0">Obraz</button>
+              <button class="lightbox__view-btn" data-variant="1">Wnętrze</button>
+            </div>
+          </figure>
+          <button class="lightbox__nav lightbox__nav--next" aria-label="Następny obraz">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><polyline points="7,4 13,10 7,16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <footer class="lightbox__footer">
+          <div class="lightbox__info-row">
+            <span class="lightbox__title"></span>
+            <span class="lightbox__spec"></span>
+            <span class="lightbox__counter"></span>
+          </div>
+          <p class="lightbox__desc"></p>
+          <div class="lightbox__strip-wrap">
+            <div class="lightbox__strip" role="listbox" aria-label="Miniatury obrazów"></div>
+          </div>
+        </footer>`;
+      document.body.appendChild(dialog);
+      imgEl     = dialog.querySelector('.lightbox__img');
+      figureEl  = dialog.querySelector('.lightbox__figure');
+      titleEl   = dialog.querySelector('.lightbox__title');
+      specEl    = dialog.querySelector('.lightbox__spec');
+      counterEl = dialog.querySelector('.lightbox__counter');
+      descEl    = dialog.querySelector('.lightbox__desc');
+      stripEl   = dialog.querySelector('.lightbox__strip');
+      viewBtns  = dialog.querySelectorAll('.lightbox__view-btn');
+      prevBtn   = dialog.querySelector('.lightbox__nav--prev');
+      nextBtn   = dialog.querySelector('.lightbox__nav--next');
+
+      dialog.querySelector('.lightbox__close').addEventListener('click', close);
+      dialog.addEventListener('click', e => { if (e.target === dialog) close(); });
+      prevBtn.addEventListener('click', () => navigate(-1));
+      nextBtn.addEventListener('click', () => navigate(1));
+      viewBtns.forEach(btn => btn.addEventListener('click', e => { e.stopPropagation(); switchVariant(+btn.dataset.variant); }));
+      figureEl.addEventListener('click', e => {
+        if (e.target.closest('.lightbox__view-pill')) return;
+        const item = items[current];
+        if (item && item.variants.length > 1) switchVariant((variantIdx + 1) % item.variants.length);
+      });
+      dialog.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); navigate(-1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); navigate(1); }
+        if (e.key === 'Escape')     { e.preventDefault(); close(); }
+      });
+      dialog.addEventListener('cancel', e => { e.preventDefault(); close(); });
+
+      let tx = 0, ty = 0;
+      dialog.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+      dialog.addEventListener('touchend', e => {
+        const dx = tx - e.changedTouches[0].clientX, dy = ty - e.changedTouches[0].clientY;
+        if (Math.abs(dx) > Math.abs(dy)) { if (Math.abs(dx) > 50) navigate(dx > 0 ? 1 : -1); }
+        else { if (Math.abs(dy) > 40) { const item = items[current]; if (item && item.variants.length > 1) switchVariant((variantIdx + 1) % item.variants.length); } }
+      }, { passive: true });
+    }
+
+    function collect() {
+      items = [...document.querySelectorAll('#galleryGrid .listing-card')].map(card => {
+        const mainImg = card.querySelector('.listing-card__img');
+        const btns    = [...card.querySelectorAll('.img-switcher__btn')];
+        const specNode = card.querySelector('.listing-card__spec-inline');
+        return {
+          title:    (card.querySelector('.listing-card__title') || {}).textContent || '',
+          spec:     specNode ? (specNode.getAttribute('aria-label') || specNode.textContent.trim()) : '',
+          desc:     (card.querySelector('.listing-card__desc') || {}).textContent || '',
+          variants: btns.length
+            ? btns.map(b => ({ src: b.dataset.src, alt: b.dataset.alt, label: (b.querySelector('.img-switcher__label') || {}).textContent || '' }))
+            : [{ src: mainImg.src, alt: mainImg.alt, label: 'Obraz' }]
+        };
+      });
+    }
+
+    function open(idx) {
+      collect();
+      current = idx; variantIdx = 0;
+      buildStrip(); render();
+      dialog.showModal();
+      requestAnimationFrame(() => dialog.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      dialog.classList.remove('is-open');
+      dialog.addEventListener('transitionend', () => { dialog.close(); document.body.style.overflow = ''; }, { once: true });
+    }
+
+    function navigate(dir) {
+      const next = current + dir;
+      if (next < 0 || next >= items.length) return;
+      current = next; variantIdx = 0; render();
+    }
+
+    function switchVariant(idx) {
+      const item = items[current];
+      if (!item.variants[idx]) return;
+      variantIdx = idx;
+      renderImage(item.variants[idx]);
+      updateVariantBtns();
+    }
+
+    function render() {
+      const item = items[current];
+      const variant = item.variants[variantIdx] || item.variants[0];
+      titleEl.textContent   = item.title;
+      specEl.textContent    = item.spec;
+      counterEl.textContent = (current + 1) + ' / ' + items.length;
+      descEl.textContent    = item.desc || '';
+      renderImage(variant);
+      updateVariantBtns();
+      updateStrip();
+      updateNavBtns();
+    }
+
+    function renderImage(variant) {
+      imgEl.classList.add('is-switching');
+      const p = new Image();
+      p.onload  = () => { imgEl.src = variant.src; imgEl.alt = variant.alt; imgEl.classList.remove('is-switching'); };
+      p.onerror = () => { imgEl.src = variant.src; imgEl.alt = variant.alt; imgEl.classList.remove('is-switching'); };
+      p.src = variant.src;
+    }
+
+    function updateVariantBtns() {
+      const item = items[current];
+      const has2 = item.variants.length > 1;
+      dialog.querySelector('.lightbox__view-pill').style.display = has2 ? '' : 'none';
+      figureEl.classList.toggle('has-variants', has2);
+      viewBtns.forEach((btn, i) => {
+        const has = !!item.variants[i];
+        btn.classList.toggle('is-active', i === variantIdx);
+        btn.disabled = !has; btn.style.display = has ? '' : 'none';
+      });
+    }
+
+    function buildStrip() {
+      stripEl.innerHTML = '';
+      items.forEach((item, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'lightbox__strip-btn' + (i === current ? ' is-active' : '');
+        btn.setAttribute('role', 'option');
+        btn.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        btn.setAttribute('aria-label', item.title);
+        btn.innerHTML = `<img src="${item.variants[0].src}" alt="" loading="lazy" decoding="async" width="52" height="52">`;
+        btn.addEventListener('click', () => { current = i; variantIdx = 0; render(); });
+        stripEl.appendChild(btn);
+      });
+    }
+
+    function updateStrip() {
+      [...stripEl.querySelectorAll('.lightbox__strip-btn')].forEach((btn, i) => {
+        const active = i === current;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      const activeBtn = stripEl.children[current];
+      if (activeBtn) activeBtn.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+    }
+
+    function updateNavBtns() {
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === items.length - 1;
+    }
+
+    function bindCards() {
+      document.getElementById('galleryGrid').addEventListener('click', e => {
+        const wrap = e.target.closest('.listing-card__img-wrap');
+        if (!wrap) return;
+        if (e.target.closest('.img-switcher')) return;
+        const card = wrap.closest('.listing-card');
+        const all  = [...document.querySelectorAll('#galleryGrid .listing-card')];
+        const idx  = all.indexOf(card);
+        if (idx === -1) return;
+        open(idx);
+      });
+    }
+
+    function init() { build(); bindCards(); }
+    return { init, collect };
+  })();
+
+  Lightbox.init();
+</script>
+
+<!-- ============================================================
+     [Component: WcagBar] — Accessibility widget
+     ============================================================ -->
+<div class="wcag-bar" role="group" aria-label="Dostępność">
+  <button class="wcag-btn" id="wcagZoomOut" aria-label="Zmniejsz czcionkę" title="Zmniejsz czcionkę">A−</button>
+  <button class="wcag-btn" id="wcagZoomIn"  aria-label="Zwiększ czcionkę"  title="Zwiększ czcionkę">A+</button>
+  <button class="wcag-btn wcag-btn--contrast" id="wcagContrast" aria-label="Wysoki kontrast" aria-pressed="false" title="Wysoki kontrast">◐</button>
+</div>
+
+<script>
+  /* ── WCAG widget logic ─────────────────────────────────────── */
+  (() => {
+    const BASE = 16;
+    const STEP = 2;
+    const MIN  = 12;
+    const MAX  = 22;
+
+    let size = parseInt(localStorage.getItem('wcag-size') || BASE, 10);
+    let hc   = localStorage.getItem('wcag-contrast') === '1';
+
+    const apply = () => {
+      document.documentElement.style.fontSize = size + 'px';
+      document.documentElement.classList.toggle('high-contrast', hc);
+      const btn = document.getElementById('wcagContrast');
+      if (btn) { btn.classList.toggle('is-active', hc); btn.setAttribute('aria-pressed', String(hc)); }
+    };
+
+    apply();
+
+    document.getElementById('wcagZoomOut').addEventListener('click', () => {
+      if (size > MIN) { size -= STEP; localStorage.setItem('wcag-size', size); apply(); }
+    });
+    document.getElementById('wcagZoomIn').addEventListener('click', () => {
+      if (size < MAX) { size += STEP; localStorage.setItem('wcag-size', size); apply(); }
+    });
+    document.getElementById('wcagContrast').addEventListener('click', () => {
+      hc = !hc; localStorage.setItem('wcag-contrast', hc ? '1' : '0'); apply();
+    });
+  })();
+</script>
+
 </body>
 </html>

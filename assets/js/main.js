@@ -616,3 +616,78 @@ const Lightbox = (() => {
 })();
 
 Lightbox.init();
+
+// ============================================================
+//  WCAG ACCESSIBILITY WIDGET
+// ============================================================
+(function () {
+  const FONT_STEP   = 1;   // px per click
+  const FONT_MIN    = 14;
+  const FONT_MAX    = 22;
+  const FONT_BASE   = 16;
+  const LS_FONT     = 'a11y_font';
+  const LS_CONTRAST = 'a11y_contrast';
+
+  const toggle   = document.getElementById('a11yToggle');
+  const panel    = document.getElementById('a11yPanel');
+  const btnIn    = document.getElementById('a11yZoomIn');
+  const btnOut   = document.getElementById('a11yZoomOut');
+  const btnReset = document.getElementById('a11yZoomReset');
+  const btnContrast = document.getElementById('a11yContrast');
+
+  let panelOpen = false;
+
+  function openPanel() {
+    panelOpen = true;
+    panel.classList.add('is-open');
+    panel.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+  function closePanel() {
+    panelOpen = false;
+    panel.classList.remove('is-open');
+    panel.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', () => panelOpen ? closePanel() : openPanel());
+  document.addEventListener('click', e => {
+    if (panelOpen && !e.target.closest('#a11yWidget')) closePanel();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && panelOpen) { closePanel(); toggle.focus(); }
+  });
+
+  // ── Font size ─────────────────────────────────────────────
+  let fontSize = parseInt(localStorage.getItem(LS_FONT)) || FONT_BASE;
+
+  function applyFont(size) {
+    fontSize = Math.min(FONT_MAX, Math.max(FONT_MIN, size));
+    document.documentElement.style.fontSize = fontSize + 'px';
+    localStorage.setItem(LS_FONT, fontSize);
+    btnOut.disabled   = fontSize <= FONT_MIN;
+    btnIn.disabled    = fontSize >= FONT_MAX;
+    btnReset.style.opacity = fontSize === FONT_BASE ? '0.4' : '1';
+  }
+
+  btnIn.addEventListener('click',    () => applyFont(fontSize + FONT_STEP));
+  btnOut.addEventListener('click',   () => applyFont(fontSize - FONT_STEP));
+  btnReset.addEventListener('click', () => applyFont(FONT_BASE));
+
+  // ── High contrast ─────────────────────────────────────────
+  let contrastOn = localStorage.getItem(LS_CONTRAST) === '1';
+
+  function applyContrast(on) {
+    contrastOn = on;
+    document.body.classList.toggle('high-contrast', on);
+    btnContrast.classList.toggle('is-active', on);
+    btnContrast.setAttribute('aria-pressed', String(on));
+    localStorage.setItem(LS_CONTRAST, on ? '1' : '0');
+  }
+
+  btnContrast.addEventListener('click', () => applyContrast(!contrastOn));
+
+  // ── Init: restore saved prefs ─────────────────────────────
+  applyFont(fontSize);
+  applyContrast(contrastOn);
+})();
