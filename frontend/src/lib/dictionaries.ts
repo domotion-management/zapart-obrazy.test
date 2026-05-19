@@ -157,7 +157,7 @@ const en: typeof pl = {
   contact: {
     label: 'Contact',
     title: "Let's talk<br />about <em>art</em>",
-    lead: 'Interested in purchasing a painting, commissioning a custom work, or interior design consulting? Get in touch — I'll respond within 48 hours.',
+    lead: "Interested in purchasing a painting, commissioning a custom work, or interior design consulting? Get in touch \u2014 I\u2019ll respond within 48 hours.",
     emailLabel: 'E-mail',
     phoneLabel: 'Phone',
     studioLabel: 'Studio',
