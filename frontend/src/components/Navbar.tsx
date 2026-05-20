@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import LangSwitcher from './LangSwitcher'
 import { useLocale } from '@/lib/LocaleContext'
 import type { Locale } from '@/lib/dictionaries'
@@ -16,6 +17,10 @@ interface NavbarProps {
 
 export default function Navbar({ artistName, tagline, instagramUrl, facebookUrl }: NavbarProps) {
   const { t } = useLocale()
+  const pathname = usePathname()
+  const isHome = pathname === '/'
+  const linkPrefix = isHome ? '' : '/'
+
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -38,7 +43,7 @@ export default function Navbar({ artistName, tagline, instagramUrl, facebookUrl 
 
   return (
     <>
-      <nav className={`nav ${scrolled ? 'scrolled' : ''}`} id="nav" aria-label={t.nav.mainNav}>
+      <nav className={`nav ${(!isHome || scrolled) ? 'scrolled' : ''}`} id="nav" aria-label={t.nav.mainNav}>
         <div className="container">
           <div className="nav__inner">
             <Link href="/" className="nav__logo" aria-label={`${artistName || t.nav.about} — ${t.nav.mainNav}`}>
@@ -46,11 +51,11 @@ export default function Navbar({ artistName, tagline, instagramUrl, facebookUrl 
               {tagline && <span className="nav__logo-tag">{tagline}</span>}
             </Link>
             <ul className="nav__links" role="list">
-              <li><a href="#o-mnie" className="nav__link">{t.nav.about}</a></li>
-              <li><a href="#wybrane-prace" className="nav__link">{t.nav.featuredWorks}</a></li>
-              <li><a href="#galeria" className="nav__link">{t.nav.gallery}</a></li>
+              <li><a href={`${linkPrefix}#o-mnie`} className="nav__link">{t.nav.about}</a></li>
+              <li><a href={`${linkPrefix}#wybrane-prace`} className="nav__link">{t.nav.featuredWorks}</a></li>
+              <li><a href={`${linkPrefix}#galeria`} className="nav__link">{t.nav.gallery}</a></li>
               <li><Link href="/projekty" className="nav__link">{t.nav.projects}</Link></li>
-              <li><a href="#kontakt" className="nav__cta">{t.nav.contact}</a></li>
+              <li><a href={`${linkPrefix}#kontakt`} className="nav__cta">{t.nav.contact}</a></li>
             </ul>
             <div className="nav__right">
               <LangSwitcher />
@@ -93,11 +98,11 @@ export default function Navbar({ artistName, tagline, instagramUrl, facebookUrl 
         aria-label={t.nav.mobileNav}
         aria-hidden={!mobileOpen}
       >
-        <a href="#o-mnie" onClick={closeMobile}>{t.nav.about}</a>
-        <a href="#wybrane-prace" onClick={closeMobile}>{t.nav.featuredWorks}</a>
-        <a href="#galeria" onClick={closeMobile}>{t.nav.gallery}</a>
+        <a href={`${linkPrefix}#o-mnie`} onClick={closeMobile}>{t.nav.about}</a>
+        <a href={`${linkPrefix}#wybrane-prace`} onClick={closeMobile}>{t.nav.featuredWorks}</a>
+        <a href={`${linkPrefix}#galeria`} onClick={closeMobile}>{t.nav.gallery}</a>
         <Link href="/projekty" onClick={closeMobile}>{t.nav.projects}</Link>
-        <a href="#kontakt" onClick={closeMobile}>{t.nav.contact}</a>
+        <a href={`${linkPrefix}#kontakt`} onClick={closeMobile}>{t.nav.contact}</a>
         <div style={{ marginTop: 16 }}>
           <LangSwitcher />
         </div>

@@ -55,11 +55,25 @@ export default async function RootLayout({
   const { locale, t } = await getServerI18n()
 
   return (
-    <html lang={locale} className={`scroll-smooth ${montserrat.variable} ${openSans.variable} ${inter.variable}`}>
+    <html lang={locale} className={`scroll-smooth ${montserrat.variable} ${openSans.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#141210" />
+        <script dangerouslySetInnerHTML={{__html: `
+          (function() {
+            try {
+              var s = localStorage.getItem('wcag-size');
+              if (s) {
+                document.documentElement.style.fontSize = s + 'px';
+              }
+              var c = localStorage.getItem('wcag-contrast');
+              if (c === '1') {
+                document.documentElement.classList.add('high-contrast');
+              }
+            } catch (e) {}
+          })();
+        `}} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <a href="#main-content" className="skip-nav">
           {t.skipNav}
         </a>

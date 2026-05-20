@@ -7,23 +7,27 @@ export default function WcagBar() {
   const { t } = useLocale()
   const [size, setSize] = useState(16)
   const [hc, setHc] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
 
   useEffect(() => {
     const s = parseInt(localStorage.getItem('wcag-size') || '16', 10)
     const c = localStorage.getItem('wcag-contrast') === '1'
     setSize(s)
     setHc(c)
+    setIsInitialized(true)
   }, [])
 
   useEffect(() => {
+    if (!isInitialized) return
     document.documentElement.style.fontSize = size + 'px'
     localStorage.setItem('wcag-size', String(size))
-  }, [size])
+  }, [size, isInitialized])
 
   useEffect(() => {
+    if (!isInitialized) return
     document.documentElement.classList.toggle('high-contrast', hc)
     localStorage.setItem('wcag-contrast', hc ? '1' : '0')
-  }, [hc])
+  }, [hc, isInitialized])
 
   return (
     <div className="wcag-bar" role="group" aria-label={t.wcag.groupAria}>

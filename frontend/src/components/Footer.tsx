@@ -12,10 +12,10 @@ export default function Footer({ footerTagline, locale }: { footerTagline?: stri
             <div className="footer__brand-sub">zapart-obrazy.com</div>
           </div>
           <nav className="footer__nav" aria-label={t.nav.footerNav}>
-            <a href="#o-mnie">{t.nav.about}</a>
-            <a href="#wybrane-prace">{t.footer.works}</a>
-            <a href="#galeria">{t.nav.gallery}</a>
-            <a href="#kontakt">{t.nav.contact}</a>
+            <a href="/#o-mnie">{t.nav.about}</a>
+            <a href="/#wybrane-prace">{t.footer.works}</a>
+            <a href="/#galeria">{t.nav.gallery}</a>
+            <a href="/#kontakt">{t.nav.contact}</a>
           </nav>
         </div>
         <div className="footer__bottom">

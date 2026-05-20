@@ -60,8 +60,270 @@
 .wcag-btn:hover { border-color: var(--gold); background: var(--gold); color: var(--bg); transform: scale(1.08); }
 .wcag-btn--contrast { font-size: 1.1rem; }
 .wcag-btn--contrast.is-active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-html.high-contrast { filter: contrast(1.5) brightness(.95); }
-html.high-contrast body { background: #fff; color: #000; }
+/* ── High Contrast overrides ─────────────────────────────────── */
+html.high-contrast {
+  /* Redefine design system tokens to high contrast standards */
+  --bg: #FFFFFF;
+  --bg-warm: #FFFFFF;
+  --bg-dark: #000000;
+  --ink: #000000;
+  --ink-muted: #111111;
+  --gold: #000000; 
+  --gold-light: #FFFF00; /* Yellow on black background */
+  --gold-pale: #EEEEEE;
+  --cream: #000000;
+}
+
+/* Base body overrides */
+html.high-contrast body {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+}
+
+/* Ensure dark sections have pure black background and white/yellow text */
+html.high-contrast .featured,
+html.high-contrast .footer,
+html.high-contrast .hero,
+html.high-contrast .mobile-nav {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+html.high-contrast .footer__brand-name,
+html.high-contrast .footer__brand-sub,
+html.high-contrast .footer__copy,
+html.high-contrast .footer__tagline {
+  color: #FFFFFF !important;
+}
+
+/* Nav scrolled high-contrast */
+html.high-contrast .nav.scrolled {
+  background: #FFFFFF !important;
+  border-bottom: 2px solid #000000;
+}
+
+/* Links & interactive elements */
+html.high-contrast a {
+  text-decoration: underline !important;
+}
+html.high-contrast .nav__link,
+html.high-contrast .footer__nav a,
+html.high-contrast .nav__cta,
+html.high-contrast .mobile-nav a,
+html.high-contrast .wcag-btn,
+html.high-contrast .filter-btn,
+html.high-contrast .social-pill,
+html.high-contrast .btn-submit,
+html.high-contrast .btn-primary,
+html.high-contrast .img-switcher__btn {
+  text-decoration: none !important;
+}
+html.high-contrast .nav__link::after {
+  display: none !important; /* Hide hover underline line animation in main menu */
+}
+html.high-contrast .nav__link {
+  color: #FFFFFF !important;
+}
+html.high-contrast .nav.scrolled .nav__link {
+  color: #000000 !important;
+}
+html.high-contrast .nav__cta {
+  border: 2px solid #FFFFFF !important;
+  color: #FFFFFF !important;
+  background: #000000 !important;
+}
+html.high-contrast .nav.scrolled .nav__cta {
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+  background: #FFFFFF !important;
+}
+
+/* Hero section */
+html.high-contrast .hero__bg {
+  opacity: 0.15 !important;
+}
+html.high-contrast .hero__overlay {
+  background: #000000 !important;
+}
+html.high-contrast .hero__title,
+html.high-contrast .hero__tagline {
+  color: #FFFFFF !important;
+}
+html.high-contrast .hero__title em {
+  color: #FFFF00 !important;
+  font-weight: 900;
+}
+html.high-contrast .hero__label {
+  color: #FFFF00 !important;
+  font-weight: bold;
+}
+html.high-contrast .btn-primary {
+  background: #FFFF00 !important;
+  color: #000000 !important;
+  border: 2px solid #FFFF00 !important;
+  font-weight: 700 !important;
+}
+html.high-contrast .btn-ghost {
+  color: #FFFFFF !important;
+  border-bottom: 2px solid #FFFFFF !important;
+}
+
+/* About Section */
+html.high-contrast .about__title,
+html.high-contrast .about__title span {
+  color: #000000 !important;
+}
+html.high-contrast .about__motto {
+  background: #EEEEEE !important;
+  border-left: 4px solid #000000 !important;
+}
+html.high-contrast .about__stat-num {
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+/* Featured Section */
+html.high-contrast .featured::before {
+  display: none !important;
+}
+html.high-contrast .featured__title,
+html.high-contrast .featured__title em {
+  color: #FFFFFF !important;
+}
+html.high-contrast .featured__link {
+  color: #FFFF00 !important;
+  border-bottom: 2px solid #FFFF00 !important;
+}
+html.high-contrast .art-card__overlay {
+  background: rgba(0, 0, 0, 0.95) !important;
+  opacity: 1 !important;
+}
+html.high-contrast .art-card__info {
+  opacity: 1 !important;
+  transform: none !important;
+}
+html.high-contrast .art-card__title {
+  color: #FFFFFF !important;
+}
+html.high-contrast .art-card__spec {
+  color: #FFFF00 !important;
+}
+
+/* Gallery Section */
+html.high-contrast .gallery__title,
+html.high-contrast .gallery__subtitle {
+  color: #000000 !important;
+}
+html.high-contrast .filter-btn {
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+  background: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+html.high-contrast .filter-btn.active,
+html.high-contrast .filter-btn:hover {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+}
+html.high-contrast .listing-card {
+  border: 2px solid #000000 !important;
+}
+html.high-contrast .listing-card__title,
+html.high-contrast .listing-card__desc,
+html.high-contrast .listing-card__spec-item {
+  color: #000000 !important;
+}
+html.high-contrast .listing-card__badge--size {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #FFFFFF !important;
+}
+html.high-contrast .listing-card__badge--tech {
+  background: #FFFF00 !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+html.high-contrast .listing-card__cta {
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+html.high-contrast .img-switcher__btn {
+  border: 2px solid #000000 !important;
+}
+html.high-contrast .img-switcher__btn.is-active {
+  border-color: #FFFF00 !important;
+  box-shadow: 0 0 0 2px #000000 !important;
+}
+
+/* Contact Section */
+html.high-contrast .contact {
+  background: #FFFFFF !important;
+}
+html.high-contrast .contact__info-title,
+html.high-contrast .contact__info-title em,
+html.high-contrast .contact__info-lead,
+html.high-contrast .contact__detail-text,
+html.high-contrast .contact__detail-text a,
+html.high-contrast .contact__detail-text span {
+  color: #000000 !important;
+}
+html.high-contrast .contact__detail-icon {
+  background: #FFFFFF !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+html.high-contrast .contact__detail:hover .contact__detail-icon {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+}
+html.high-contrast .social-pill {
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+html.high-contrast .social-pill:hover {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+}
+html.high-contrast .contact__form {
+  border: 2px solid #000000 !important;
+}
+html.high-contrast .form__title,
+html.high-contrast .form__label,
+html.high-contrast .form__checkbox-label,
+html.high-contrast .form__checkbox-label a {
+  color: #000000 !important;
+}
+html.high-contrast .form__input,
+html.high-contrast .form__textarea {
+  border: 2px solid #000000 !important;
+}
+html.high-contrast .btn-submit {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #000000 !important;
+}
+html.high-contrast .btn-submit:hover {
+  background: #FFFFFF !important;
+  color: #000000 !important;
+}
+html.high-contrast .btn-submit::before {
+  display: none !important;
+}
+
+/* Series / Projects page */
+html.high-contrast .series-card {
+  border: 2px solid #000000 !important;
+  background: #FFFFFF !important;
+}
+html.high-contrast .series-card__title,
+html.high-contrast .series-card__desc {
+  color: #000000 !important;
+}
+html.high-contrast .series-card__tag {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #000000 !important;
+}
 
 /* ── Lightbox ──────────────────────────────────────────── */
 .lightbox { position: fixed; inset: 0; width: 100%; height: 100%; display: flex; flex-direction: column; background: rgba(12,9,7,.95); color: var(--bg); z-index: 1000; overflow: hidden; animation: lightboxFadeIn .3s var(--ease-out) forwards; }
