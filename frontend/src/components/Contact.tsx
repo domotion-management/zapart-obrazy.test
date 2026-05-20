@@ -18,18 +18,51 @@ export default function Contact({ email, phone, location, instagramUrl, facebook
   const { t } = useLocale()
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<Record<string, boolean>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [serverError, setServerError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setServerError(null)
     const fd = new FormData(e.currentTarget)
     const errs: Record<string, boolean> = {}
-    if (!fd.get('name')?.toString().trim()) errs.name = true
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get('email')?.toString() || '')) errs.email = true
-    if (!fd.get('subject')?.toString().trim()) errs.subject = true
-    if (!fd.get('message')?.toString().trim()) errs.message = true
-    if (!fd.get('consent')) errs.consent = true
+    
+    const name = fd.get('name')?.toString().trim() || ''
+    const email = fd.get('email')?.toString() || ''
+    const subject = fd.get('subject')?.toString().trim() || ''
+    const message = fd.get('message')?.toString().trim() || ''
+    const consent = !!fd.get('consent')
+
+    if (!name) errs.name = true
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = true
+    if (!subject) errs.subject = true
+    if (!message) errs.message = true
+    if (!consent) errs.consent = true
+    
     setErrors(errs)
-    if (Object.keys(errs).length === 0) setSubmitted(true)
+    if (Object.keys(errs).length > 0) return
+
+    setIsSubmitting(true)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, subject, message, consent }),
+      })
+
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        const data = await res.json().catch(() => ({}))
+        setServerError(data.error || 'Wystąpił błąd po stronie serwera. Spróbuj ponownie później.')
+      }
+    } catch {
+      setServerError('Błąd połączenia z serwerem. Sprawdź swoje połączenie internetowe.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -125,13 +158,27 @@ export default function Contact({ email, phone, location, instagramUrl, facebook
                       <textarea className="form__textarea" id="message" name="message" placeholder={t.contact.fieldMessagePlaceholder} aria-required="true" />
                       <span className="form__error-msg" role="alert">{t.contact.errorMessage}</span>
                     </div>
-                    <div className="form__checkbox-wrap">
-                      <input type="checkbox" className="form__checkbox" id="consent" name="consent" aria-required="true" />
-                      <label className="form__checkbox-label" htmlFor="consent">
-                        {t.contact.consent} <a href="#">{t.contact.privacyPolicy}</a>.
-                      </label>
+                    <div className="form__checkbox-wrap" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                        <input type="checkbox" className="form__checkbox" id="consent" name="consent" aria-required="true" disabled={isSubmitting} />
+                        <label className="form__checkbox-label" htmlFor="consent">
+                          {t.contact.consent} <a href="#">{t.contact.privacyPolicy}</a>.
+                        </label>
+                      </div>
+                      {errors.consent && (
+                        <span className="form__error-msg" style={{ display: 'block', marginTop: 0 }}>
+                          Musisz wyrazić zgodę na przetwarzanie danych.
+                        </span>
+                      )}
                     </div>
-                    <button type="submit" className="btn-submit"><span>{t.contact.submit}</span></button>
+                    {serverError && (
+                      <div className="form__server-error" role="alert">
+                        {serverError}
+                      </div>
+                    )}
+                    <button type="submit" className="btn-submit" disabled={isSubmitting} style={{ opacity: isSubmitting ? 0.7 : 1 }}>
+                      <span>{isSubmitting ? 'Wysyłanie...' : t.contact.submit}</span>
+                    </button>
                   </form>
                 </div>
               ) : (
