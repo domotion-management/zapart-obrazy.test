@@ -10,6 +10,7 @@ export const artwork = defineType({
     { name: 'en', title: '🇬🇧 English' },
     { name: 'media', title: '📷 Media' },
     { name: 'meta', title: '⚙️ Meta' },
+    { name: 'price', title: '💰 Cena' },
   ],
   fields: [
     /* ── PL fields ──────────────────────────────────────── */
@@ -107,6 +108,13 @@ export const artwork = defineType({
       description: 'Np. "80 × 80 cm"',
       validation: (rule) => rule.required(),
       group: 'meta',
+    }),
+    defineField({
+      name: 'price',
+      title: 'Cena (PLN)',
+      type: 'number',
+      description: 'Cena w PLN. Na stronie angielskiej zostanie automatycznie przeliczona na EUR (x4). Pozostaw puste lub wpisz 0 dla "Cena na zapytanie".',
+      group: 'price',
     }),
     defineField({
       name: 'featured',

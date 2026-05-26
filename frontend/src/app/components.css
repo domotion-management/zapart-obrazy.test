@@ -1,5 +1,5 @@
 /* ── NAV ───────────────────────────────────────────────────── */
-.nav { position: fixed; inset: 0 0 auto 0; z-index: 100; height: var(--nav-h); display: flex; align-items: center; transition: background 0.4s var(--ease-in-out), box-shadow 0.4s var(--ease-in-out); }
+.nav { position: fixed; inset: 0 0 auto 0; z-index: 100; height: var(--nav-h); display: flex; align-items: center; transition: background 0.4s var(--ease-in-out), box-shadow 0.4s var(--ease-in-out); background: rgba(0, 0, 0, 0.75); }
 .nav.scrolled { background: rgba(250,248,245,.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(26,26,26,.08); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 .nav__logo { display: flex; flex-direction: column; line-height: 1; }

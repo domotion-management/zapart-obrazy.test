@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 import { createClient } from 'next-sanity'
+import { getSiteSettings } from '@/lib/queries'
 
 export async function POST(req: Request) {
   try {
-    const { name, email, subject, message, consent } = await req.json()
+    const { name, email, subject, message, consent, recaptchaToken } = await req.json()
 
     // 1. Basic validation
     if (!name || !email || !subject || !message) {
@@ -19,6 +20,49 @@ export async function POST(req: Request) {
         { error: 'Musisz zaakceptować politykę prywatności.' },
         { status: 400 }
       )
+    }
+
+    // reCAPTCHA validation
+    const settings = (await getSiteSettings().catch(() => null)) as any
+    const recaptchaEnabled = settings?.recaptchaEnabled ?? false
+
+    if (recaptchaEnabled) {
+      if (!recaptchaToken) {
+        return NextResponse.json(
+          { error: 'Weryfikacja reCAPTCHA jest wymagana.' },
+          { status: 400 }
+        )
+      }
+
+      const secretKey = settings?.recaptchaSecretKey
+      if (!secretKey) {
+        console.error('reCAPTCHA jest włączona, ale klucz tajny (Secret Key) nie został skonfigurowany w CMS.')
+      } else {
+        try {
+          const verifyUrl = 'https://www.google.com/recaptcha/api/siteverify'
+          const verifyRes = await fetch(verifyUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `secret=${encodeURIComponent(secretKey)}&response=${encodeURIComponent(recaptchaToken)}`,
+          })
+
+          const verifyData = await verifyRes.json()
+          if (!verifyData.success) {
+            return NextResponse.json(
+              { error: 'Weryfikacja reCAPTCHA nie powiodła się. Spróbuj ponownie.' },
+              { status: 400 }
+            )
+          }
+        } catch (verifyError) {
+          console.error('Błąd weryfikacji reCAPTCHA:', verifyError)
+          return NextResponse.json(
+            { error: 'Nie udało się zweryfikować reCAPTCHA. Spróbuj ponownie później.' },
+            { status: 500 }
+          )
+        }
+      }
     }
 
     const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID

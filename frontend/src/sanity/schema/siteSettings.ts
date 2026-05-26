@@ -10,6 +10,7 @@ export const siteSettings = defineType({
     { name: 'en', title: '🇬🇧 English' },
     { name: 'contact', title: '📞 Kontakt' },
     { name: 'social', title: '🔗 Social' },
+    { name: 'seo', title: '🔍 SEO / GEO' },
   ],
   fields: [
     /* ── PL fields ──────────────────────────────────────── */
@@ -66,6 +67,14 @@ export const siteSettings = defineType({
       type: 'string',
       group: 'pl',
     }),
+    defineField({
+      name: 'privacyPolicy',
+      title: 'Polityka prywatności',
+      type: 'text',
+      rows: 15,
+      description: 'Pełna treść polityki prywatności (obsługuje entery)',
+      group: 'pl',
+    }),
 
     /* ── EN fields ──────────────────────────────────────── */
     defineField({
@@ -112,6 +121,14 @@ export const siteSettings = defineType({
       type: 'string',
       group: 'en',
     }),
+    defineField({
+      name: 'privacyPolicy_en',
+      title: 'Privacy policy (EN)',
+      type: 'text',
+      rows: 15,
+      description: 'Full content of the privacy policy in English',
+      group: 'en',
+    }),
 
     /* ── Contact (shared) ───────────────────────────────── */
     defineField({
@@ -132,6 +149,28 @@ export const siteSettings = defineType({
       type: 'string',
       group: 'contact',
     }),
+    defineField({
+      name: 'recaptchaEnabled',
+      title: 'Włącz reCAPTCHA',
+      description: 'Zabezpieczenie antyspamowe w formularzu kontaktowym.',
+      type: 'boolean',
+      initialValue: false,
+      group: 'contact',
+    }),
+    defineField({
+      name: 'recaptchaSiteKey',
+      title: 'reCAPTCHA Site Key',
+      description: 'Klucz publiczny witryny (v2 checkbox / invisible).',
+      type: 'string',
+      group: 'contact',
+    }),
+    defineField({
+      name: 'recaptchaSecretKey',
+      title: 'reCAPTCHA Secret Key',
+      description: 'Klucz tajny służący do weryfikacji po stronie serwera.',
+      type: 'string',
+      group: 'contact',
+    }),
 
     /* ── Social (shared) ────────────────────────────────── */
     defineField({
@@ -145,6 +184,107 @@ export const siteSettings = defineType({
       title: 'Facebook URL',
       type: 'url',
       group: 'social',
+    }),
+
+    /* ── SEO / GEO ──────────────────────────────────────── */
+    defineField({
+      name: 'seoTitle',
+      title: 'SEO Title (PL)',
+      type: 'string',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoTitle_en',
+      title: 'SEO Title (EN)',
+      type: 'string',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoDescription',
+      title: 'SEO Description (PL)',
+      type: 'text',
+      rows: 3,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoDescription_en',
+      title: 'SEO Description (EN)',
+      type: 'text',
+      rows: 3,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoWideDescription',
+      title: 'SEO Wide Description (PL)',
+      description: 'Długi, semantyczny tekst pozycjonujący wyświetlany nad stopką.',
+      type: 'text',
+      rows: 8,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoWideDescription_en',
+      title: 'SEO Wide Description (EN)',
+      description: 'Long semantic positioning text displayed above the footer in English.',
+      type: 'text',
+      rows: 8,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'entityType',
+      title: 'Typ podmiotu (Entity Type)',
+      description: 'Typ encji dla Schema.org, np. "Person", "Artist", "Painter".',
+      type: 'string',
+      initialValue: 'Person',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'entityKeywords',
+      title: 'Słowa kluczowe encji (PL)',
+      description: 'Wykaz kluczowych pojęć powiązanych semantycznie, oddzielonych przecinkami.',
+      type: 'text',
+      rows: 2,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'entityKeywords_en',
+      title: 'Entity Keywords (EN)',
+      description: 'Semantic key concepts separated by commas.',
+      type: 'text',
+      rows: 2,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'entityStyles',
+      title: 'Kierunki artystyczne / Style (PL)',
+      description: 'Np. "Malarstwo abstrakcyjne, Ekspresjonizm".',
+      type: 'string',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'entityStyles_en',
+      title: 'Art styles / Movements (EN)',
+      description: 'e.g. "Abstract Art, Expressionism".',
+      type: 'string',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'wikidataUrl',
+      title: 'Wikidata URL',
+      type: 'url',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'googleMapsUrl',
+      title: 'Google Maps Business URL',
+      type: 'url',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'geoCoordinates',
+      title: 'Współrzędne geograficzne',
+      description: 'Szerokość i długość geograficzna, np. "50.0619, 19.9374".',
+      type: 'string',
+      group: 'seo',
     }),
   ],
   preview: {

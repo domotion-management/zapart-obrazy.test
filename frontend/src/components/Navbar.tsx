@@ -13,9 +13,10 @@ interface NavbarProps {
   instagramUrl?: string
   facebookUrl?: string
   locale?: Locale
+  showFeatured?: boolean
 }
 
-export default function Navbar({ artistName, tagline, instagramUrl, facebookUrl }: NavbarProps) {
+export default function Navbar({ artistName, tagline, instagramUrl, facebookUrl, showFeatured = false }: NavbarProps) {
   const { t } = useLocale()
   const pathname = usePathname()
   const isHome = pathname === '/'
@@ -52,7 +53,7 @@ export default function Navbar({ artistName, tagline, instagramUrl, facebookUrl 
             </Link>
             <ul className="nav__links" role="list">
               <li><a href={`${linkPrefix}#o-mnie`} className="nav__link">{t.nav.about}</a></li>
-              <li><a href={`${linkPrefix}#wybrane-prace`} className="nav__link">{t.nav.featuredWorks}</a></li>
+              {showFeatured && <li><a href={`${linkPrefix}#wybrane-prace`} className="nav__link">{t.nav.featuredWorks}</a></li>}
               <li><a href={`${linkPrefix}#galeria`} className="nav__link">{t.nav.gallery}</a></li>
               <li><Link href="/projekty" className="nav__link">{t.nav.projects}</Link></li>
               <li><a href={`${linkPrefix}#kontakt`} className="nav__cta">{t.nav.contact}</a></li>
@@ -99,7 +100,7 @@ export default function Navbar({ artistName, tagline, instagramUrl, facebookUrl 
         aria-hidden={!mobileOpen}
       >
         <a href={`${linkPrefix}#o-mnie`} onClick={closeMobile}>{t.nav.about}</a>
-        <a href={`${linkPrefix}#wybrane-prace`} onClick={closeMobile}>{t.nav.featuredWorks}</a>
+        {showFeatured && <a href={`${linkPrefix}#wybrane-prace`} onClick={closeMobile}>{t.nav.featuredWorks}</a>}
         <a href={`${linkPrefix}#galeria`} onClick={closeMobile}>{t.nav.gallery}</a>
         <Link href="/projekty" onClick={closeMobile}>{t.nav.projects}</Link>
         <a href={`${linkPrefix}#kontakt`} onClick={closeMobile}>{t.nav.contact}</a>

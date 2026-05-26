@@ -13,7 +13,7 @@
   --sage: #8A9E8C;
   --cream: #EDE8DE;
   --nav-h: 72px;
-  --section-pad: clamp(80px, 10vw, 140px);
+  --section-pad: clamp(50px, 6.5vw, 90px);
   --container: 1320px;
   --gap: clamp(24px, 3vw, 40px);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

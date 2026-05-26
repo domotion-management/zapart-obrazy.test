@@ -1,5 +1,5 @@
 import RevealOnScroll from './RevealOnScroll'
-import { type Locale, getDictionary, localized } from '@/lib/dictionaries'
+import { type Locale, getDictionary, localized, formatPrice } from '@/lib/dictionaries'
 
 interface Artwork {
   _id: string
@@ -9,6 +9,7 @@ interface Artwork {
   techniqueLabel?: string
   techniqueLabel_en?: string
   dimensions?: string
+  price?: number
 }
 
 export default function FeaturedWorks({ artworks, locale }: { artworks: Artwork[]; locale: Locale }) {
@@ -43,7 +44,7 @@ export default function FeaturedWorks({ artworks, locale }: { artworks: Artwork[
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={art.mainImageUrl}
-                    alt={title}
+                    alt={[title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', ')}
                     className="art-card__img"
                     loading="lazy"
                     decoding="async"
@@ -51,7 +52,12 @@ export default function FeaturedWorks({ artworks, locale }: { artworks: Artwork[
                   <div className="art-card__overlay" aria-hidden="true" />
                   <div className="art-card__info" aria-hidden="true">
                     <div className="art-card__title">{title}</div>
-                    <div className="art-card__spec">{tech} · {art.dimensions}</div>
+                    <div className="art-card__spec">
+                      {tech} · {art.dimensions}
+                      {art.price !== undefined && (
+                        <> · {art.price > 0 && (locale === 'en' ? 'Price: ' : 'Cena: ')}{formatPrice(art.price, locale)}</>
+                      )}
+                    </div>
                   </div>
                 </article>
               </RevealOnScroll>

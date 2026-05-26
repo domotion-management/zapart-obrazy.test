@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import RevealOnScroll from './RevealOnScroll'
 import { useLocale } from '@/lib/LocaleContext'
 import type { Locale } from '@/lib/dictionaries'
@@ -12,14 +12,99 @@ interface ContactProps {
   instagramUrl?: string
   facebookUrl?: string
   locale?: Locale
+  recaptchaEnabled?: boolean
+  recaptchaSiteKey?: string
 }
 
-export default function Contact({ email, phone, location, instagramUrl, facebookUrl }: ContactProps) {
+export default function Contact({
+  email,
+  phone,
+  location,
+  instagramUrl,
+  facebookUrl,
+  locale,
+  recaptchaEnabled = false,
+  recaptchaSiteKey,
+}: ContactProps) {
   const { t } = useLocale()
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<Record<string, boolean>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [serverError, setServerError] = useState<string | null>(null)
+  const [recaptchaToken, setRecaptchaToken] = useState('')
+
+  useEffect(() => {
+    if (!recaptchaEnabled || !recaptchaSiteKey) return
+
+    let active = true
+
+    const renderCaptcha = () => {
+      if (!active) return
+      const container = document.getElementById('recaptcha-container')
+      if (container && (window as any).grecaptcha && (window as any).grecaptcha.render) {
+        container.innerHTML = ''
+        const isHc = document.documentElement.classList.contains('high-contrast')
+        try {
+          (window as any).grecaptcha.render('recaptcha-container', {
+            sitekey: recaptchaSiteKey,
+            callback: (token: string) => {
+              setRecaptchaToken(token)
+              setErrors((prev) => ({ ...prev, recaptcha: false }))
+            },
+            'expired-callback': () => {
+              setRecaptchaToken('')
+            },
+            theme: isHc ? 'light' : 'dark',
+          })
+        } catch (err) {
+          console.error('reCAPTCHA render error:', err)
+        }
+      }
+    }
+
+    // Load script
+    let script = document.getElementById('recaptcha-script') as HTMLScriptElement | null
+    if (!script) {
+      script = document.createElement('script')
+      script.id = 'recaptcha-script'
+      script.src = 'https://www.google.com/recaptcha/api.js?render=explicit'
+      script.async = true
+      script.defer = true
+      document.body.appendChild(script)
+    }
+
+    if ((window as any).grecaptcha && (window as any).grecaptcha.render) {
+      renderCaptcha()
+    } else {
+      const interval = setInterval(() => {
+        if ((window as any).grecaptcha && (window as any).grecaptcha.render) {
+          clearInterval(interval)
+          renderCaptcha()
+        }
+      }, 100)
+      setTimeout(() => clearInterval(interval), 10000)
+    }
+
+    // Observe changes to html class list to re-render with correct theme
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (mutation.attributeName === 'class') {
+          renderCaptcha()
+        }
+      }
+    })
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+
+    return () => {
+      active = false
+      observer.disconnect()
+      const container = document.getElementById('recaptcha-container')
+      if (container) {
+        container.innerHTML = ''
+      }
+    }
+  }, [recaptchaEnabled, recaptchaSiteKey])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -38,6 +123,7 @@ export default function Contact({ email, phone, location, instagramUrl, facebook
     if (!subject) errs.subject = true
     if (!message) errs.message = true
     if (!consent) errs.consent = true
+    if (recaptchaEnabled && !recaptchaToken) errs.recaptcha = true
     
     setErrors(errs)
     if (Object.keys(errs).length > 0) return
@@ -49,7 +135,7 @@ export default function Contact({ email, phone, location, instagramUrl, facebook
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, subject, message, consent }),
+        body: JSON.stringify({ name, email, subject, message, consent, recaptchaToken }),
       })
 
       if (res.ok) {
@@ -162,15 +248,25 @@ export default function Contact({ email, phone, location, instagramUrl, facebook
                       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                         <input type="checkbox" className="form__checkbox" id="consent" name="consent" aria-required="true" disabled={isSubmitting} />
                         <label className="form__checkbox-label" htmlFor="consent">
-                          {t.contact.consent} <a href="#">{t.contact.privacyPolicy}</a>.
+                          {t.contact.consent} <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer">{t.contact.privacyPolicy}</a>.
                         </label>
                       </div>
                       {errors.consent && (
                         <span className="form__error-msg" style={{ display: 'block', marginTop: 0 }}>
-                          Musisz wyrazić zgodę na przetwarzanie danych.
+                          {locale === 'en' ? 'You must agree to the processing of personal data.' : 'Musisz wyrazić zgodę na przetwarzanie danych.'}
                         </span>
                       )}
                     </div>
+                    {recaptchaEnabled && (
+                      <div className={`form__recaptcha-wrap ${errors.recaptcha ? 'has-error' : ''}`} style={{ marginBottom: '20px' }}>
+                        <div id="recaptcha-container" />
+                        {errors.recaptcha && (
+                          <span className="form__error-msg" style={{ display: 'block', marginTop: '5px' }}>
+                            {locale === 'en' ? 'Please complete the reCAPTCHA verification.' : 'Proszę zaznaczyć pole reCAPTCHA.'}
+                          </span>
+                        )}
+                      </div>
+                    )}
                     {serverError && (
                       <div className="form__server-error" role="alert">
                         {serverError}

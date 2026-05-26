@@ -107,7 +107,19 @@ const pl = {
   },
 } as const
 
-const en: typeof pl = {
+type DeepStringify<T> = T extends (...args: any[]) => any
+  ? T
+  : T extends string
+  ? string
+  : T extends number
+  ? number
+  : T extends boolean
+  ? boolean
+  : {
+      readonly [K in keyof T]: DeepStringify<T[K]>
+    }
+
+const en: DeepStringify<typeof pl> = {
   nav: {
     about: 'About',
     featuredWorks: 'Featured Works',
@@ -208,7 +220,7 @@ const en: typeof pl = {
   },
 }
 
-export type Dictionary = typeof pl
+export type Dictionary = DeepStringify<typeof pl>
 
 const dictionaries: Record<Locale, Dictionary> = { pl, en }
 
@@ -228,4 +240,15 @@ export function localized(obj: any, field: string, locale: Locale): string {
   if (!obj) return ''
   if (locale === 'en') return obj[`${field}_en`] || obj[field] || ''
   return obj[field] || ''
+}
+
+export function formatPrice(price: number | undefined | null, locale: Locale): string {
+  if (price === undefined || price === null || price === 0) {
+    return locale === 'en' ? 'Price on request' : 'Cena na zapytanie'
+  }
+  if (locale === 'en') {
+    const eurPrice = Math.round(price / 4)
+    return `€${eurPrice.toLocaleString('en-US')}`
+  }
+  return `${price.toLocaleString('pl-PL')} zł`
 }

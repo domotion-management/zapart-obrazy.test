@@ -1,12 +1,13 @@
 /* ── About ─────────────────────────────────────────────────── */
-.about { padding: var(--section-pad) 0; background: var(--bg); }
+.about { padding: var(--section-pad) 0 0 0; background: var(--bg); }
 .about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px,8vw,120px); align-items: center; }
 .about__photo-wrap { position: relative; }
 .about__photo-frame { position: absolute; inset: -16px -16px auto auto; width: 60%; height: 60%; border: 1px solid var(--gold); opacity: .5; border-radius: 2px; }
 .about__photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 2px; filter: grayscale(20%); transition: filter .5s; }
 .about__photo:hover { filter: grayscale(0%); }
 .about__photo-caption { position: absolute; bottom: -20px; left: 0; right: 20%; background: var(--bg-dark); color: var(--bg); padding: 16px 20px; font-family: var(--font-open-sans), sans-serif; font-style: italic; font-size: .85rem; border-left: 3px solid var(--gold); }
-.about__text { padding: 24px 0; }
+.about__text { padding: 24px 0 0 0; }
+.about__text > *:last-child { margin-bottom: 0; }
 .about__title { font-family: var(--font-montserrat), sans-serif; font-size: clamp(2.4rem,4.5vw,4rem); font-weight: 700; line-height: 1.0; letter-spacing: -.04em; margin-bottom: 28px; color: var(--ink); }
 .about__title span { font-style: italic; color: var(--gold); }
 .about__lead { font-family: var(--font-open-sans), sans-serif; font-style: italic; font-size: clamp(1.1rem,1.5vw,1.3rem); line-height: 1.65; letter-spacing: .01em; color: var(--ink-muted); margin-bottom: 24px; }
@@ -61,6 +62,10 @@
 .listing-card__body { padding: 20px 22px 24px; }
 .listing-card__title { font-family: var(--font-montserrat), sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -.025em; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
 .listing-card__desc { font-size: 1rem; line-height: 1.72; color: var(--ink-muted); margin-bottom: 16px; }
+.listing-card__price { font-size: 1.15rem; margin-bottom: 16px; }
+.listing-card__price-label { font-family: var(--font-inter), sans-serif; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin-right: 6px; }
+.listing-card__price-value { font-family: var(--font-montserrat), sans-serif; font-weight: 600; color: var(--gold); }
+.listing-card__price-request { font-family: var(--font-open-sans), sans-serif; font-style: italic; font-size: .95rem; color: var(--gold); font-weight: 500; }
 .listing-card__footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--cream); }
 .listing-card__spec-inline { display: flex; gap: 8px; align-items: center; }
 .listing-card__spec-item { font-size: .78rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
@@ -84,3 +89,81 @@
 .load-more-btn:hover { border-color: var(--gold); color: var(--gold); }
 .load-more-btn:disabled { opacity: .35; cursor: not-allowed; }
 .listing-card--enter { opacity: 0; transform: translateY(22px); }
+
+/* ── Collapsible SEO Section ─────────────────────────────────── */
+.seo-collapse {
+  padding: 48px 0;
+  background: var(--bg-warm);
+  border-top: 1px solid var(--cream);
+}
+.seo-collapse__wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.seo-collapse__title {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.seo-collapse__content-outer {
+  position: relative;
+  overflow: hidden;
+  max-height: 80px;
+  transition: max-height 0.4s var(--ease-out);
+}
+.seo-collapse__wrapper.is-open .seo-collapse__content-outer {
+  max-height: 800px;
+}
+.seo-collapse__content-inner {
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+.seo-collapse__fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: linear-gradient(to top, var(--bg-warm), transparent);
+  pointer-events: none;
+}
+.seo-collapse__actions {
+  margin-top: 12px;
+}
+.seo-collapse__toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  padding: 4px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.seo-collapse__toggle-btn:hover {
+  color: var(--gold-light);
+}
+
+/* High Contrast Override for SEO Collapse */
+html.high-contrast .seo-collapse {
+  background: #FFFFFF !important;
+  border-top: 2px solid #000000 !important;
+}
+html.high-contrast .seo-collapse__title,
+html.high-contrast .seo-collapse__content-inner {
+  color: #000000 !important;
+}
+html.high-contrast .seo-collapse__toggle-btn {
+  color: #000000 !important;
+  text-decoration: underline !important;
+}

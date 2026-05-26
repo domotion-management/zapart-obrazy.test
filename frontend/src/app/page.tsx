@@ -6,11 +6,38 @@ import Gallery from '@/components/Gallery'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import WcagBar from '@/components/WcagBar'
+import SeoCollapse from '@/components/SeoCollapse'
 import { urlFor } from '@/lib/sanity.image'
 import { getServerI18n } from '@/lib/getLocale'
 import { localized } from '@/lib/dictionaries'
-// Gdy Sanity nie jest skonfigurowane — wszystkie sekcje będą puste.
-// Dodaj content w panelu CMS: /studio
+
+export async function generateMetadata() {
+  const { getSiteSettings } = await import('@/lib/queries')
+  const { getServerI18n } = await import('@/lib/getLocale')
+  const settings = (await getSiteSettings().catch(() => null)) as any
+  const { locale } = await getServerI18n()
+
+  const title = locale === 'en'
+    ? (settings?.seoTitle_en || settings?.siteTitle_en || 'Włodzimierz Zapart — Painter | Kraków')
+    : (settings?.seoTitle || settings?.siteTitle || 'Włodzimierz Zapart — Malarz | Kraków')
+
+  const description = locale === 'en'
+    ? (settings?.seoDescription_en || settings?.siteDescription_en || '')
+    : (settings?.seoDescription || settings?.siteDescription || '')
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+    },
+    twitter: {
+      title,
+      description,
+    }
+  }
+}
 
 async function getData() {
   const { getAllArtworks, getFeaturedArtworks, getArtist, getSiteSettings } = await import('@/lib/queries')
@@ -58,22 +85,60 @@ async function getData() {
       ...(artist as any),
       photoUrl: (artist as any).photo ? urlFor((artist as any).photo).width(768).url() : undefined,
     } : null,
-    settings: settings || null,
+    settings: (settings as any) || null,
   }
 }
 
 export default async function HomePage() {
   const { artworks, featured, artist, settings } = await getData()
-  const { locale, t } = await getServerI18n()
+  const { locale } = await getServerI18n()
+
+  const keywordsString = locale === 'en'
+    ? (settings?.entityKeywords_en || '')
+    : (settings?.entityKeywords || '')
+  const stylesString = locale === 'en'
+    ? (settings?.entityStyles_en || '')
+    : (settings?.entityStyles || '')
+
+  const schemaJson = {
+    "@context": "https://schema.org",
+    "@type": settings?.entityType || "Person",
+    "name": "Włodzimierz Zapart",
+    "description": locale === 'en'
+      ? (settings?.seoDescription_en || settings?.siteDescription_en)
+      : (settings?.seoDescription || settings?.siteDescription),
+    "image": settings?.heroImage ? urlFor(settings.heroImage).width(1200).url() : undefined,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": settings?.contactLocation || "Kraków",
+      "addressCountry": "PL"
+    },
+    "email": settings?.contactEmail,
+    "telephone": settings?.contactPhone,
+    "knowsAbout": [
+      ...(keywordsString ? keywordsString.split(',').map((k: string) => k.trim()) : []),
+      ...(stylesString ? stylesString.split(',').map((s: string) => s.trim()) : [])
+    ].filter(Boolean),
+    "sameAs": [
+      settings?.instagramUrl,
+      settings?.facebookUrl,
+      settings?.wikidataUrl
+    ].filter(Boolean)
+  }
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson) }}
+      />
       <Navbar
         artistName={artist?.name}
         tagline={artist ? localized(artist, 'tagline', locale) : undefined}
         instagramUrl={settings?.instagramUrl}
         facebookUrl={settings?.facebookUrl}
         locale={locale}
+        showFeatured={featured.length > 0}
       />
 
       <main id="main-content">
@@ -95,12 +160,20 @@ export default async function HomePage() {
           instagramUrl={settings?.instagramUrl}
           facebookUrl={settings?.facebookUrl}
           locale={locale}
+          recaptchaEnabled={settings?.recaptchaEnabled}
+          recaptchaSiteKey={settings?.recaptchaSiteKey}
         />
       </main>
+
+      <SeoCollapse
+        description={settings ? localized(settings, 'seoWideDescription', locale) : undefined}
+        locale={locale}
+      />
 
       <Footer
         footerTagline={settings ? localized(settings, 'footerTagline', locale) : undefined}
         locale={locale}
+        showFeatured={featured.length > 0}
       />
       <WcagBar />
     </>

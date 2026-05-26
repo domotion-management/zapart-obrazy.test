@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from 'react'
 import RevealOnScroll from './RevealOnScroll'
 import Lightbox from './Lightbox'
 import { useLocale } from '@/lib/LocaleContext'
-import { localized, type Locale } from '@/lib/dictionaries'
+import { localized, formatPrice, type Locale } from '@/lib/dictionaries'
 
 export interface ArtworkItem {
   _id: string
@@ -18,6 +18,7 @@ export interface ArtworkItem {
   dimensions: string
   description?: string
   description_en?: string
+  price?: number
 }
 
 const INITIAL_COUNT = 9
@@ -53,12 +54,7 @@ export default function Gallery({ artworks, locale: serverLocale }: { artworks: 
     if (idx >= 0) setLightboxIndex(idx)
   }
 
-  const lightboxImages = filtered.map((a) => ({
-    src: activeImageUrls.current.get(a._id) || a.mainImageUrl,
-    alt: `${localized(a, 'title', locale)} — ${localized(a, 'techniqueLabel', locale)}`,
-    title: localized(a, 'title', locale),
-    spec: `${localized(a, 'techniqueLabel', locale)} · ${a.dimensions}`,
-  }))
+
 
   const filters = [
     { key: 'all', label: t.gallery.filterAll },
@@ -96,18 +92,19 @@ export default function Gallery({ artworks, locale: serverLocale }: { artworks: 
           </div>
         </RevealOnScroll>
 
-        <div className="gallery__grid" id="galleryGrid" aria-live="polite" aria-label={t.gallery.listAria}>
-          {shown.map((art, i) => (
-            <GalleryCard
-              key={art._id}
-              artwork={art}
-              delay={i % 3}
-              locale={locale}
-              onOpenLightbox={openLightbox}
-              onViewChange={setActiveUrl}
-            />
-          ))}
-        </div>
+        <RevealOnScroll delay={2}>
+          <div className="gallery__grid" id="galleryGrid" aria-live="polite" aria-label={t.gallery.listAria}>
+            {shown.map((art) => (
+              <GalleryCard
+                key={art._id}
+                artwork={art}
+                locale={locale}
+                onOpenLightbox={openLightbox}
+                onViewChange={setActiveUrl}
+              />
+            ))}
+          </div>
+        </RevealOnScroll>
 
         {hasMore && (
           <div className="gallery__load-more">
@@ -126,7 +123,7 @@ export default function Gallery({ artworks, locale: serverLocale }: { artworks: 
 
       {lightboxIndex !== null && (
         <Lightbox
-          images={lightboxImages}
+          artworks={filtered}
           startIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
         />
@@ -137,13 +134,11 @@ export default function Gallery({ artworks, locale: serverLocale }: { artworks: 
 
 function GalleryCard({
   artwork: art,
-  delay,
   locale,
   onOpenLightbox,
   onViewChange,
 }: {
   artwork: ArtworkItem
-  delay: number
   locale: Locale
   onOpenLightbox: (id: string) => void
   onViewChange: (id: string, url: string) => void
@@ -154,11 +149,21 @@ function GalleryCard({
   const tech = localized(art, 'techniqueLabel', locale)
   const desc = localized(art, 'description', locale)
 
-  const views = [
-    { src: art.mainImageUrl, alt: `${title} — ${tech}`, label: t.gallery.viewPainting },
+  const views: { src: string; alt: string; label: string }[] = [
+    {
+      src: art.mainImageUrl,
+      alt: [title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', '),
+      label: t.gallery.viewPainting
+    },
   ]
   if (art.interiorImageUrl) {
-    views.push({ src: art.interiorImageUrl, alt: `${title} — ${t.gallery.viewInterior}`, label: t.gallery.viewInterior })
+    views.push({
+      src: art.interiorImageUrl,
+      alt: locale === 'en'
+        ? `${title}, ${tech}, Włodzimierz Zapart (visualization in an interior)`
+        : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`,
+      label: t.gallery.viewInterior
+    })
   }
 
   const currentView = views[activeView] || views[0]
@@ -169,58 +174,66 @@ function GalleryCard({
   }
 
   return (
-    <RevealOnScroll delay={delay}>
-      <article className="listing-card" data-tech={art.technique}>
-        <div className="listing-card__img-wrap" onClick={() => onOpenLightbox(art._id)} style={{ cursor: 'zoom-in' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={currentView.src}
-            alt={currentView.alt}
-            className="listing-card__img"
-            loading="lazy"
-            decoding="async"
-          />
-          {views.length > 1 && (
-            <div className="img-switcher" role="tablist" aria-label={t.gallery.viewsAria}>
-              {views.map((v, i) => (
-                <button
-                  key={i}
-                  className={`img-switcher__btn ${i === activeView ? 'is-active' : ''}`}
-                  role="tab"
-                  aria-selected={i === activeView}
-                  aria-label={v.label}
-                  onClick={(e) => { e.stopPropagation(); switchView(i) }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={v.src} alt="" aria-hidden="true" width={52} height={52} loading="lazy" decoding="async" />
-                  <span className="img-switcher__label">{v.label}</span>
-                </button>
-              ))}
-            </div>
+    <article className="listing-card" data-tech={art.technique}>
+      <div className="listing-card__img-wrap" onClick={() => onOpenLightbox(art._id)} style={{ cursor: 'zoom-in' }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={currentView.src}
+          alt={currentView.alt}
+          className="listing-card__img"
+          loading="lazy"
+          decoding="async"
+        />
+        {views.length > 1 && (
+          <div className="img-switcher" role="tablist" aria-label={t.gallery.viewsAria}>
+            {views.map((v, i) => (
+              <button
+                key={i}
+                className={`img-switcher__btn ${i === activeView ? 'is-active' : ''}`}
+                role="tab"
+                aria-selected={i === activeView}
+                aria-label={v.label}
+                onClick={(e) => { e.stopPropagation(); switchView(i) }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={v.src} alt="" role="presentation" aria-hidden="true" width={52} height={52} loading="lazy" decoding="async" />
+                <span className="img-switcher__label">{v.label}</span>
+              </button>
+            ))}
+          </div>
+        )}
+        <div className="listing-card__badge-wrap" aria-hidden="true">
+          <span className="listing-card__badge listing-card__badge--size">{art.dimensions}</span>
+          <span className="listing-card__badge listing-card__badge--tech">{tech}</span>
+        </div>
+      </div>
+      <div className="listing-card__body">
+        <h3 className="listing-card__title">{title}</h3>
+        {desc && <p className="listing-card__desc">{desc}</p>}
+        <div className="listing-card__price">
+          {art.price && art.price > 0 ? (
+            <>
+              <span className="listing-card__price-label">{locale === 'en' ? 'Price: ' : 'Cena: '}</span>
+              <span className="listing-card__price-value">{formatPrice(art.price, locale)}</span>
+            </>
+          ) : (
+            <span className="listing-card__price-request">{formatPrice(art.price, locale)}</span>
           )}
-          <div className="listing-card__badge-wrap" aria-hidden="true">
-            <span className="listing-card__badge listing-card__badge--size">{art.dimensions}</span>
-            <span className="listing-card__badge listing-card__badge--tech">{tech}</span>
-          </div>
         </div>
-        <div className="listing-card__body">
-          <h3 className="listing-card__title">{title}</h3>
-          {desc && <p className="listing-card__desc">{desc}</p>}
-          <div className="listing-card__footer">
-            <div className="listing-card__spec-inline" aria-label={`${art.dimensions}, ${tech}`}>
-              <span className="listing-card__spec-item">{art.dimensions}</span>
-              <div className="listing-card__spec-sep" aria-hidden="true" />
-              <span className="listing-card__spec-item">{tech}</span>
-            </div>
-            <a href="#kontakt" className="listing-card__cta">
-              {t.gallery.ask}{' '}
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
+        <div className="listing-card__footer">
+          <div className="listing-card__spec-inline" aria-label={`${art.dimensions}, ${tech}`}>
+            <span className="listing-card__spec-item">{art.dimensions}</span>
+            <div className="listing-card__spec-sep" aria-hidden="true" />
+            <span className="listing-card__spec-item">{tech}</span>
           </div>
+          <a href="#kontakt" className="listing-card__cta">
+            {t.gallery.ask}{' '}
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M1 5h8M6 1.5l3.5 3.5L6 8.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </div>
-      </article>
-    </RevealOnScroll>
+      </div>
+    </article>
   )
 }

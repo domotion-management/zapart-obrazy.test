@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   try {
     const { getSeriesBySlug } = await import('@/lib/queries')
-    const series = await getSeriesBySlug(slug)
+    const series = (await getSeriesBySlug(slug)) as SeriesData | null
     if (!series) return { title: 'Seria nie znaleziona' }
     return {
       title: `${series.title} — Włodzimierz Zapart`,
@@ -41,12 +41,22 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ s
   const { locale, t } = await getServerI18n()
 
   let series: SeriesData | null = null
+  let navFooterData: { artist: any; settings: any; showFeatured: boolean } | null = null
   try {
-    const { getSeriesBySlug } = await import('@/lib/queries')
-    series = await getSeriesBySlug(slug)
+    const { getSeriesBySlug, getNavbarFooterData } = await import('@/lib/queries')
+    const [seriesResult, navFooterResult] = await Promise.all([
+      getSeriesBySlug(slug),
+      getNavbarFooterData(),
+    ])
+    series = seriesResult as SeriesData | null
+    navFooterData = navFooterResult as any
   } catch { /* Sanity not configured */ }
 
   if (!series) notFound()
+
+  const artist = navFooterData?.artist
+  const settings = navFooterData?.settings
+  const showFeatured = navFooterData?.showFeatured || false
 
   const artworks: ArtworkItem[] = (series.artworks || []).map((a) => ({
     _id: a._id as string,
@@ -60,11 +70,19 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ s
     dimensions: a.dimensions as string,
     description: a.description as string | undefined,
     description_en: a.description_en as string | undefined,
+    price: a.price as number | undefined,
   }))
 
   return (
     <>
-      <Navbar locale={locale} />
+      <Navbar
+        artistName={artist?.name}
+        tagline={artist ? localized(artist, 'tagline', locale) : undefined}
+        instagramUrl={settings?.instagramUrl}
+        facebookUrl={settings?.facebookUrl}
+        locale={locale}
+        showFeatured={showFeatured}
+      />
       <main id="main-content" style={{ paddingTop: 'var(--nav-h)' }}>
         <section style={{ padding: 'var(--section-pad) 0' }}>
           <div className="container">
@@ -83,7 +101,11 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ s
         </section>
         {artworks.length > 0 && <Gallery artworks={artworks} locale={locale} />}
       </main>
-      <Footer locale={locale} />
+      <Footer
+        footerTagline={settings ? localized(settings, 'footerTagline', locale) : undefined}
+        locale={locale}
+        showFeatured={showFeatured}
+      />
       <WcagBar />
     </>
   )

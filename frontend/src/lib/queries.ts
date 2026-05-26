@@ -21,7 +21,8 @@ export async function getAllArtworks(technique?: string) {
       description,
       description_en,
       featured,
-      order
+      order,
+      price
     }`,
     technique && technique !== 'all' ? { technique } : {}
   )
@@ -38,7 +39,8 @@ export async function getFeaturedArtworks() {
       technique,
       techniqueLabel,
       techniqueLabel_en,
-      dimensions
+      dimensions,
+      price
     }`
   )
 }
@@ -59,7 +61,8 @@ export async function getArtworkBySlug(slug: string) {
       description,
       description_en,
       featured,
-      order
+      order,
+      price
     }`,
     { slug }
   )
@@ -120,7 +123,26 @@ export async function getSiteSettings() {
       instagramUrl,
       facebookUrl,
       footerTagline,
-      footerTagline_en
+      footerTagline_en,
+      privacyPolicy,
+      privacyPolicy_en,
+      seoTitle,
+      seoTitle_en,
+      seoDescription,
+      seoDescription_en,
+      seoWideDescription,
+      seoWideDescription_en,
+      entityType,
+      entityKeywords,
+      entityKeywords_en,
+      entityStyles,
+      entityStyles_en,
+      wikidataUrl,
+      googleMapsUrl,
+      geoCoordinates,
+      recaptchaEnabled,
+      recaptchaSiteKey,
+      recaptchaSecretKey
     }`
   )
 }
@@ -166,7 +188,8 @@ export async function getSeriesBySlug(slug: string) {
         techniqueLabel_en,
         dimensions,
         description,
-        description_en
+        description_en,
+        price
       }
     }`,
     { slug }
@@ -177,4 +200,17 @@ export async function getAllSeriesSlugs() {
   return sanityFetch<{ slug: string }[]>(
     `*[_type == "artSeries" && defined(slug.current)] { "slug": slug.current }`
   )
+}
+
+export async function getNavbarFooterData() {
+  const [artist, settings, featured] = await Promise.all([
+    getArtist().catch(() => null),
+    getSiteSettings().catch(() => null),
+    getFeaturedArtworks().catch(() => []),
+  ])
+  return {
+    artist,
+    settings,
+    showFeatured: ((featured as any[]) || []).length > 0,
+  }
 }

@@ -1,32 +1,45 @@
 import { type Locale, getDictionary } from '@/lib/dictionaries'
 
-export default function Footer({ footerTagline, locale }: { footerTagline?: string; locale: Locale }) {
+export default function Footer({ footerTagline, locale, showFeatured = false }: { footerTagline?: string; locale: Locale; showFeatured?: boolean }) {
   const t = getDictionary(locale)
 
   return (
-    <footer className="footer" role="contentinfo">
-      <div className="container">
-        <div className="footer__inner">
-          <div>
-            <div className="footer__brand-name">Włodzimierz Zapart</div>
-            <div className="footer__brand-sub">zapart-obrazy.com</div>
+    <>
+      <footer className="footer" role="contentinfo">
+        <div className="container">
+          <div className="footer__inner">
+            <div>
+              <div className="footer__brand-name">Włodzimierz Zapart</div>
+              <div className="footer__brand-sub">zapart-obrazy.com</div>
+            </div>
+            <nav className="footer__nav" aria-label={t.nav.footerNav}>
+              <a href="/#o-mnie">{t.nav.about}</a>
+              {showFeatured && <a href="/#wybrane-prace">{t.footer.works}</a>}
+              <a href="/#galeria">{t.nav.gallery}</a>
+              <a href="/#kontakt">{t.nav.contact}</a>
+              <a href="/polityka-prywatnosci">{t.contact.privacyPolicy}</a>
+            </nav>
           </div>
-          <nav className="footer__nav" aria-label={t.nav.footerNav}>
-            <a href="/#o-mnie">{t.nav.about}</a>
-            <a href="/#wybrane-prace">{t.footer.works}</a>
-            <a href="/#galeria">{t.nav.gallery}</a>
-            <a href="/#kontakt">{t.nav.contact}</a>
-          </nav>
+          <div className="footer__bottom">
+            <span className="footer__copy">
+              {t.footer.copyright(new Date().getFullYear())}
+            </span>
+            {footerTagline && (
+              <span className="footer__tagline">{footerTagline}</span>
+            )}
+          </div>
         </div>
-        <div className="footer__bottom">
-          <span className="footer__copy">
-            {t.footer.copyright(new Date().getFullYear())}
+      </footer>
+      <div className="footer__signature">
+        <div className="container">
+          <span>
+            {locale === 'en' ? 'Designed & developed by ' : 'Projekt i wykonanie: '}
+            <a href="#" target="_blank" rel="noopener noreferrer" className="footer__signature-link">
+              PRADOM
+            </a>
           </span>
-          {footerTagline && (
-            <span className="footer__tagline">{footerTagline}</span>
-          )}
         </div>
       </div>
-    </footer>
+    </>
   )
 }

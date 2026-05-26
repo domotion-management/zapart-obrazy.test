@@ -27,7 +27,7 @@ interface SeriesItem {
 async function getSeries(): Promise<SeriesItem[]> {
   try {
     const { getAllSeries } = await import('@/lib/queries')
-    const series = await getAllSeries()
+    const series = (await getAllSeries()) as any[] | null
     if (!series || series.length === 0) return []
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return series.map((s: any) => ({
@@ -47,12 +47,24 @@ async function getSeries(): Promise<SeriesItem[]> {
 }
 
 export default async function ProjektyPage() {
-  const series = await getSeries()
+  const { getNavbarFooterData } = await import('@/lib/queries')
+  const [series, navFooterData] = await Promise.all([
+    getSeries(),
+    getNavbarFooterData(),
+  ])
+  const { artist, settings, showFeatured } = navFooterData as { artist: any; settings: any; showFeatured: boolean }
   const { locale, t } = await getServerI18n()
 
   return (
     <>
-      <Navbar locale={locale} />
+      <Navbar
+        artistName={artist?.name}
+        tagline={artist ? localized(artist, 'tagline', locale) : undefined}
+        instagramUrl={settings?.instagramUrl}
+        facebookUrl={settings?.facebookUrl}
+        locale={locale}
+        showFeatured={showFeatured}
+      />
       <main id="main-content" style={{ paddingTop: 'var(--nav-h)' }}>
         <section style={{ padding: 'var(--section-pad) 0' }}>
           <div className="container">
@@ -74,7 +86,16 @@ export default async function ProjektyPage() {
                       <article className="series-card">
                         {s.coverImageUrl && (
                           /* eslint-disable-next-line @next/next/no-img-element */
-                          <img src={s.coverImageUrl} alt={localized(s, 'title', locale)} className="series-card__img" loading="lazy" />
+                          <img
+                            src={s.coverImageUrl}
+                            alt={
+                              locale === 'en'
+                                ? `Artistic series: ${localized(s, 'title', locale)}, Włodzimierz Zapart`
+                                : `Seria artystyczna: ${localized(s, 'title', locale)}, Włodzimierz Zapart`
+                            }
+                            className="series-card__img"
+                            loading="lazy"
+                          />
                         )}
                         <div className="series-card__body">
                           <h2 className="series-card__title">{localized(s, 'title', locale)}</h2>
@@ -102,7 +123,11 @@ export default async function ProjektyPage() {
           </div>
         </section>
       </main>
-      <Footer locale={locale} />
+      <Footer
+        footerTagline={settings ? localized(settings, 'footerTagline', locale) : undefined}
+        locale={locale}
+        showFeatured={showFeatured}
+      />
       <WcagBar />
     </>
   )
