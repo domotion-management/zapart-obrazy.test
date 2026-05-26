@@ -19,7 +19,7 @@
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form__group { margin-bottom: 20px; position: relative; }
 .form__label { display: block; font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 8px; }
-.form__input, .form__textarea { width: 100%; padding: 13px 16px; font-family: var(--font-inter), sans-serif; font-size: .92rem; color: var(--ink); background: var(--bg); border: 1px solid var(--cream); border-radius: 3px; outline: none; transition: border-color .25s, box-shadow .25s; -webkit-appearance: none; }
+.form__input, .form__textarea { width: 100%; padding: 13px 16px; font-family: var(--font-inter), sans-serif; font-size: .92rem; color: var(--ink); background: var(--bg); border: 1px solid var(--cream); border-radius: 3px; outline: none; transition: border-color .25s, box-shadow .25s; -webkit-appearance: none; appearance: none; }
 .form__input::placeholder, .form__textarea::placeholder { color: rgba(26,26,26,.3); }
 .form__input:focus, .form__textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,150,62,.12); }
 .form__textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
@@ -419,9 +419,10 @@ html.high-contrast .series-card__tag {
   .form__row { grid-template-columns: 1fr; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
   .footer__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .lightbox__desc-toggle { display: inline-flex; }
-  .lightbox__desc { display: none; }
-  .lightbox__desc.is-expanded { display: block; margin-top: 4px; animation: lightboxFadeIn .2s var(--ease-out) forwards; }
+  .lightbox__desc { display: -webkit-box; -webkit-line-clamp: 1; line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; margin-top: 4px; }
+  .lightbox__desc.is-expanded { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; margin-top: 4px; animation: lightboxFadeIn .2s var(--ease-out) forwards; }
 }
 @media (max-width: 600px) {
   .lightbox__img { max-width: calc(100% - 80px); }

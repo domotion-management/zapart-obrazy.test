@@ -238,9 +238,17 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
               className={`lightbox__desc-toggle ${showDescMobile ? 'is-active' : ''}`}
               onClick={() => setShowDescMobile(!showDescMobile)}
               aria-expanded={showDescMobile}
-              aria-label={showDescMobile ? "Ukryj opis" : "Pokaż opis"}
+              aria-label={
+                showDescMobile
+                  ? (locale === 'en' ? 'Collapse description' : 'Zwiń opis')
+                  : (locale === 'en' ? 'Read full description' : 'Czytaj cały opis')
+              }
             >
-              <span>{showDescMobile ? '− Info' : '+ Info'}</span>
+              <span>
+                {showDescMobile
+                  ? (locale === 'en' ? 'collapse description' : 'zwiń opis')
+                  : (locale === 'en' ? 'read full description' : 'czytaj cały opis')}
+              </span>
             </button>
           )}
           <span className="lightbox__counter">
