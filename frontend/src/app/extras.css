@@ -112,6 +112,19 @@ html.high-contrast .footer__signature-link {
   text-decoration: underline !important;
 }
 
+html.high-contrast .lightbox__desc-toggle {
+  border: 2px solid #FFFFFF !important;
+  color: #FFFFFF !important;
+  background: #000000 !important;
+}
+
+html.high-contrast .lightbox__desc-toggle:hover,
+html.high-contrast .lightbox__desc-toggle.is-active {
+  border-color: #FFFF00 !important;
+  color: #000000 !important;
+  background: #FFFF00 !important;
+}
+
 /* Nav scrolled high-contrast */
 html.high-contrast .nav.scrolled {
   background: #FFFFFF !important;
@@ -371,6 +384,8 @@ html.high-contrast .series-card__tag {
 .lightbox__counter { font-family: var(--font-inter), sans-serif; font-size: .7rem; font-weight: 600; color: rgba(250,248,245,.35); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
 .lightbox__desc { font-family: var(--font-open-sans), sans-serif; font-style: italic; font-size: clamp(.85rem,1.8vw,1rem); color: rgba(250,248,245,.55); line-height: 1.6; margin: 0; }
 .lightbox__desc:empty { display: none; }
+.lightbox__desc-toggle { display: none; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(250,248,245,.25); border-radius: 100px; color: rgba(250,248,245,.75); font-family: var(--font-inter), sans-serif; font-size: .65rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; padding: 4px 10px; cursor: pointer; transition: all .2s var(--ease-out); line-height: 1; height: 22px; }
+.lightbox__desc-toggle:hover, .lightbox__desc-toggle.is-active { border-color: var(--gold); color: var(--gold-light); background: rgba(200,150,62,.15); }
 .lightbox__strip-wrap { overflow: hidden; }
 .lightbox__strip { display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2px; }
 .lightbox__strip::-webkit-scrollbar { display: none; }
@@ -404,6 +419,9 @@ html.high-contrast .series-card__tag {
   .form__row { grid-template-columns: 1fr; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
   .footer__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .lightbox__desc-toggle { display: inline-flex; }
+  .lightbox__desc { display: none; }
+  .lightbox__desc.is-expanded { display: block; margin-top: 4px; animation: lightboxFadeIn .2s var(--ease-out) forwards; }
 }
 @media (max-width: 600px) {
   .lightbox__img { max-width: calc(100% - 80px); }

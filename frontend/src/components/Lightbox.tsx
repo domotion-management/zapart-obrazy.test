@@ -28,6 +28,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
   const [index, setIndex] = useState(startIndex)
   const [variantIdx, setVariantIdx] = useState(0)
   const [switching, setSwitching] = useState(false)
+  const [showDescMobile, setShowDescMobile] = useState(false)
   
   const currentArtwork = artworks[index]
   const title = localized(currentArtwork, 'title', locale)
@@ -79,6 +80,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
     if (hasPrev) {
       setIndex((i) => i - 1)
       setVariantIdx(0)
+      setShowDescMobile(false)
     }
   }, [hasPrev])
 
@@ -86,6 +88,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
     if (hasNext) {
       setIndex((i) => i + 1)
       setVariantIdx(0)
+      setShowDescMobile(false)
     }
   }, [hasNext])
 
@@ -230,11 +233,25 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
               </span></>
             )}
           </span>
+          {desc && (
+            <button
+              className={`lightbox__desc-toggle ${showDescMobile ? 'is-active' : ''}`}
+              onClick={() => setShowDescMobile(!showDescMobile)}
+              aria-expanded={showDescMobile}
+              aria-label={showDescMobile ? "Ukryj opis" : "Pokaż opis"}
+            >
+              <span>{showDescMobile ? '− Info' : '+ Info'}</span>
+            </button>
+          )}
           <span className="lightbox__counter">
             {index + 1} / {artworks.length}
           </span>
         </div>
-        {desc && <p className="lightbox__desc">{desc}</p>}
+        {desc && (
+          <p className={`lightbox__desc ${showDescMobile ? 'is-expanded' : ''}`}>
+            {desc}
+          </p>
+        )}
         <div className="lightbox__strip-wrap">
           <div ref={stripRef} className="lightbox__strip" role="listbox" aria-label="Miniatury obrazów">
             {artworks.map((art, i) => {
@@ -249,6 +266,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
                   onClick={() => {
                     setIndex(i)
                     setVariantIdx(0)
+                    setShowDescMobile(false)
                   }}
                 >
                   <img src={art.mainImageUrl} alt="" role="presentation" loading="lazy" decoding="async" width="52" height="52" />
