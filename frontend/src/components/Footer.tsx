@@ -1,6 +1,22 @@
 import { type Locale, getDictionary } from '@/lib/dictionaries'
 
-export default function Footer({ footerTagline, locale, showFeatured = false }: { footerTagline?: string; locale: Locale; showFeatured?: boolean }) {
+interface FooterProps {
+  footerTagline?: string
+  locale: Locale
+  showFeatured?: boolean
+  signatureUrl?: string
+  signatureTitle?: string
+  signatureAriaLabel?: string
+}
+
+export default function Footer({
+  footerTagline,
+  locale,
+  showFeatured = false,
+  signatureUrl,
+  signatureTitle,
+  signatureAriaLabel
+}: FooterProps) {
   const t = getDictionary(locale)
 
   return (
@@ -34,7 +50,14 @@ export default function Footer({ footerTagline, locale, showFeatured = false }: 
         <div className="container">
           <span>
             {locale === 'en' ? 'Designed & developed by ' : 'Projekt i wykonanie: '}
-            <a href="#" target="_blank" rel="noopener noreferrer" className="footer__signature-link">
+            <a
+              href={signatureUrl || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__signature-link"
+              title={signatureTitle}
+              aria-label={signatureAriaLabel}
+            >
               PRADOM
             </a>
           </span>

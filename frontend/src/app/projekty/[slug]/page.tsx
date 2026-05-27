@@ -116,6 +116,9 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ s
         footerTagline={settings ? localized(settings, 'footerTagline', locale) : undefined}
         locale={locale}
         showFeatured={showFeatured}
+        signatureUrl={settings?.signatureUrl}
+        signatureTitle={settings ? localized(settings, 'signatureTitle', locale) : undefined}
+        signatureAriaLabel={settings ? localized(settings, 'signatureAriaLabel', locale) : undefined}
       />
       <WcagBar />
     </>

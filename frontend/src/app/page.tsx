@@ -192,6 +192,9 @@ export default async function HomePage() {
         footerTagline={settings ? localized(settings, 'footerTagline', locale) : undefined}
         locale={locale}
         showFeatured={featured.length > 0}
+        signatureUrl={settings?.signatureUrl}
+        signatureTitle={settings ? localized(settings, 'signatureTitle', locale) : undefined}
+        signatureAriaLabel={settings ? localized(settings, 'signatureAriaLabel', locale) : undefined}
       />
       <WcagBar />
     </>

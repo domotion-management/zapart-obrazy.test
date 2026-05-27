@@ -75,6 +75,20 @@ export const siteSettings = defineType({
       description: 'Pełna treść polityki prywatności (obsługuje entery)',
       group: 'pl',
     }),
+    defineField({
+      name: 'signatureTitle',
+      title: 'Tytuł linku stopki (Title) - PL',
+      description: 'Tekst dymku (tooltip) po najechaniu na podpis PRADOM w stopce.',
+      type: 'string',
+      group: 'pl',
+    }),
+    defineField({
+      name: 'signatureAriaLabel',
+      title: 'Opis dostępności stopki (Aria Label) - PL',
+      description: 'Tekst dla czytników ekranu i SEO dla podpisu PRADOM w stopce.',
+      type: 'string',
+      group: 'pl',
+    }),
 
     /* ── EN fields ──────────────────────────────────────── */
     defineField({
@@ -127,6 +141,20 @@ export const siteSettings = defineType({
       type: 'text',
       rows: 15,
       description: 'Full content of the privacy policy in English',
+      group: 'en',
+    }),
+    defineField({
+      name: 'signatureTitle_en',
+      title: 'Signature tooltip title (Title) - EN',
+      description: 'Tooltip text on hover for the PRADOM signature link in English.',
+      type: 'string',
+      group: 'en',
+    }),
+    defineField({
+      name: 'signatureAriaLabel_en',
+      title: 'Signature accessibility label (Aria Label) - EN',
+      description: 'Screen reader and SEO text for the PRADOM signature link in English.',
+      type: 'string',
       group: 'en',
     }),
 
@@ -182,6 +210,13 @@ export const siteSettings = defineType({
     defineField({
       name: 'facebookUrl',
       title: 'Facebook URL',
+      type: 'url',
+      group: 'social',
+    }),
+    defineField({
+      name: 'signatureUrl',
+      title: 'Adres URL stopki (PRADOM)',
+      description: 'Link do strony wykonawcy pod podpisem w stopce.',
       type: 'url',
       group: 'social',
     }),

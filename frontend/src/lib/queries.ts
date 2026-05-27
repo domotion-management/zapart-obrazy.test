@@ -142,7 +142,12 @@ export async function getSiteSettings() {
       geoCoordinates,
       recaptchaEnabled,
       recaptchaSiteKey,
-      recaptchaSecretKey
+      recaptchaSecretKey,
+      signatureUrl,
+      signatureTitle,
+      signatureTitle_en,
+      signatureAriaLabel,
+      signatureAriaLabel_en
     }`
   )
 }
