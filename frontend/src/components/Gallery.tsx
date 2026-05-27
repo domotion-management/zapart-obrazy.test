@@ -11,7 +11,11 @@ export interface ArtworkItem {
   title: string
   title_en?: string
   mainImageUrl: string
+  mainImageAlt?: string
+  mainImageTitle?: string
   interiorImageUrl?: string
+  interiorImageAlt?: string
+  interiorImageTitle?: string
   technique: string
   techniqueLabel: string
   techniqueLabel_en?: string
@@ -149,19 +153,23 @@ function GalleryCard({
   const tech = localized(art, 'techniqueLabel', locale)
   const desc = localized(art, 'description', locale)
 
-  const views: { src: string; alt: string; label: string }[] = [
+  const views: { src: string; alt: string; title: string; label: string }[] = [
     {
       src: art.mainImageUrl,
-      alt: [title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', '),
+      alt: art.mainImageAlt || [title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', '),
+      title: art.mainImageTitle || title,
       label: t.gallery.viewPainting
     },
   ]
   if (art.interiorImageUrl) {
     views.push({
       src: art.interiorImageUrl,
-      alt: locale === 'en'
+      alt: art.interiorImageAlt || (locale === 'en'
         ? `${title}, ${tech}, Włodzimierz Zapart (visualization in an interior)`
-        : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`,
+        : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`),
+      title: art.interiorImageTitle || (locale === 'en'
+        ? `${title} (interior visualization)`
+        : `${title} (wizualizacja we wnętrzu)`),
       label: t.gallery.viewInterior
     })
   }
@@ -180,6 +188,7 @@ function GalleryCard({
         <img
           src={currentView.src}
           alt={currentView.alt}
+          title={currentView.title}
           className="listing-card__img"
           loading="lazy"
           decoding="async"

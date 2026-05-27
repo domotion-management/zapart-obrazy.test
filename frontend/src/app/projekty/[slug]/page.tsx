@@ -58,20 +58,31 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ s
   const settings = navFooterData?.settings
   const showFeatured = navFooterData?.showFeatured || false
 
-  const artworks: ArtworkItem[] = (series.artworks || []).map((a) => ({
-    _id: a._id as string,
-    title: a.title as string,
-    title_en: a.title_en as string | undefined,
-    mainImageUrl: a.mainImage ? urlFor(a.mainImage).width(768).url() : '',
-    interiorImageUrl: a.interiorImage ? urlFor(a.interiorImage).width(768).url() : undefined,
-    technique: a.technique as string,
-    techniqueLabel: a.techniqueLabel as string,
-    techniqueLabel_en: a.techniqueLabel_en as string | undefined,
-    dimensions: a.dimensions as string,
-    description: a.description as string | undefined,
-    description_en: a.description_en as string | undefined,
-    price: a.price as number | undefined,
-  }))
+  const artworks: ArtworkItem[] = (series.artworks || []).map((a) => {
+    const mainAlt = locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt
+    const mainTitle = locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title
+    const intAlt = locale === 'en' ? a.interiorImage?.alt_en : a.interiorImage?.alt
+    const intTitle = locale === 'en' ? a.interiorImage?.title_en : a.interiorImage?.title
+
+    return {
+      _id: a._id as string,
+      title: a.title as string,
+      title_en: a.title_en as string | undefined,
+      mainImageUrl: a.mainImage ? urlFor(a.mainImage).width(768).url() : '',
+      mainImageAlt: mainAlt as string | undefined,
+      mainImageTitle: mainTitle as string | undefined,
+      interiorImageUrl: a.interiorImage ? urlFor(a.interiorImage).width(768).url() : undefined,
+      interiorImageAlt: intAlt as string | undefined,
+      interiorImageTitle: intTitle as string | undefined,
+      technique: a.technique as string,
+      techniqueLabel: a.techniqueLabel as string,
+      techniqueLabel_en: a.techniqueLabel_en as string | undefined,
+      dimensions: a.dimensions as string,
+      description: a.description as string | undefined,
+      description_en: a.description_en as string | undefined,
+      price: a.price as number | undefined,
+    }
+  })
 
   return (
     <>

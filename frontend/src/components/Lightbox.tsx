@@ -10,7 +10,11 @@ interface LightboxProps {
     title: string
     title_en?: string
     mainImageUrl: string
+    mainImageAlt?: string
+    mainImageTitle?: string
     interiorImageUrl?: string
+    interiorImageAlt?: string
+    interiorImageTitle?: string
     technique: string
     techniqueLabel: string
     techniqueLabel_en?: string
@@ -35,19 +39,23 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
   const tech = localized(currentArtwork, 'techniqueLabel', locale)
   const desc = localized(currentArtwork, 'description', locale)
 
-  const views: { src: string; alt: string; label: string }[] = [
+  const views: { src: string; alt: string; title: string; label: string }[] = [
     {
       src: currentArtwork.mainImageUrl,
-      alt: [title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', '),
+      alt: currentArtwork.mainImageAlt || [title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', '),
+      title: currentArtwork.mainImageTitle || title,
       label: t.gallery.viewPainting
     },
   ]
   if (currentArtwork.interiorImageUrl) {
     views.push({
       src: currentArtwork.interiorImageUrl,
-      alt: locale === 'en'
+      alt: currentArtwork.interiorImageAlt || (locale === 'en'
         ? `${title}, ${tech}, Włodzimierz Zapart (visualization in an interior)`
-        : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`,
+        : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`),
+      title: currentArtwork.interiorImageTitle || (locale === 'en'
+        ? `${title} (interior visualization)`
+        : `${title} (wizualizacja we wnętrzu)`),
       label: t.gallery.viewInterior,
     })
   }
@@ -55,6 +63,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
 
   const [imageSrc, setImageSrc] = useState(currentView.src)
   const [imageAlt, setImageAlt] = useState(currentView.alt)
+  const [imageTitle, setImageTitle] = useState(currentView.title)
 
   // Image loading/transition logic
   useEffect(() => {
@@ -64,14 +73,16 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
     img.onload = () => {
       setImageSrc(currentView.src)
       setImageAlt(currentView.alt)
+      setImageTitle(currentView.title)
       setSwitching(false)
     }
     img.onerror = () => {
       setImageSrc(currentView.src)
       setImageAlt(currentView.alt)
+      setImageTitle(currentView.title)
       setSwitching(false)
     }
-  }, [currentView.src, currentView.alt])
+  }, [currentView.src, currentView.alt, currentView.title])
 
   const hasPrev = index > 0
   const hasNext = index < artworks.length - 1
@@ -189,6 +200,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
             className={`lightbox__img ${switching ? 'is-switching' : ''}`}
             src={imageSrc}
             alt={imageAlt}
+            title={imageTitle}
             draggable="false"
           />
           {views.length > 1 && (

@@ -39,7 +39,7 @@ export async function generateMetadata() {
   }
 }
 
-async function getData() {
+async function getData(locale: string) {
   const { getAllArtworks, getFeaturedArtworks, getArtist, getSiteSettings } = await import('@/lib/queries')
 
   // Fetch settings and artist independently — these should always be available
@@ -50,8 +50,8 @@ async function getData() {
   ])
 
   // Fetch artworks separately so a failure here doesn't discard settings/artist
-  let artworks: ReturnType<typeof urlFor>[] = []
-  let featured: ReturnType<typeof urlFor>[] = []
+  let artworks: any[] = []
+  let featured: any[] = []
   try {
     const [rawArtworks, rawFeatured] = await Promise.all([
       getAllArtworks(),
@@ -63,16 +63,34 @@ async function getData() {
     const featuredList = (rawFeatured as any[] | null) || []
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    artworks = artworkList.map((a: any) => ({
-      ...a,
-      mainImageUrl: a.mainImage ? urlFor(a.mainImage).width(768).url() : '',
-      interiorImageUrl: a.interiorImage ? urlFor(a.interiorImage).width(768).url() : undefined,
-    }))
+    artworks = artworkList.map((a: any) => {
+      const mainAlt = locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt
+      const mainTitle = locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title
+      const intAlt = locale === 'en' ? a.interiorImage?.alt_en : a.interiorImage?.alt
+      const intTitle = locale === 'en' ? a.interiorImage?.title_en : a.interiorImage?.title
+
+      return {
+        ...a,
+        mainImageUrl: a.mainImage ? urlFor(a.mainImage).width(768).url() : '',
+        mainImageAlt: mainAlt || '',
+        mainImageTitle: mainTitle || '',
+        interiorImageUrl: a.interiorImage ? urlFor(a.interiorImage).width(768).url() : undefined,
+        interiorImageAlt: intAlt || '',
+        interiorImageTitle: intTitle || '',
+      }
+    })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    featured = featuredList.map((a: any) => ({
-      ...a,
-      mainImageUrl: a.mainImage ? urlFor(a.mainImage).width(768).url() : '',
-    }))
+    featured = featuredList.map((a: any) => {
+      const mainAlt = locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt
+      const mainTitle = locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title
+
+      return {
+        ...a,
+        mainImageUrl: a.mainImage ? urlFor(a.mainImage).width(768).url() : '',
+        mainImageAlt: mainAlt || '',
+        mainImageTitle: mainTitle || '',
+      }
+    })
   } catch {
     // artworks stay empty, but settings/artist are still available
   }
@@ -90,8 +108,8 @@ async function getData() {
 }
 
 export default async function HomePage() {
-  const { artworks, featured, artist, settings } = await getData()
   const { locale } = await getServerI18n()
+  const { artworks, featured, artist, settings } = await getData(locale)
 
   const keywordsString = locale === 'en'
     ? (settings?.entityKeywords_en || '')

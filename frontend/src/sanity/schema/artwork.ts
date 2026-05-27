@@ -67,6 +67,32 @@ export const artwork = defineType({
       options: { hotspot: true },
       validation: (rule) => rule.required(),
       group: 'media',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Tekst alternatywny (Alt) - PL',
+          description: 'Opis obrazka dla czytników ekranu i robotów wyszukiwarek (SEO).',
+        },
+        {
+          name: 'alt_en',
+          type: 'string',
+          title: 'Alternative text (Alt) - EN',
+          description: 'Alternative description of the image in English.',
+        },
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Tytuł obrazka (Title) - PL',
+          description: 'Dodatkowy tytuł wyświetlany np. jako tooltip.',
+        },
+        {
+          name: 'title_en',
+          type: 'string',
+          title: 'Image title (Title) - EN',
+          description: 'Tooltip title of the image in English.',
+        },
+      ]
     }),
     defineField({
       name: 'interiorImage',
@@ -75,6 +101,32 @@ export const artwork = defineType({
       options: { hotspot: true },
       description: 'Opcjonalne zdjęcie obrazu w aranżacji wnętrza',
       group: 'media',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Tekst alternatywny (Alt) - PL',
+          description: 'Opis wizualizacji dla czytników ekranu i robotów wyszukiwarek (SEO).',
+        },
+        {
+          name: 'alt_en',
+          type: 'string',
+          title: 'Alternative text (Alt) - EN',
+          description: 'Alternative description of the visualization in English.',
+        },
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Tytuł wizualizacji (Title) - PL',
+          description: 'Dodatkowy tytuł wyświetlany np. jako tooltip.',
+        },
+        {
+          name: 'title_en',
+          type: 'string',
+          title: 'Visualization title (Title) - EN',
+          description: 'Tooltip title of the visualization in English.',
+        },
+      ]
     }),
 
     /* ── Meta ────────────────────────────────────────────── */

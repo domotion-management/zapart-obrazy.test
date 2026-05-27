@@ -6,6 +6,8 @@ interface Artwork {
   title: string
   title_en?: string
   mainImageUrl?: string
+  mainImageAlt?: string
+  mainImageTitle?: string
   techniqueLabel?: string
   techniqueLabel_en?: string
   dimensions?: string
@@ -44,7 +46,8 @@ export default function FeaturedWorks({ artworks, locale }: { artworks: Artwork[
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={art.mainImageUrl}
-                    alt={[title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', ')}
+                    alt={art.mainImageAlt || [title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', ')}
+                    title={art.mainImageTitle || title}
                     className="art-card__img"
                     loading="lazy"
                     decoding="async"
