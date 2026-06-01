@@ -58,7 +58,7 @@ export default function Footer({
               title={signatureTitle}
               aria-label={signatureAriaLabel}
             >
-              PRADOM
+              DOMINIUM
             </a>
           </span>
         </div>
