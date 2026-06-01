@@ -49,7 +49,7 @@ export default function Footer({
       <div className="footer__signature">
         <div className="container">
           <span>
-            {locale === 'en' ? 'Designed & developed by ' : 'Projekt i wykonanie: '}
+            {locale === 'en' ? 'Designed & developed by ' : (locale === 'de' ? 'Design & Entwicklung von ' : 'Projekt i wykonanie: ')}
             <a
               href={signatureUrl || '#'}
               target="_blank"

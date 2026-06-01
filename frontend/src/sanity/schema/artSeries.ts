@@ -8,6 +8,7 @@ export const artSeries = defineType({
   groups: [
     { name: 'pl', title: '🇵🇱 Polski', default: true },
     { name: 'en', title: '🇬🇧 English' },
+    { name: 'de', title: '🇩🇪 Deutsch' },
   ],
   fields: [
     /* ── PL fields ──────────────────────────────────────── */
@@ -39,6 +40,21 @@ export const artSeries = defineType({
       type: 'text',
       rows: 4,
       group: 'en',
+    }),
+
+    /* ── DE fields ──────────────────────────────────────── */
+    defineField({
+      name: 'title_de',
+      title: 'Titel (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'description_de',
+      title: 'Beschreibung (DE)',
+      type: 'text',
+      rows: 4,
+      group: 'de',
     }),
 
     /* ── Shared fields ──────────────────────────────────── */

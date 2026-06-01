@@ -1,8 +1,8 @@
 /* ─── i18n: Static dictionaries + Sanity localized() helper ────────── */
 
-export type Locale = 'pl' | 'en'
+export type Locale = 'pl' | 'en' | 'de'
 export const DEFAULT_LOCALE: Locale = 'pl'
-export const LOCALES: Locale[] = ['pl', 'en']
+export const LOCALES: Locale[] = ['pl', 'en', 'de']
 
 /* ─── Static UI translations ──────────────────────────────────────── */
 
@@ -220,9 +220,110 @@ const en: DeepStringify<typeof pl> = {
   },
 }
 
+const de: DeepStringify<typeof pl> = {
+  nav: {
+    about: 'Über mich',
+    featuredWorks: 'Ausgewählte Werke',
+    gallery: 'Galerie',
+    projects: 'Projekte',
+    contact: 'Kontakt',
+    openMenu: 'Menü öffnen',
+    closeMenu: 'Menü schließen',
+    mainNav: 'Hauptnavigation',
+    mobileNav: 'Mobiles Menü',
+    footerNav: 'Fußzeilennavigation',
+  },
+  hero: {
+    sectionAria: 'Hero-Bereich',
+    bgAria: 'Acrylabstraktion von Włodzimierz Zapart',
+    cta: 'Entdecke meine Werke',
+    ctaSecondary: 'Gemälde in Auftrag geben',
+    scroll: 'Scrollen',
+  },
+  about: {
+    label: 'Über mich',
+    statsAria: 'Karrierestatistik',
+    painterFrom: 'Maler aus Krakau',
+  },
+  featured: {
+    title: 'Ausgewählte<br /><em>Werke</em>',
+    link: 'Gesamte Galerie ansehen',
+  },
+  gallery: {
+    label: 'Galerie',
+    title: 'Alle Gemälde',
+    subtitle: 'Vollständige Sammlung der zum Verkauf und zur Bestellung verfügbaren Werke',
+    filterAll: 'Alle',
+    filterOil: 'Öl',
+    filterAcrylic: 'Acryl',
+    filterMixed: 'Mischtechnik',
+    filterAria: 'Gemälde nach Technik filtern',
+    counter: (shown: number, total: number) => `${shown} von ${total} Gemälden`,
+    loadMore: (count: number) => `Mehr laden (${count})`,
+    loadMoreAria: 'Mehr Gemälde laden',
+    viewPainting: 'Gemälde',
+    viewInterior: 'Interieur',
+    viewsAria: 'Gemäldeansichten',
+    listAria: 'Gemäldeliste',
+    ask: 'Anfragen',
+  },
+  contact: {
+    label: 'Kontakt',
+    title: 'Lassen Sie uns über<br /><em>Kunst</em> sprechen',
+    lead: 'Interessiert am Kauf eines Gemäldes, der Beauftragung einer Auftragsarbeit oder einer Einrichtungsberatung? Kontaktieren Sie mich – ich antworte innerhalb von 48 Stunden.',
+    emailLabel: 'E-Mail',
+    phoneLabel: 'Telefon',
+    studioLabel: 'Atelier',
+    formTitle: 'Nachricht senden',
+    fieldName: 'Vor- und Nachname',
+    fieldNamePlaceholder: 'Max Mustermann',
+    fieldEmail: 'E-Mail-Adresse',
+    fieldEmailPlaceholder: 'max@example.de',
+    fieldSubject: 'Betreff',
+    fieldSubjectPlaceholder: 'Anfrage zum Gemälde / Bestellung / Zusammenarbeit',
+    fieldMessage: 'Nachricht',
+    fieldMessagePlaceholder: 'Beschreiben Sie, was Sie interessiert – ich antworte Ihnen gerne...',
+    consent: 'Ich bin mit der Verarbeitung meiner personenbezogenen Daten zum Zwecke der Beantwortung meiner Anfrage einverstanden.',
+    privacyPolicy: 'Datenschutzerklärung',
+    submit: 'Nachricht senden',
+    errorName: 'Bitte geben Sie Ihren Vor- und Nachnamen ein.',
+    errorEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+    errorSubject: 'Bitte geben Sie einen Betreff ein.',
+    errorMessage: 'Bitte schreiben Sie Ihre Nachricht.',
+    successTitle: 'Nachricht gesendet!',
+    successMessage: 'Vielen Dank für Ihre Kontaktaufnahme. Ich werde mich innerhalb von 48 Stunden melden.',
+  },
+  footer: {
+    works: 'Werke',
+    copyright: (year: number) => `© ${year} Włodzimierz Zapart. Alle Rechte vorbehalten.`,
+  },
+  lightbox: {
+    dialogAria: 'Vergrößertes Bild',
+    close: 'Schließen',
+    prev: 'Vorheriges Bild',
+    next: 'Nächstes Bild',
+  },
+  wcag: {
+    groupAria: 'Barrierefreiheit',
+    decreaseFont: 'Schriftart verkleinern',
+    increaseFont: 'Schriftart vergrößern',
+    highContrast: 'Hoher Kontrast',
+  },
+  skipNav: 'Zum Inhalt springen',
+  projekty: {
+    label: 'Projekte',
+    title: 'Kunstserien',
+    subtitle: 'Thematisch gruppierte Kunstsammlungen',
+    seriesLabel: 'Serie',
+    emptyTitle: 'Keine Serien anzuzeigen.',
+    emptyHint: 'Fügen Sie Serien im CMS-Panel hinzu unter',
+    artworkCount: (n: number) => `${n} Gemälde`,
+  },
+}
+
 export type Dictionary = DeepStringify<typeof pl>
 
-const dictionaries: Record<Locale, Dictionary> = { pl, en }
+const dictionaries: Record<Locale, Dictionary> = { pl, en, de }
 
 export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale] || dictionaries[DEFAULT_LOCALE]
@@ -232,23 +333,28 @@ export function getDictionary(locale: Locale): Dictionary {
 
 /**
  * Pick the localized value of a Sanity field.
+ * For locale 'de', tries `field_de` first, falls back to `field_en` or `field` (PL).
  * For locale 'en', tries `field_en` first, falls back to `field` (PL).
  * For locale 'pl', returns `field` directly.
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function localized(obj: any, field: string, locale: Locale): string {
   if (!obj) return ''
+  if (locale === 'de') return obj[`${field}_de`] || obj[`${field}_en`] || obj[field] || ''
   if (locale === 'en') return obj[`${field}_en`] || obj[field] || ''
   return obj[field] || ''
 }
 
 export function formatPrice(price: number | undefined | null, locale: Locale): string {
   if (price === undefined || price === null || price === 0) {
-    return locale === 'en' ? 'Price on request' : 'Cena na zapytanie'
+    if (locale === 'en') return 'Price on request'
+    if (locale === 'de') return 'Preis auf Anfrage'
+    return 'Cena na zapytanie'
   }
-  if (locale === 'en') {
+  if (locale === 'en' || locale === 'de') {
     const eurPrice = Math.round(price / 4)
-    return `€${eurPrice.toLocaleString('en-US')}`
+    const formatted = eurPrice.toLocaleString(locale === 'de' ? 'de-DE' : 'en-US')
+    return `€${formatted}`
   }
   return `${price.toLocaleString('pl-PL')} zł`
 }

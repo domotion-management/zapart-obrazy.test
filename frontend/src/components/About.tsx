@@ -5,17 +5,22 @@ interface ArtistData {
   name?: string
   sectionTitle?: string
   sectionTitle_en?: string
+  sectionTitle_de?: string
   lead?: string
   lead_en?: string
+  lead_de?: string
   bio?: string
   bio_en?: string
+  bio_de?: string
   photoUrl?: string
   photoCaption?: string
   photoCaption_en?: string
+  photoCaption_de?: string
   mottoLatin?: string
   mottoTranslation?: string
   mottoTranslation_en?: string
-  stats?: { number: string; label: string; label_en?: string }[]
+  mottoTranslation_de?: string
+  stats?: { number: string; label: string; label_en?: string; label_de?: string }[]
 }
 
 export default function About({ artist, locale }: { artist: ArtistData | null; locale: Locale }) {
@@ -73,7 +78,7 @@ export default function About({ artist, locale }: { artist: ArtistData | null; l
                     <div className="about__stat" key={i}>
                       <div className="about__stat-num">{s.number}</div>
                       <div className="about__stat-label">
-                        {locale === 'en' ? (s.label_en || s.label) : s.label}
+                        {locale === 'de' ? (s.label_de || s.label_en || s.label) : (locale === 'en' ? (s.label_en || s.label) : s.label)}
                       </div>
                     </div>
                   ))}

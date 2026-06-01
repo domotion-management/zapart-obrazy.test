@@ -17,13 +17,23 @@ export async function generateMetadata() {
   const settings = (await getSiteSettings().catch(() => null)) as any
   const { locale } = await getServerI18n()
 
-  const title = locale === 'en'
-    ? (settings?.seoTitle_en || settings?.siteTitle_en || 'Włodzimierz Zapart — Painter | Kraków')
-    : (settings?.seoTitle || settings?.siteTitle || 'Włodzimierz Zapart — Malarz | Kraków')
+  let title = 'Włodzimierz Zapart — Malarz | Kraków'
+  if (locale === 'de') {
+    title = settings?.seoTitle_de || settings?.siteTitle_de || settings?.seoTitle_en || settings?.siteTitle_en || 'Włodzimierz Zapart — Maler | Kraków'
+  } else if (locale === 'en') {
+    title = settings?.seoTitle_en || settings?.siteTitle_en || 'Włodzimierz Zapart — Painter | Kraków'
+  } else {
+    title = settings?.seoTitle || settings?.siteTitle || 'Włodzimierz Zapart — Malarz | Kraków'
+  }
 
-  const description = locale === 'en'
-    ? (settings?.seoDescription_en || settings?.siteDescription_en || '')
-    : (settings?.seoDescription || settings?.siteDescription || '')
+  let description = ''
+  if (locale === 'de') {
+    description = settings?.seoDescription_de || settings?.siteDescription_de || settings?.seoDescription_en || settings?.siteDescription_en || ''
+  } else if (locale === 'en') {
+    description = settings?.seoDescription_en || settings?.siteDescription_en || ''
+  } else {
+    description = settings?.seoDescription || settings?.siteDescription || ''
+  }
 
   return {
     title,
@@ -64,10 +74,10 @@ async function getData(locale: string) {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     artworks = artworkList.map((a: any) => {
-      const mainAlt = locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt
-      const mainTitle = locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title
-      const intAlt = locale === 'en' ? a.interiorImage?.alt_en : a.interiorImage?.alt
-      const intTitle = locale === 'en' ? a.interiorImage?.title_en : a.interiorImage?.title
+      const mainAlt = locale === 'de' ? (a.mainImage?.alt_de || a.mainImage?.alt_en) : (locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt)
+      const mainTitle = locale === 'de' ? (a.mainImage?.title_de || a.mainImage?.title_en) : (locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title)
+      const intAlt = locale === 'de' ? (a.interiorImage?.alt_de || a.interiorImage?.alt_en) : (locale === 'en' ? a.interiorImage?.alt_en : a.interiorImage?.alt)
+      const intTitle = locale === 'de' ? (a.interiorImage?.title_de || a.interiorImage?.title_en) : (locale === 'en' ? a.interiorImage?.title_en : a.interiorImage?.title)
 
       return {
         ...a,
@@ -81,8 +91,8 @@ async function getData(locale: string) {
     })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     featured = featuredList.map((a: any) => {
-      const mainAlt = locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt
-      const mainTitle = locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title
+      const mainAlt = locale === 'de' ? (a.mainImage?.alt_de || a.mainImage?.alt_en) : (locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt)
+      const mainTitle = locale === 'de' ? (a.mainImage?.title_de || a.mainImage?.title_en) : (locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title)
 
       return {
         ...a,
@@ -111,20 +121,33 @@ export default async function HomePage() {
   const { locale } = await getServerI18n()
   const { artworks, featured, artist, settings } = await getData(locale)
 
-  const keywordsString = locale === 'en'
-    ? (settings?.entityKeywords_en || '')
-    : (settings?.entityKeywords || '')
-  const stylesString = locale === 'en'
-    ? (settings?.entityStyles_en || '')
-    : (settings?.entityStyles || '')
+  let keywordsString = ''
+  if (locale === 'de') {
+    keywordsString = settings?.entityKeywords_de || settings?.entityKeywords_en || ''
+  } else if (locale === 'en') {
+    keywordsString = settings?.entityKeywords_en || ''
+  } else {
+    keywordsString = settings?.entityKeywords || ''
+  }
+
+  let stylesString = ''
+  if (locale === 'de') {
+    stylesString = settings?.entityStyles_de || settings?.entityStyles_en || ''
+  } else if (locale === 'en') {
+    stylesString = settings?.entityStyles_en || ''
+  } else {
+    stylesString = settings?.entityStyles || ''
+  }
 
   const schemaJson = {
     "@context": "https://schema.org",
     "@type": settings?.entityType || "Person",
     "name": "Włodzimierz Zapart",
-    "description": locale === 'en'
-      ? (settings?.seoDescription_en || settings?.siteDescription_en)
-      : (settings?.seoDescription || settings?.siteDescription),
+    "description": locale === 'de'
+      ? (settings?.seoDescription_de || settings?.siteDescription_de || settings?.seoDescription_en || settings?.siteDescription_en)
+      : (locale === 'en'
+        ? (settings?.seoDescription_en || settings?.siteDescription_en)
+        : (settings?.seoDescription || settings?.siteDescription)),
     "image": settings?.heroImage ? urlFor(settings.heroImage).width(1200).url() : undefined,
     "address": {
       "@type": "PostalAddress",

@@ -5,11 +5,13 @@ interface Artwork {
   _id: string
   title: string
   title_en?: string
+  title_de?: string
   mainImageUrl?: string
   mainImageAlt?: string
   mainImageTitle?: string
   techniqueLabel?: string
   techniqueLabel_en?: string
+  techniqueLabel_de?: string
   dimensions?: string
   price?: number
 }
@@ -58,7 +60,7 @@ export default function FeaturedWorks({ artworks, locale }: { artworks: Artwork[
                     <div className="art-card__spec">
                       {tech} · {art.dimensions}
                       {art.price !== undefined && (
-                        <> · {art.price > 0 && (locale === 'en' ? 'Price: ' : 'Cena: ')}{formatPrice(art.price, locale)}</>
+                        <> · {art.price > 0 && (locale === 'en' ? 'Price: ' : (locale === 'de' ? 'Preis: ' : 'Cena: '))}{formatPrice(art.price, locale)}</>
                       )}
                     </div>
                   </div>

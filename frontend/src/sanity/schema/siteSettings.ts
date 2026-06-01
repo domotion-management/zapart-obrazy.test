@@ -8,6 +8,7 @@ export const siteSettings = defineType({
   groups: [
     { name: 'pl', title: '🇵🇱 Polski', default: true },
     { name: 'en', title: '🇬🇧 English' },
+    { name: 'de', title: '🇩🇪 Deutsch' },
     { name: 'contact', title: '📞 Kontakt' },
     { name: 'social', title: '🔗 Social' },
     { name: 'seo', title: '🔍 SEO / GEO' },
@@ -158,6 +159,74 @@ export const siteSettings = defineType({
       group: 'en',
     }),
 
+    /* ── DE fields ──────────────────────────────────────── */
+    defineField({
+      name: 'siteTitle_de',
+      title: 'Site title (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'siteDescription_de',
+      title: 'Meta-Beschreibung (DE)',
+      type: 'text',
+      rows: 3,
+      group: 'de',
+    }),
+    defineField({
+      name: 'heroLabel_de',
+      title: 'Hero — Label (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'heroHeadline_de',
+      title: 'Hero — Hauptüberschrift Vorname (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'heroHeadlineAccent_de',
+      title: 'Hero — Hauptüberschrift Nachname kursiv (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'heroTagline_de',
+      title: 'Hero — Untertitel (DE)',
+      type: 'text',
+      rows: 2,
+      group: 'de',
+    }),
+    defineField({
+      name: 'footerTagline_de',
+      title: 'Footer Tagline (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'privacyPolicy_de',
+      title: 'Datenschutzerklärung (DE)',
+      type: 'text',
+      rows: 15,
+      description: 'Vollständiger Inhalt der Datenschutzerklärung auf Deutsch',
+      group: 'de',
+    }),
+    defineField({
+      name: 'signatureTitle_de',
+      title: 'Signatur-Tooltip (Title) - DE',
+      description: 'Tooltip-Text für den PRADOM-Signaturlink auf Deutsch.',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'signatureAriaLabel_de',
+      title: 'Signatur-Barrierefreiheit (Aria Label) - DE',
+      description: 'Screenreader- und SEO-Text für den PRADOM-Signaturlink auf Deutsch.',
+      type: 'string',
+      group: 'de',
+    }),
+
     /* ── Contact (shared) ───────────────────────────────── */
     defineField({
       name: 'contactEmail',
@@ -235,6 +304,12 @@ export const siteSettings = defineType({
       group: 'seo',
     }),
     defineField({
+      name: 'seoTitle_de',
+      title: 'SEO Title (DE)',
+      type: 'string',
+      group: 'seo',
+    }),
+    defineField({
       name: 'seoDescription',
       title: 'SEO Description (PL)',
       type: 'text',
@@ -244,6 +319,13 @@ export const siteSettings = defineType({
     defineField({
       name: 'seoDescription_en',
       title: 'SEO Description (EN)',
+      type: 'text',
+      rows: 3,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoDescription_de',
+      title: 'SEO Description (DE)',
       type: 'text',
       rows: 3,
       group: 'seo',
@@ -260,6 +342,14 @@ export const siteSettings = defineType({
       name: 'seoWideDescription_en',
       title: 'SEO Wide Description (EN)',
       description: 'Long semantic positioning text displayed above the footer in English.',
+      type: 'text',
+      rows: 8,
+      group: 'seo',
+    }),
+    defineField({
+      name: 'seoWideDescription_de',
+      title: 'SEO Wide Description (DE)',
+      description: 'Langer semantischer Positionierungstext, der auf Deutsch über der Fußzeile angezeigt wird.',
       type: 'text',
       rows: 8,
       group: 'seo',
@@ -289,6 +379,14 @@ export const siteSettings = defineType({
       group: 'seo',
     }),
     defineField({
+      name: 'entityKeywords_de',
+      title: 'Entity Keywords (DE)',
+      description: 'Semantische Schlüsselkonzepte, durch Kommata getrennt.',
+      type: 'text',
+      rows: 2,
+      group: 'seo',
+    }),
+    defineField({
       name: 'entityStyles',
       title: 'Kierunki artystyczne / Style (PL)',
       description: 'Np. "Malarstwo abstrakcyjne, Ekspresjonizm".',
@@ -299,6 +397,13 @@ export const siteSettings = defineType({
       name: 'entityStyles_en',
       title: 'Art styles / Movements (EN)',
       description: 'e.g. "Abstract Art, Expressionism".',
+      type: 'string',
+      group: 'seo',
+    }),
+    defineField({
+      name: 'entityStyles_de',
+      title: 'Art styles / Movements (DE)',
+      description: 'z.B. "Abstrakte Kunst, Expressionismus".',
       type: 'string',
       group: 'seo',
     }),

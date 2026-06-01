@@ -9,6 +9,7 @@ interface LightboxProps {
     _id: string
     title: string
     title_en?: string
+    title_de?: string
     mainImageUrl: string
     mainImageAlt?: string
     mainImageTitle?: string
@@ -18,9 +19,11 @@ interface LightboxProps {
     technique: string
     techniqueLabel: string
     techniqueLabel_en?: string
+    techniqueLabel_de?: string
     dimensions: string
     description?: string
     description_en?: string
+    description_de?: string
     price?: number
   }[]
   startIndex: number
@@ -50,12 +53,16 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
   if (currentArtwork.interiorImageUrl) {
     views.push({
       src: currentArtwork.interiorImageUrl,
-      alt: currentArtwork.interiorImageAlt || (locale === 'en'
-        ? `${title}, ${tech}, Włodzimierz Zapart (visualization in an interior)`
-        : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`),
-      title: currentArtwork.interiorImageTitle || (locale === 'en'
-        ? `${title} (interior visualization)`
-        : `${title} (wizualizacja we wnętrzu)`),
+      alt: currentArtwork.interiorImageAlt || (locale === 'de'
+        ? `${title}, ${tech}, Włodzimierz Zapart (Visualisierung im Interieur)`
+        : (locale === 'en'
+          ? `${title}, ${tech}, Włodzimierz Zapart (visualization in an interior)`
+          : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`)),
+      title: currentArtwork.interiorImageTitle || (locale === 'de'
+        ? `${title} (Interieur-Visualisierung)`
+        : (locale === 'en'
+          ? `${title} (interior visualization)`
+          : `${title} (wizualizacja we wnętrzu)`)),
       label: t.gallery.viewInterior,
     })
   }
@@ -240,7 +247,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
             {tech} · {currentArtwork.dimensions}
             {currentArtwork.price !== undefined && (
               <> · <span className="lightbox__price-highlight">
-                {currentArtwork.price > 0 && (locale === 'en' ? 'Price: ' : 'Cena: ')}
+                {currentArtwork.price > 0 && (locale === 'en' ? 'Price: ' : (locale === 'de' ? 'Preis: ' : 'Cena: '))}
                 {formatPrice(currentArtwork.price, locale)}
               </span></>
             )}
@@ -252,14 +259,14 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
               aria-expanded={showDescMobile}
               aria-label={
                 showDescMobile
-                  ? (locale === 'en' ? 'Collapse description' : 'Zwiń opis')
-                  : (locale === 'en' ? 'Read full description' : 'Czytaj cały opis')
+                  ? (locale === 'en' ? 'Collapse description' : (locale === 'de' ? 'Beschreibung ausblenden' : 'Zwiń opis'))
+                  : (locale === 'en' ? 'Read full description' : (locale === 'de' ? 'Vollständige Beschreibung lesen' : 'Czytaj cały opis'))
               }
             >
               <span>
                 {showDescMobile
-                  ? (locale === 'en' ? 'collapse description' : 'zwiń opis')
-                  : (locale === 'en' ? 'read full description' : 'czytaj cały opis')}
+                  ? (locale === 'en' ? 'collapse description' : (locale === 'de' ? 'Beschreibung ausblenden' : 'zwiń opis'))
+                  : (locale === 'en' ? 'read full description' : (locale === 'de' ? 'Vollständige Beschreibung lesen' : 'czytaj cały opis'))}
               </span>
             </button>
           )}

@@ -10,6 +10,7 @@ export interface ArtworkItem {
   _id: string
   title: string
   title_en?: string
+  title_de?: string
   mainImageUrl: string
   mainImageAlt?: string
   mainImageTitle?: string
@@ -19,9 +20,11 @@ export interface ArtworkItem {
   technique: string
   techniqueLabel: string
   techniqueLabel_en?: string
+  techniqueLabel_de?: string
   dimensions: string
   description?: string
   description_en?: string
+  description_de?: string
   price?: number
 }
 
@@ -164,12 +167,16 @@ function GalleryCard({
   if (art.interiorImageUrl) {
     views.push({
       src: art.interiorImageUrl,
-      alt: art.interiorImageAlt || (locale === 'en'
-        ? `${title}, ${tech}, Włodzimierz Zapart (visualization in an interior)`
-        : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`),
-      title: art.interiorImageTitle || (locale === 'en'
-        ? `${title} (interior visualization)`
-        : `${title} (wizualizacja we wnętrzu)`),
+      alt: art.interiorImageAlt || (locale === 'de'
+        ? `${title}, ${tech}, Włodzimierz Zapart (Visualisierung im Interieur)`
+        : (locale === 'en'
+          ? `${title}, ${tech}, Włodzimierz Zapart (visualization in an interior)`
+          : `${title}, ${tech}, Włodzimierz Zapart (wizualizacja we wnętrzu)`)),
+      title: art.interiorImageTitle || (locale === 'de'
+        ? `${title} (Interieur-Visualisierung)`
+        : (locale === 'en'
+          ? `${title} (interior visualization)`
+          : `${title} (wizualizacja we wnętrzu)`)),
       label: t.gallery.viewInterior
     })
   }
@@ -222,7 +229,7 @@ function GalleryCard({
         <div className="listing-card__price">
           {art.price && art.price > 0 ? (
             <>
-              <span className="listing-card__price-label">{locale === 'en' ? 'Price: ' : 'Cena: '}</span>
+              <span className="listing-card__price-label">{locale === 'en' ? 'Price: ' : (locale === 'de' ? 'Preis: ' : 'Cena: ')}</span>
               <span className="listing-card__price-value">{formatPrice(art.price, locale)}</span>
             </>
           ) : (

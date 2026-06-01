@@ -8,6 +8,7 @@ export const artwork = defineType({
   groups: [
     { name: 'pl', title: '🇵🇱 Polski', default: true },
     { name: 'en', title: '🇬🇧 English' },
+    { name: 'de', title: '🇩🇪 Deutsch' },
     { name: 'media', title: '📷 Media' },
     { name: 'meta', title: '⚙️ Meta' },
     { name: 'price', title: '💰 Cena' },
@@ -59,6 +60,28 @@ export const artwork = defineType({
       group: 'en',
     }),
 
+    /* ── DE fields ──────────────────────────────────────── */
+    defineField({
+      name: 'title_de',
+      title: 'Titel (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'techniqueLabel_de',
+      title: 'Technik-Bezeichnung (DE)',
+      type: 'string',
+      description: 'Z.B. "Öl auf Leinwand", "Acryl", "Mischtechnik"',
+      group: 'de',
+    }),
+    defineField({
+      name: 'description_de',
+      title: 'Beschreibung (DE)',
+      type: 'text',
+      rows: 4,
+      group: 'de',
+    }),
+
     /* ── Media ───────────────────────────────────────────── */
     defineField({
       name: 'mainImage',
@@ -81,6 +104,12 @@ export const artwork = defineType({
           description: 'Alternative description of the image in English.',
         },
         {
+          name: 'alt_de',
+          type: 'string',
+          title: 'Alternativer Text (Alt) - DE',
+          description: 'Alternative Beschreibung des Bildes auf Deutsch.',
+        },
+        {
           name: 'title',
           type: 'string',
           title: 'Tytuł obrazka (Title) - PL',
@@ -91,6 +120,12 @@ export const artwork = defineType({
           type: 'string',
           title: 'Image title (Title) - EN',
           description: 'Tooltip title of the image in English.',
+        },
+        {
+          name: 'title_de',
+          type: 'string',
+          title: 'Bildtitel (Title) - DE',
+          description: 'Tooltip-Titel des Bildes auf Deutsch.',
         },
       ]
     }),
@@ -115,6 +150,12 @@ export const artwork = defineType({
           description: 'Alternative description of the visualization in English.',
         },
         {
+          name: 'alt_de',
+          type: 'string',
+          title: 'Alternativer Text (Alt) - DE',
+          description: 'Alternative Beschreibung der Visualisierung auf Deutsch.',
+        },
+        {
           name: 'title',
           type: 'string',
           title: 'Tytuł wizualizacji (Title) - PL',
@@ -125,6 +166,12 @@ export const artwork = defineType({
           type: 'string',
           title: 'Visualization title (Title) - EN',
           description: 'Tooltip title of the visualization in English.',
+        },
+        {
+          name: 'title_de',
+          type: 'string',
+          title: 'Visualisierungstitel (Title) - DE',
+          description: 'Tooltip-Titel der Visualisierung auf Deutsch.',
         },
       ]
     }),

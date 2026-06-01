@@ -29,6 +29,15 @@ export default function LangSwitcher() {
       >
         EN
       </button>
+      <span className="lang-switcher__sep" aria-hidden="true">|</span>
+      <button
+        className={`lang-switcher__btn ${locale === 'de' ? 'is-active' : ''}`}
+        onClick={() => handleSwitch('de')}
+        aria-pressed={locale === 'de'}
+        aria-label="Deutsch"
+      >
+        DE
+      </button>
     </div>
   )
 }

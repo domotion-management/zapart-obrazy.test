@@ -16,9 +16,11 @@ interface SeriesItem {
   _id: string
   title: string
   title_en?: string
+  title_de?: string
   slug: string
   description?: string
   description_en?: string
+  description_de?: string
   coverImageUrl?: string | null
   techniques?: string[]
   artworkCount?: number
@@ -34,9 +36,11 @@ async function getSeries(): Promise<SeriesItem[]> {
       _id: s._id,
       title: s.title,
       title_en: s.title_en,
+      title_de: s.title_de,
       slug: s.slug?.current,
       description: s.description,
       description_en: s.description_en,
+      description_de: s.description_de,
       coverImageUrl: s.coverImage ? urlFor(s.coverImage).width(800).url() : null,
       techniques: s.techniques || [],
       artworkCount: s.artworkCount,
@@ -89,9 +93,11 @@ export default async function ProjektyPage() {
                           <img
                             src={s.coverImageUrl}
                             alt={
-                              locale === 'en'
-                                ? `Artistic series: ${localized(s, 'title', locale)}, Włodzimierz Zapart`
-                                : `Seria artystyczna: ${localized(s, 'title', locale)}, Włodzimierz Zapart`
+                              locale === 'de'
+                                ? `Künstlerische Serie: ${localized(s, 'title', locale)}, Włodzimierz Zapart`
+                                : (locale === 'en'
+                                  ? `Artistic series: ${localized(s, 'title', locale)}, Włodzimierz Zapart`
+                                  : `Seria artystyczna: ${localized(s, 'title', locale)}, Włodzimierz Zapart`)
                             }
                             className="series-card__img"
                             loading="lazy"

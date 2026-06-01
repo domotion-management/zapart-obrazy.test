@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-interface SeriesData { title: string; title_en?: string; description?: string; description_en?: string; artworks?: any[] }
+interface SeriesData { title: string; title_en?: string; title_de?: string; description?: string; description_en?: string; description_de?: string; artworks?: any[] }
 
 export default async function SeriesDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -59,15 +59,16 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ s
   const showFeatured = navFooterData?.showFeatured || false
 
   const artworks: ArtworkItem[] = (series.artworks || []).map((a) => {
-    const mainAlt = locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt
-    const mainTitle = locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title
-    const intAlt = locale === 'en' ? a.interiorImage?.alt_en : a.interiorImage?.alt
-    const intTitle = locale === 'en' ? a.interiorImage?.title_en : a.interiorImage?.title
+    const mainAlt = locale === 'de' ? (a.mainImage?.alt_de || a.mainImage?.alt_en) : (locale === 'en' ? a.mainImage?.alt_en : a.mainImage?.alt)
+    const mainTitle = locale === 'de' ? (a.mainImage?.title_de || a.mainImage?.title_en) : (locale === 'en' ? a.mainImage?.title_en : a.mainImage?.title)
+    const intAlt = locale === 'de' ? (a.interiorImage?.alt_de || a.interiorImage?.alt_en) : (locale === 'en' ? a.interiorImage?.alt_en : a.interiorImage?.alt)
+    const intTitle = locale === 'de' ? (a.interiorImage?.title_de || a.interiorImage?.title_en) : (locale === 'en' ? a.interiorImage?.title_en : a.interiorImage?.title)
 
     return {
       _id: a._id as string,
       title: a.title as string,
       title_en: a.title_en as string | undefined,
+      title_de: a.title_de as string | undefined,
       mainImageUrl: a.mainImage ? urlFor(a.mainImage).width(768).url() : '',
       mainImageAlt: mainAlt as string | undefined,
       mainImageTitle: mainTitle as string | undefined,
@@ -77,9 +78,11 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ s
       technique: a.technique as string,
       techniqueLabel: a.techniqueLabel as string,
       techniqueLabel_en: a.techniqueLabel_en as string | undefined,
+      techniqueLabel_de: a.techniqueLabel_de as string | undefined,
       dimensions: a.dimensions as string,
       description: a.description as string | undefined,
       description_en: a.description_en as string | undefined,
+      description_de: a.description_de as string | undefined,
       price: a.price as number | undefined,
     }
   })

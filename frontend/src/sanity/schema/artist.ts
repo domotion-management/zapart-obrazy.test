@@ -8,6 +8,7 @@ export const artist = defineType({
   groups: [
     { name: 'pl', title: '🇵🇱 Polski', default: true },
     { name: 'en', title: '🇬🇧 English' },
+    { name: 'de', title: '🇩🇪 Deutsch' },
     { name: 'media', title: '📷 Media' },
   ],
   fields: [
@@ -90,6 +91,7 @@ export const artist = defineType({
             defineField({ name: 'number', title: 'Liczba', type: 'string' }),
             defineField({ name: 'label', title: 'Etykieta (PL)', type: 'string' }),
             defineField({ name: 'label_en', title: 'Etykieta (EN)', type: 'string' }),
+            defineField({ name: 'label_de', title: 'Etykieta (DE)', type: 'string' }),
           ],
           preview: {
             select: { title: 'number', subtitle: 'label' },
@@ -136,6 +138,46 @@ export const artist = defineType({
       title: 'Motto translation (EN)',
       type: 'string',
       group: 'en',
+    }),
+
+    /* ── DE fields ──────────────────────────────────────── */
+    defineField({
+      name: 'tagline_de',
+      title: 'Tagline (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'photoCaption_de',
+      title: 'Bildunterschrift (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'sectionTitle_de',
+      title: 'Sektionstitel (DE)',
+      type: 'string',
+      group: 'de',
+    }),
+    defineField({
+      name: 'lead_de',
+      title: 'Lead (DE)',
+      type: 'text',
+      rows: 3,
+      group: 'de',
+    }),
+    defineField({
+      name: 'bio_de',
+      title: 'Biografie (DE)',
+      type: 'text',
+      rows: 6,
+      group: 'de',
+    }),
+    defineField({
+      name: 'mottoTranslation_de',
+      title: 'Motto-Übersetzung (DE)',
+      type: 'string',
+      group: 'de',
     }),
   ],
   preview: {

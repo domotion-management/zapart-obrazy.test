@@ -142,10 +142,10 @@ export default function Contact({
         setSubmitted(true)
       } else {
         const data = await res.json().catch(() => ({}))
-        setServerError(data.error || 'Wystąpił błąd po stronie serwera. Spróbuj ponownie później.')
+        setServerError(data.error || (locale === 'en' ? 'A server error occurred. Please try again later.' : (locale === 'de' ? 'Ein Serverfehler ist aufgetreten. Bitte versuchen Sie es später noch einmal.' : 'Wystąpił błąd po stronie serwera. Spróbuj ponownie później.')))
       }
     } catch {
-      setServerError('Błąd połączenia z serwerem. Sprawdź swoje połączenie internetowe.')
+      setServerError(locale === 'en' ? 'Connection error. Please check your internet connection.' : (locale === 'de' ? 'Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung.' : 'Błąd połączenia z serwerem. Sprawdź swoje połączenie internetowe.'))
     } finally {
       setIsSubmitting(false)
     }
@@ -253,7 +253,7 @@ export default function Contact({
                       </div>
                       {errors.consent && (
                         <span className="form__error-msg" style={{ display: 'block', marginTop: 0 }}>
-                          {locale === 'en' ? 'You must agree to the processing of personal data.' : 'Musisz wyrazić zgodę na przetwarzanie danych.'}
+                          {locale === 'de' ? 'Sie müssen der Verarbeitung personenbezogener Daten zustimmen.' : (locale === 'en' ? 'You must agree to the processing of personal data.' : 'Musisz wyrazić zgodę na przetwarzanie danych.')}
                         </span>
                       )}
                     </div>
@@ -262,7 +262,7 @@ export default function Contact({
                         <div id="recaptcha-container" />
                         {errors.recaptcha && (
                           <span className="form__error-msg" style={{ display: 'block', marginTop: '5px' }}>
-                            {locale === 'en' ? 'Please complete the reCAPTCHA verification.' : 'Proszę zaznaczyć pole reCAPTCHA.'}
+                            {locale === 'de' ? 'Bitte führen Sie die reCAPTCHA-Verifizierung durch.' : (locale === 'en' ? 'Please complete the reCAPTCHA verification.' : 'Proszę zaznaczyć pole reCAPTCHA.')}
                           </span>
                         )}
                       </div>
@@ -273,7 +273,7 @@ export default function Contact({
                       </div>
                     )}
                     <button type="submit" className="btn-submit" disabled={isSubmitting} style={{ opacity: isSubmitting ? 0.7 : 1 }}>
-                      <span>{isSubmitting ? 'Wysyłanie...' : t.contact.submit}</span>
+                      <span>{isSubmitting ? (locale === 'en' ? 'Sending...' : (locale === 'de' ? 'Senden...' : 'Wysyłanie...')) : t.contact.submit}</span>
                     </button>
                   </form>
                 </div>

@@ -14,7 +14,7 @@ export const client = projectId
     })
   : null
 
-export function sanityFetch<T>(query: string, params?: Record<string, unknown>): Promise<T | null> {
+export function sanityFetch<T>(query: string, params?: any): Promise<T | null> {
   if (!client) return Promise.resolve(null)
-  return client.fetch<T>(query, params)
+  return client.fetch<T>(query, params || {})
 }

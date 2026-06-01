@@ -45,7 +45,7 @@ export default async function PrivacyPolicyPage() {
               lineHeight: '1.8', 
               color: 'var(--ink-muted)' 
             }}>
-              {privacyText || (locale === 'en' ? 'Privacy policy content is being prepared.' : 'Treść polityki prywatności jest w trakcie przygotowania.')}
+              {privacyText || (locale === 'de' ? 'Die Datenschutzerklärung wird vorbereitet.' : (locale === 'en' ? 'Privacy policy content is being prepared.' : 'Treść polityki prywatności jest w trakcie przygotowania.'))}
             </div>
           </div>
         </section>
