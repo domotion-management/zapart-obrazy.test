@@ -5,6 +5,8 @@ import RevealOnScroll from './RevealOnScroll'
 import { useLocale } from '@/lib/LocaleContext'
 import type { Locale } from '@/lib/dictionaries'
 
+const GALLERY_URL = 'https://warsztatywyobrazni.com.pl'
+
 interface ContactProps {
   email?: string
   phone?: string
@@ -163,7 +165,13 @@ export default function Contact({
               <h2 id="contact-heading" className="contact__info-title"
                 dangerouslySetInnerHTML={{ __html: t.contact.title }}
               />
-              <p className="contact__info-lead">{t.contact.lead}</p>
+              <p className="contact__info-lead">{t.contact.lead1}</p>
+              <p className="contact__info-lead">{t.contact.lead2}</p>
+              <p className="contact__info-lead">
+                {t.contact.lead3Before}
+                <a href={GALLERY_URL} target="_blank" rel="noopener noreferrer">{t.contact.lead3Link}</a>
+                {t.contact.lead3After}
+              </p>
               <div className="contact__detail-list">
                 {email && (
                   <div className="contact__detail">
@@ -198,6 +206,15 @@ export default function Contact({
                     </div>
                   </div>
                 )}
+                <div className="contact__detail">
+                  <div className="contact__detail-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="m21 15-5-5L5 21" /></svg>
+                  </div>
+                  <div className="contact__detail-text">
+                    <strong>{t.contact.exhibitionLabel}</strong>
+                    <a href={GALLERY_URL} target="_blank" rel="noopener noreferrer">{t.contact.exhibitionValue}</a>
+                  </div>
+                </div>
               </div>
               <div className="contact__social">
                 {instagramUrl && (

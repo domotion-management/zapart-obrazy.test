@@ -273,7 +273,7 @@
     .listing-card__badge--tech { background: rgba(200,150,62,.85); color: var(--bg-dark); }
     .listing-card__body { padding: 20px 22px 24px; }
     .listing-card__title { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 700; letter-spacing: -.025em; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
-    .listing-card__desc { font-size: 1rem; line-height: 1.72; color: var(--ink-muted); margin-bottom: 16px; }
+    .listing-card__desc { font-size: 1rem; line-height: 1.72; color: var(--ink-muted); margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
     .listing-card__footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--cream); }
     .listing-card__spec-inline { display: flex; gap: 8px; align-items: center; }
     .listing-card__spec-item { font-size: .78rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
@@ -294,7 +294,10 @@
     .contact__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(48px,8vw,100px); align-items: start; }
     .contact__info-title { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem,4vw,3.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -.04em; color: var(--ink); margin-bottom: 24px; }
     .contact__info-title em { font-style: italic; color: var(--gold); }
-    .contact__info-lead { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: 1.1rem; letter-spacing: .01em; color: var(--ink-muted); margin-bottom: 40px; line-height: 1.68; }
+    .contact__info-lead { font-family: 'Open Sans', sans-serif; font-style: italic; font-size: 1.1rem; letter-spacing: .01em; color: var(--ink-muted); margin-bottom: 18px; line-height: 1.68; }
+    .contact__info-lead:last-of-type { margin-bottom: 40px; }
+    .contact__info-lead a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+    .contact__info-lead a:hover { color: var(--ink); }
     .contact__detail-list { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
     .contact__detail { display: flex; align-items: flex-start; gap: 14px; }
     .contact__detail-icon { width: 42px; height: 42px; background: var(--gold-pale); border: 1px solid rgba(200,150,62,.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); transition: background .25s, transform .2s, box-shadow .25s; }
@@ -1066,8 +1069,16 @@
           Porozmawiajmy<br/>o <em>sztuce</em>
         </h2>
         <p class="contact__info-lead">
-          Zainteresowany zakupem obrazu, zleceniem pracy na zamówienie
-          lub doradztwem wnętrzarskim? Skontaktuj się — odpowiem w ciągu 48 godzin.
+          Jesteś zainteresowany zakupem obrazu, zleceniem pracy na zamówienie
+          lub doradztwem wnętrzarskim?
+        </p>
+        <p class="contact__info-lead">
+          Skontaktuj się — najlepiej telefonicznie lub napisz do mnie wiadomość.
+        </p>
+        <p class="contact__info-lead">
+          Na co dzień moje prace można oglądać i nabyć w poznańskiej galerii
+          <a href="https://warsztatywyobrazni.com.pl" target="_blank" rel="noopener noreferrer">&bdquo;Warsztaty Wyobraźni&rdquo;</a>.
+          Zapraszam serdecznie do osobistego spotkania i rozmowy o&nbsp;sztuce.
         </p>
 
         <div class="contact__detail-list">
@@ -1096,6 +1107,15 @@
             <div class="contact__detail-text">
               <strong>Pracownia</strong>
               <span>Kraków, Polska</span>
+            </div>
+          </div>
+          <div class="contact__detail">
+            <div class="contact__detail-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+            </div>
+            <div class="contact__detail-text">
+              <strong>Stała ekspozycja obrazów</strong>
+              <a href="https://warsztatywyobrazni.com.pl" target="_blank" rel="noopener noreferrer">Galeria &bdquo;Warsztaty Wyobraźni&rdquo;, ul. Serbska 9, Poznań</a>
             </div>
           </div>
         </div>
