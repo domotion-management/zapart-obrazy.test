@@ -72,6 +72,20 @@ export default async function RootLayout({
             } catch (e) {}
           })();
         `}} />
+        <script dangerouslySetInnerHTML={{__html: `
+          (function() {
+            // Google Analytics — tylko produkcja (zapart-obrazy.com)
+            if (location.hostname !== 'zapart-obrazy.com' && location.hostname !== 'www.zapart-obrazy.com') return;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-8TW3R272N2';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8TW3R272N2');
+          })();
+        `}} />
       </head>
       <body suppressHydrationWarning>
         <a href="#main-content" className="skip-nav">
