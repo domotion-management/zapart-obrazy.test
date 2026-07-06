@@ -4,8 +4,9 @@ import { NextRequest, NextResponse } from 'next/server'
 // Produkcja i localhost przechodzą bez logowania.
 const OPEN_HOSTS = new Set(['zapart-obrazy.com', 'www.zapart-obrazy.com', 'localhost', '127.0.0.1'])
 
-const BASIC_AUTH_USER = process.env.TEST_BASIC_AUTH_USER || 'wuody'
-const BASIC_AUTH_PASS = process.env.TEST_BASIC_AUTH_PASS || 'zapart2026'
+// Dane logowania wyłącznie z env (.env na serwerze) — brak wartości = dostęp zablokowany (fail closed)
+const BASIC_AUTH_USER = process.env.TEST_BASIC_AUTH_USER
+const BASIC_AUTH_PASS = process.env.TEST_BASIC_AUTH_PASS
 
 export function middleware(request: NextRequest) {
   const host = (request.headers.get('host') ?? '').split(':')[0].toLowerCase()
@@ -14,7 +15,7 @@ export function middleware(request: NextRequest) {
   }
 
   const auth = request.headers.get('authorization')
-  if (auth?.startsWith('Basic ')) {
+  if (BASIC_AUTH_USER && BASIC_AUTH_PASS && auth?.startsWith('Basic ')) {
     const [user, pass] = atob(auth.slice(6)).split(':')
     if (user === BASIC_AUTH_USER && pass === BASIC_AUTH_PASS) {
       return NextResponse.next()
