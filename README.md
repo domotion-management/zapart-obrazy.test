@@ -233,12 +233,28 @@ Każdy element wizualny z oryginalnego `index.html` został wiernie odtworzony:
 
 ---
 
+## 🌍 Środowiska i deploy
+
+| Środowisko | Repo | Specyfika |
+|---|---|---|
+| **PROD** | `ppraksa/wuody` | Google Analytics 4 + Consent Mode v2 (baner cookies) |
+| **TEST** | `domotion-management/zapart-obrazy.test` | Basic Auth (middleware Next.js), bez GA; baner cookies obecny |
+
+- Deploy odpala się po pushu **taga `v*`** (GitHub Actions → SSH → `docker compose build && up`). Push samego brancha **nie deployuje**.
+- Serwowana jest aplikacja **Next.js z `frontend/`** za nginx. Statyczny `index.html` w rootcie to nieużywany prototyp.
+- ⚠️ Branche środowisk są **celowo rozjechane** (GA tylko na PROD, Basic Auth tylko na TEST). Wspólne zmiany przenosimy przez `git cherry-pick` — **nigdy merge** jednego środowiska w drugie.
+- Historia wydań: [CHANGELOG.md](CHANGELOG.md)
+
+---
+
 ## 📋 Zmienne środowiskowe
 
 | Zmienna | Wymagana | Opis |
 |---|---|---|
 | `NEXT_PUBLIC_SANITY_PROJECT_ID` | ✅ | ID projektu Sanity |
 | `NEXT_PUBLIC_SANITY_DATASET` | ✅ | Dataset (domyślnie: `production`) |
+| `SMTP_*`, `CONTACT_FORM_RECEIVER` | ✅ | Wysyłka formularza kontaktowego (patrz `.env.example`) |
+| `TEST_BASIC_AUTH_USER` / `TEST_BASIC_AUTH_PASS` | tylko TEST | Login do ukrytego środowiska; brak = dostęp zablokowany (fail closed) |
 
 ---
 
