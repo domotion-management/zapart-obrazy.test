@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Montserrat, Open_Sans, Inter } from 'next/font/google'
 import { getServerI18n } from '@/lib/getLocale'
 import { LocaleProvider } from '@/lib/LocaleContext'
+import CookieConsent from '@/components/CookieConsent'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -79,6 +80,7 @@ export default async function RootLayout({
         </a>
         <LocaleProvider initial={locale}>
           {children}
+          <CookieConsent />
         </LocaleProvider>
       </body>
     </html>

@@ -34,6 +34,9 @@ export default function Footer({
               <a href="/#galeria">{t.nav.gallery}</a>
               <a href="/#kontakt">{t.nav.contact}</a>
               <a href="/polityka-prywatnosci">{t.contact.privacyPolicy}</a>
+              <button type="button" data-cookie-settings className="footer__cookie-btn">
+                {t.cookies.settings}
+              </button>
             </nav>
           </div>
           <div className="footer__bottom">
