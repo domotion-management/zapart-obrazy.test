@@ -7,7 +7,9 @@ import { localized } from '@/lib/dictionaries'
 
 export const metadata = {
   title: 'Polityka prywatności — Włodzimierz Zapart',
-  description: 'Polityka prywatności i ochrona danych osobowych.',
+  description:
+    'Polityka prywatności serwisu zapart-obrazy.com — zasady przetwarzania danych osobowych, pliki cookies i prawa użytkowników.',
+  alternates: { canonical: '/polityka-prywatnosci' },
 }
 
 export default async function PrivacyPolicyPage() {

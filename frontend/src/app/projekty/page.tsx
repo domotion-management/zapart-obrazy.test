@@ -8,8 +8,14 @@ import { getServerI18n } from '@/lib/getLocale'
 import { localized } from '@/lib/dictionaries'
 
 export const metadata = {
-  title: 'Projekty / Serie — Włodzimierz Zapart',
-  description: 'Kolekcje i serie artystyczne Włodzimierza Zaparta.',
+  title: 'Projekty i Serie Obrazów — Włodzimierz Zapart | Malarz Poznań',
+  description:
+    'Serie i kolekcje obrazów abstrakcyjnych Włodzimierza Zaparta — malarza z Poznania. Olej, akryl, technika mieszana. Poznaj cykle artystyczne i ich historie.',
+  alternates: { canonical: '/projekty' },
+  openGraph: {
+    title: 'Projekty i Serie Obrazów — Włodzimierz Zapart',
+    description: 'Serie i kolekcje obrazów abstrakcyjnych Włodzimierza Zaparta — malarza z Poznania.',
+  },
 }
 
 interface SeriesItem {

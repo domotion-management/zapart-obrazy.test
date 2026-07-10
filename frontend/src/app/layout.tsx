@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Montserrat, Open_Sans, Inter } from 'next/font/google'
 import { getServerI18n } from '@/lib/getLocale'
 import { LocaleProvider } from '@/lib/LocaleContext'
+import { localized } from '@/lib/dictionaries'
+import { urlFor } from '@/lib/sanity.image'
 import CookieConsent from '@/components/CookieConsent'
 import './globals.css'
 
@@ -27,25 +29,51 @@ const inter = Inter({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
-  title: 'Włodzimierz Zapart — Malarz | Abstrakcja, Olej, Akryl | Kraków',
-  description:
-    'Włodzimierz Zapart — malarz abstrakcjonista z Krakowa. Ponad 30 lat twórczości, 200+ obrazów w kolekcjach prywatnych i galeriach w Polsce i za granicą.',
-  metadataBase: new URL('https://zapart-obrazy.com'),
-  openGraph: {
-    type: 'website',
-    locale: 'pl_PL',
-    siteName: 'Włodzimierz Zapart',
-    title: 'Włodzimierz Zapart — Malarz | Kraków',
-    description: 'Malarz abstrakcjonista z Krakowa. Ponad 30 lat twórczości, 200+ obrazów w kolekcjach.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Włodzimierz Zapart — Malarz | Kraków',
-    description: 'Malarz abstrakcjonista z Krakowa. Ponad 30 lat twórczości, 200+ obrazów w kolekcjach.',
-  },
-  robots: 'index, follow',
-  authors: [{ name: 'Włodzimierz Zapart' }],
+const FALLBACK_TITLE = 'Włodzimierz Zapart — Malarz Abstrakcjonista | Poznań'
+const FALLBACK_DESCRIPTION =
+  'Włodzimierz Zapart — malarz abstrakcjonista z Poznania. Ponad 35 lat twórczości, 350+ obrazów w kolekcjach prywatnych i galeriach w Polsce i za granicą.'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { locale } = await getServerI18n()
+
+  let settings: Awaited<ReturnType<typeof import('@/lib/queries').getSiteSettings>> = null
+  try {
+    const { getSiteSettings } = await import('@/lib/queries')
+    settings = await getSiteSettings()
+  } catch { /* Sanity not configured — static fallbacks */ }
+
+  const s = settings as Record<string, unknown> | null
+  const title = (s && localized(s, 'seoTitle', locale)) || FALLBACK_TITLE
+  const description = (s && localized(s, 'seoDescription', locale)) || FALLBACK_DESCRIPTION
+
+  let ogImageUrl: string | undefined
+  try {
+    if (s?.heroImage) {
+      ogImageUrl = urlFor(s.heroImage as Parameters<typeof urlFor>[0]).width(1200).height(630).fit('crop').url() || undefined
+    }
+  } catch { /* keep metadata without image */ }
+
+  return {
+    title,
+    description,
+    metadataBase: new URL('https://zapart-obrazy.com'),
+    openGraph: {
+      type: 'website',
+      locale: 'pl_PL',
+      siteName: 'Włodzimierz Zapart',
+      title,
+      description,
+      ...(ogImageUrl ? { images: [{ url: ogImageUrl, width: 1200, height: 630, alt: title }] } : {}),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      ...(ogImageUrl ? { images: [ogImageUrl] } : {}),
+    },
+    robots: 'index, follow',
+    authors: [{ name: 'Włodzimierz Zapart' }],
+  }
 }
 
 export default async function RootLayout({

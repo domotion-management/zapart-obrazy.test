@@ -10,43 +10,11 @@ import SeoCollapse from '@/components/SeoCollapse'
 import { urlFor } from '@/lib/sanity.image'
 import { getServerI18n } from '@/lib/getLocale'
 import { localized } from '@/lib/dictionaries'
+import type { Metadata } from 'next'
 
-export async function generateMetadata() {
-  const { getSiteSettings } = await import('@/lib/queries')
-  const { getServerI18n } = await import('@/lib/getLocale')
-  const settings = (await getSiteSettings().catch(() => null)) as any
-  const { locale } = await getServerI18n()
-
-  let title = 'Włodzimierz Zapart — Malarz | Kraków'
-  if (locale === 'de') {
-    title = settings?.seoTitle_de || settings?.siteTitle_de || settings?.seoTitle_en || settings?.siteTitle_en || 'Włodzimierz Zapart — Maler | Kraków'
-  } else if (locale === 'en') {
-    title = settings?.seoTitle_en || settings?.siteTitle_en || 'Włodzimierz Zapart — Painter | Kraków'
-  } else {
-    title = settings?.seoTitle || settings?.siteTitle || 'Włodzimierz Zapart — Malarz | Kraków'
-  }
-
-  let description = ''
-  if (locale === 'de') {
-    description = settings?.seoDescription_de || settings?.siteDescription_de || settings?.seoDescription_en || settings?.siteDescription_en || ''
-  } else if (locale === 'en') {
-    description = settings?.seoDescription_en || settings?.siteDescription_en || ''
-  } else {
-    description = settings?.seoDescription || settings?.siteDescription || ''
-  }
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-    },
-    twitter: {
-      title,
-      description,
-    }
-  }
+// Title/description/OG dziedziczone z generateMetadata w layout.tsx (Sanity seoTitle/seoDescription)
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
 }
 
 async function getData(locale: string) {

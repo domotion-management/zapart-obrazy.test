@@ -23,10 +23,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   try {
     const { getSeriesBySlug } = await import('@/lib/queries')
     const series = (await getSeriesBySlug(slug)) as SeriesData | null
-    if (!series) return { title: 'Seria nie znaleziona' }
+    if (!series) return { title: 'Seria nie znaleziona', robots: 'noindex' }
+    const title = `${series.title} — Włodzimierz Zapart`
+    const description =
+      series.description || `Seria obrazów „${series.title}" Włodzimierza Zaparta — malarza abstrakcjonisty z Poznania.`
     return {
-      title: `${series.title} — Włodzimierz Zapart`,
-      description: series.description || `Seria artystyczna: ${series.title}`,
+      title,
+      description,
+      alternates: { canonical: `/projekty/${slug}` },
+      openGraph: { title, description },
     }
   } catch {
     return { title: 'Seria — Włodzimierz Zapart' }
