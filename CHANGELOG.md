@@ -11,6 +11,10 @@ Historia wydań strony zapart-obrazy.com. Deploy każdego środowiska odpala si�
 
 ---
 
+## [v1.5.2] — 2026-07-10 — PROD
+- **seo:** zawartość v1.5.1 (Sprint 1 SEO) cherry-picked na PROD — robots.txt, sitemap.xml, canonicale, og:image z Sanity, metadata per locale, branded 404 (noindex), CSP + security headers
+- Uwaga: deploy TEST v1.5.1 nie doszedł do serwera (brak sekretów Actions w repo TEST — do uzupełnienia); akceptacja Patryka na podstawie weryfikacji lokalnej
+
 ## [v1.5.1] — 2026-07-10 — TEST
 - **seo:** `robots.txt` (Metadata API) — allow all + jawnie boty AI (GPTBot, ClaudeBot, PerplexityBot…), disallow `/studio` i `/api/`, wskazanie sitemap
 - **seo:** `sitemap.xml` — trasy statyczne + dynamiczne slugi serii z Sanity
