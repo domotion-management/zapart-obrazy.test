@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useCallback, useState, useRef } from 'react'
+import Image from 'next/image'
 import { useLocale } from '@/lib/LocaleContext'
 import { localized, formatPrice } from '@/lib/dictionaries'
 
@@ -75,7 +76,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
   // Image loading/transition logic
   useEffect(() => {
     setSwitching(true)
-    const img = new Image()
+    const img = new window.Image() // window. — import Image z next/image przesłania konstruktor DOM
     img.src = currentView.src
     img.onload = () => {
       setImageSrc(currentView.src)
@@ -203,11 +204,17 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
           className={`lightbox__figure ${views.length > 1 ? 'has-variants' : ''}`}
           onClick={handleFigureClick}
         >
-          <img
+          {/* width/height nadpisywane przez CSS (auto + max-*) — atrybuty dają tylko ratio startowe.
+              unoptimized: preload w useEffect ładuje surowy URL Sanity (już WebP z CDN) —
+              optymalizacja next/image dałaby inny URL i preload przestałby działać */}
+          <Image
             className={`lightbox__img ${switching ? 'is-switching' : ''}`}
             src={imageSrc}
             alt={imageAlt}
             title={imageTitle}
+            width={1200}
+            height={900}
+            unoptimized
             draggable="false"
           />
           {views.length > 1 && (
@@ -296,7 +303,7 @@ export default function Lightbox({ artworks, startIndex, onClose }: LightboxProp
                     setShowDescMobile(false)
                   }}
                 >
-                  <img src={art.mainImageUrl} alt="" role="presentation" loading="lazy" decoding="async" width="52" height="52" />
+                  <Image src={art.mainImageUrl} alt="" role="presentation" width={52} height={52} />
                 </button>
               )
             })}

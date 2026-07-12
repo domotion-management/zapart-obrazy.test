@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import RevealOnScroll from './RevealOnScroll'
 import { type Locale, getDictionary, localized, formatPrice } from '@/lib/dictionaries'
 
@@ -45,14 +46,14 @@ export default function FeaturedWorks({ artworks, locale }: { artworks: Artwork[
             return (
               <RevealOnScroll key={art._id} delay={delays[i] || 0}>
                 <article className="art-card" aria-label={`${title} — ${tech}, ${art.dimensions}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={art.mainImageUrl}
-                    alt={art.mainImageAlt || [title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', ')}
+                  <Image
+                    src={art.mainImageUrl || ''}
+                    alt={art.mainImageAlt || [title, tech, art.dimensions, 'Włodzimierz Zapart'].filter(Boolean).join(', ')}
                     title={art.mainImageTitle || title}
                     className="art-card__img"
-                    loading="lazy"
-                    decoding="async"
+                    width={768}
+                    height={576}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="art-card__overlay" aria-hidden="true" />
                   <div className="art-card__info" aria-hidden="true">

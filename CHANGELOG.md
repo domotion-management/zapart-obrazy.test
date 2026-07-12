@@ -11,6 +11,14 @@ Historia wydań strony zapart-obrazy.com. Deploy każdego środowiska odpala si�
 
 ---
 
+## [v1.5.3] — 2026-07-12 — TEST
+- **seo:** JSON-LD refaktor — `@graph`: Person (czyste `knowsAbout` = style malarskie, bez keyword stuffingu) + LocalBusiness (adres rozdzielony street/locality, GeoCoordinates, hasMap z place_id) + WebSite; encje powiązane `@id`
+- **seo:** wszystkie obrazy artysty przez `next/image` (Gallery, FeaturedWorks, About, Lightbox) — AVIF/WebP, srcset, lazy; alt fallback wzbogacony o wymiary („Tytuł, Technika, 80 x 80 cm, Włodzimierz Zapart")
+- **feat:** robots.txt jako route handler z ASCII-artem „ZAPART" w komentarzach `#` (easter egg; dyrektywy bez zmian)
+- **refactor:** wspólny `SITE_URL` w `lib/site.ts` (robots/sitemap/layout)
+- **fix:** `new window.Image()` w Lightbox (import next/image przesłaniał konstruktor DOM)
+- Review: `08-Code-Reviews/2026-07-12_seo-sprint2-schema-obrazy.md` (✅ APPROVE)
+
 ## [v1.5.2] — 2026-07-10 — PROD
 - **seo:** zawartość v1.5.1 (Sprint 1 SEO) cherry-picked na PROD — robots.txt, sitemap.xml, canonicale, og:image z Sanity, metadata per locale, branded 404 (noindex), CSP + security headers
 - Uwaga: deploy TEST v1.5.1 nie doszedł do serwera (brak sekretów Actions w repo TEST — do uzupełnienia); akceptacja Patryka na podstawie weryfikacji lokalnej

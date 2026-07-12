@@ -10,6 +10,7 @@ import SeoCollapse from '@/components/SeoCollapse'
 import { urlFor } from '@/lib/sanity.image'
 import { getServerI18n } from '@/lib/getLocale'
 import { localized } from '@/lib/dictionaries'
+import { SITE_URL } from '@/lib/site'
 import type { Metadata } from 'next'
 
 // Title/description/OG dziedziczone z generateMetadata w layout.tsx (Sanity seoTitle/seoDescription)
@@ -89,15 +90,6 @@ export default async function HomePage() {
   const { locale } = await getServerI18n()
   const { artworks, featured, artist, settings } = await getData(locale)
 
-  let keywordsString = ''
-  if (locale === 'de') {
-    keywordsString = settings?.entityKeywords_de || settings?.entityKeywords_en || ''
-  } else if (locale === 'en') {
-    keywordsString = settings?.entityKeywords_en || ''
-  } else {
-    keywordsString = settings?.entityKeywords || ''
-  }
-
   let stylesString = ''
   if (locale === 'de') {
     stylesString = settings?.entityStyles_de || settings?.entityStyles_en || ''
@@ -107,32 +99,68 @@ export default async function HomePage() {
     stylesString = settings?.entityStyles || ''
   }
 
+  const description = locale === 'de'
+    ? (settings?.seoDescription_de || settings?.siteDescription_de || settings?.seoDescription_en || settings?.siteDescription_en)
+    : (locale === 'en'
+      ? (settings?.seoDescription_en || settings?.siteDescription_en)
+      : (settings?.seoDescription || settings?.siteDescription))
+
+  const heroImageUrl = settings?.heroImage ? urlFor(settings.heroImage).width(1200).url() : undefined
+  // knowsAbout = faktyczne dziedziny (entityStyles), NIE keywordy SEO — Google traktuje
+  // upychanie fraz w schema jako spam; entityKeywords zostają w treści strony
+  const knowsAbout = stylesString.split(',').map((s: string) => s.trim()).filter(Boolean)
+  const sameAs = [settings?.instagramUrl, settings?.facebookUrl, settings?.wikidataUrl].filter(Boolean)
+  // contactLocation w Sanity: "ul. Serbska 9, Poznań" → street + locality
+  const [street, city] = (settings?.contactLocation || '').split(',').map((s: string) => s.trim())
+  const [lat, lng] = (settings?.geoCoordinates || '').split(',').map((s: string) => s.trim())
+
+  const personId = `${SITE_URL}/#artist`
   const schemaJson = {
     "@context": "https://schema.org",
-    "@type": settings?.entityType || "Person",
-    "name": "Włodzimierz Zapart",
-    "description": locale === 'de'
-      ? (settings?.seoDescription_de || settings?.siteDescription_de || settings?.seoDescription_en || settings?.siteDescription_en)
-      : (locale === 'en'
-        ? (settings?.seoDescription_en || settings?.siteDescription_en)
-        : (settings?.seoDescription || settings?.siteDescription)),
-    "image": settings?.heroImage ? urlFor(settings.heroImage).width(1200).url() : undefined,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": settings?.contactLocation || "Kraków",
-      "addressCountry": "PL"
-    },
-    "email": settings?.contactEmail,
-    "telephone": settings?.contactPhone,
-    "knowsAbout": [
-      ...(keywordsString ? keywordsString.split(',').map((k: string) => k.trim()) : []),
-      ...(stylesString ? stylesString.split(',').map((s: string) => s.trim()) : [])
-    ].filter(Boolean),
-    "sameAs": [
-      settings?.instagramUrl,
-      settings?.facebookUrl,
-      settings?.wikidataUrl
-    ].filter(Boolean)
+    "@graph": [
+      {
+        "@type": settings?.entityType || "Person",
+        "@id": personId,
+        "name": "Włodzimierz Zapart",
+        "url": SITE_URL,
+        "jobTitle": locale === 'de' ? 'Maler' : locale === 'en' ? 'Painter' : 'Malarz',
+        "description": description,
+        "image": heroImageUrl,
+        "email": settings?.contactEmail,
+        "telephone": settings?.contactPhone,
+        "knowsAbout": knowsAbout,
+        "sameAs": sameAs,
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": `${SITE_URL}/#pracownia`,
+        "name": "Pracownia malarska ZapART — Włodzimierz Zapart",
+        "url": SITE_URL,
+        "image": heroImageUrl,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": street || undefined,
+          "addressLocality": city || 'Poznań',
+          "addressCountry": "PL",
+        },
+        ...(lat && lng
+          ? { "geo": { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng } }
+          : {}),
+        "hasMap": settings?.googleMapsUrl || undefined,
+        "email": settings?.contactEmail,
+        "telephone": settings?.contactPhone,
+        "founder": { "@id": personId },
+        "sameAs": sameAs,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        "url": SITE_URL,
+        "name": "Włodzimierz Zapart — Obrazy",
+        "inLanguage": ["pl", "en", "de"],
+        "publisher": { "@id": personId },
+      },
+    ],
   }
 
   return (

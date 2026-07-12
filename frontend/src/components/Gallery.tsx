@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useRef } from 'react'
+import Image from 'next/image'
 import RevealOnScroll from './RevealOnScroll'
 import Lightbox from './Lightbox'
 import { useLocale } from '@/lib/LocaleContext'
@@ -159,7 +160,7 @@ function GalleryCard({
   const views: { src: string; alt: string; title: string; label: string }[] = [
     {
       src: art.mainImageUrl,
-      alt: art.mainImageAlt || [title, tech, 'Włodzimierz Zapart'].filter(Boolean).join(', '),
+      alt: art.mainImageAlt || [title, tech, art.dimensions, 'Włodzimierz Zapart'].filter(Boolean).join(', '),
       title: art.mainImageTitle || title,
       label: t.gallery.viewPainting
     },
@@ -191,14 +192,14 @@ function GalleryCard({
   return (
     <article className="listing-card" data-tech={art.technique}>
       <div className="listing-card__img-wrap" onClick={() => onOpenLightbox(art._id)} style={{ cursor: 'zoom-in' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={currentView.src}
           alt={currentView.alt}
           title={currentView.title}
           className="listing-card__img"
-          loading="lazy"
-          decoding="async"
+          width={768}
+          height={576}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {views.length > 1 && (
           <div className="img-switcher" role="tablist" aria-label={t.gallery.viewsAria}>
@@ -211,8 +212,7 @@ function GalleryCard({
                 aria-label={v.label}
                 onClick={(e) => { e.stopPropagation(); switchView(i) }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={v.src} alt="" role="presentation" aria-hidden="true" width={52} height={52} loading="lazy" decoding="async" />
+                <Image src={v.src} alt="" role="presentation" aria-hidden="true" width={52} height={52} />
                 <span className="img-switcher__label">{v.label}</span>
               </button>
             ))}

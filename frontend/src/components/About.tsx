@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import RevealOnScroll from './RevealOnScroll'
 import { type Locale, getDictionary, localized } from '@/lib/dictionaries'
 
@@ -35,15 +36,13 @@ export default function About({ artist, locale }: { artist: ArtistData | null; l
             <div className="about__photo-wrap">
               <div className="about__photo-frame" aria-hidden="true" />
               {a.photoUrl && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <Image
                   src={a.photoUrl}
                   alt={`${a.name || ''} — ${t.about.painterFrom}`}
                   className="about__photo"
                   width={768}
                   height={794}
-                  loading="lazy"
-                  decoding="async"
+                  sizes="(max-width: 900px) 100vw, 50vw"
                 />
               )}
               {localized(a, 'photoCaption', locale) && (

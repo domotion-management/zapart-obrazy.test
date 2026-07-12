@@ -4,6 +4,7 @@ import { getServerI18n } from '@/lib/getLocale'
 import { LocaleProvider } from '@/lib/LocaleContext'
 import { localized } from '@/lib/dictionaries'
 import { urlFor } from '@/lib/sanity.image'
+import { SITE_URL } from '@/lib/site'
 import CookieConsent from '@/components/CookieConsent'
 import './globals.css'
 
@@ -56,7 +57,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
-    metadataBase: new URL('https://zapart-obrazy.com'),
+    metadataBase: new URL(SITE_URL),
     openGraph: {
       type: 'website',
       locale: 'pl_PL',
