@@ -4,12 +4,13 @@ import About from '@/components/About'
 import FeaturedWorks from '@/components/FeaturedWorks'
 import Gallery from '@/components/Gallery'
 import Contact from '@/components/Contact'
+import Faq from '@/components/Faq'
 import Footer from '@/components/Footer'
 import WcagBar from '@/components/WcagBar'
 import SeoCollapse from '@/components/SeoCollapse'
 import { urlFor } from '@/lib/sanity.image'
 import { getServerI18n } from '@/lib/getLocale'
-import { localized } from '@/lib/dictionaries'
+import { localized, getDictionary } from '@/lib/dictionaries'
 import { SITE_URL } from '@/lib/site'
 import type { Metadata } from 'next'
 
@@ -50,6 +51,7 @@ async function getData(locale: string) {
 
       return {
         ...a,
+        slug: a.slug?.current,
         mainImageUrl: a.mainImage ? urlFor(a.mainImage).width(768).url() : '',
         mainImageAlt: mainAlt || '',
         mainImageTitle: mainTitle || '',
@@ -160,6 +162,15 @@ export default async function HomePage() {
         "inLanguage": ["pl", "en", "de"],
         "publisher": { "@id": personId },
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${SITE_URL}/#faq`,
+        "mainEntity": getDictionary(locale).faq.items.map((item) => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a },
+        })),
+      },
     ],
   }
 
@@ -190,6 +201,7 @@ export default async function HomePage() {
         <About artist={artist} locale={locale} />
         <FeaturedWorks artworks={featured} locale={locale} />
         <Gallery artworks={artworks} locale={locale} />
+        <Faq locale={locale} />
         <Contact
           email={settings?.contactEmail}
           phone={settings?.contactPhone}

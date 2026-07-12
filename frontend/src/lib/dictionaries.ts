@@ -111,6 +111,50 @@ const pl = {
     emptyHint: 'Dodaj serie w panelu CMS pod adresem',
     artworkCount: (n: number) => `${n} obrazów`,
   },
+  artwork: {
+    label: 'Obraz',
+    breadcrumbHome: 'Strona główna',
+    breadcrumbGallery: 'Galeria',
+    technique: 'Technika',
+    dimensions: 'Wymiary',
+    price: 'Cena',
+    ask: 'Zapytaj o ten obraz',
+    back: 'Wróć do galerii',
+    interiorHeading: 'Obraz we wnętrzu',
+    detailsAria: 'Szczegóły obrazu',
+    breadcrumbAria: 'Okruszki nawigacyjne',
+  },
+  faq: {
+    label: 'FAQ',
+    title: 'Najczęstsze pytania',
+    subtitle: 'Zamówienia, ceny, wysyłka i wizyty w pracowni',
+    items: [
+      {
+        q: 'Jak zamówić obraz na zamówienie?',
+        a: 'Wystarczy napisać przez formularz kontaktowy lub e-mail. Wspólnie omawiamy wymiary, kolorystykę i charakter wnętrza, do którego obraz ma trafić — powstaje praca dopasowana do konkretnej przestrzeni.',
+      },
+      {
+        q: 'Ile kosztują obrazy?',
+        a: 'Cena zależy od formatu i techniki (olej, akryl, technika mieszana). Ceny części prac są podane bezpośrednio w galerii; pozostałe wyceniane są indywidualnie — zapytaj przez formularz kontaktowy.',
+      },
+      {
+        q: 'Czy można obejrzeć obrazy na żywo w Poznaniu?',
+        a: 'Tak. Obrazy można zobaczyć w pracowni malarskiej przy ul. Serbskiej 9 w Poznaniu (Winogrady), po wcześniejszym umówieniu się telefonicznie lub mailowo.',
+      },
+      {
+        q: 'Czy obrazy mają certyfikat autentyczności?',
+        a: 'Tak — każdy obraz jest sygnowany przez artystę i sprzedawany z certyfikatem autentyczności.',
+      },
+      {
+        q: 'Czy możliwa jest wysyłka obrazu?',
+        a: 'Tak. Obraz można odebrać osobiście w Poznaniu lub zamówić bezpieczną, ubezpieczoną wysyłkę — szczegóły i koszt ustalamy indywidualnie przy zamówieniu.',
+      },
+      {
+        q: 'Jak dobrać obraz do wnętrza?',
+        a: 'Najprościej przesłać zdjęcie wnętrza i wymiary ściany — artysta doradzi format i kolorystykę. Wiele prac ma w galerii podgląd „we wnętrzu", który ułatwia wyobrażenie sobie obrazu w przestrzeni.',
+      },
+    ],
+  },
   cookies: {
     regionAria: 'Zgoda na pliki cookies',
     label: 'Prywatność',
@@ -257,6 +301,50 @@ const en: DeepStringify<typeof pl> = {
     emptyHint: 'Add series in the CMS panel at',
     artworkCount: (n: number) => `${n} paintings`,
   },
+  artwork: {
+    label: 'Painting',
+    breadcrumbHome: 'Home',
+    breadcrumbGallery: 'Gallery',
+    technique: 'Technique',
+    dimensions: 'Dimensions',
+    price: 'Price',
+    ask: 'Ask about this painting',
+    back: 'Back to gallery',
+    interiorHeading: 'The painting in an interior',
+    detailsAria: 'Painting details',
+    breadcrumbAria: 'Breadcrumbs',
+  },
+  faq: {
+    label: 'FAQ',
+    title: 'Frequently asked questions',
+    subtitle: 'Commissions, prices, shipping and studio visits',
+    items: [
+      {
+        q: 'How can I commission a painting?',
+        a: 'Simply write via the contact form or e-mail. We discuss the dimensions, colours and character of the interior the painting is meant for — the result is a work tailored to your space.',
+      },
+      {
+        q: 'How much do the paintings cost?',
+        a: 'The price depends on the format and technique (oil, acrylic, mixed media). Prices of some works are listed directly in the gallery; others are quoted individually — ask via the contact form.',
+      },
+      {
+        q: 'Can I see the paintings in person in Poznań?',
+        a: 'Yes. You can view the paintings at the studio at Serbska 9 in Poznań (Winogrady district), by prior appointment via phone or e-mail.',
+      },
+      {
+        q: 'Do the paintings come with a certificate of authenticity?',
+        a: 'Yes — every painting is signed by the artist and sold with a certificate of authenticity.',
+      },
+      {
+        q: 'Is shipping available?',
+        a: 'Yes. You can pick the painting up in Poznań or order safe, insured shipping — details and cost are agreed individually with the order.',
+      },
+      {
+        q: 'How do I choose a painting for my interior?',
+        a: 'The easiest way is to send a photo of the interior and the wall dimensions — the artist will advise on format and colours. Many works in the gallery include an "in interior" preview to help you picture the painting in a space.',
+      },
+    ],
+  },
   cookies: {
     regionAria: 'Cookie consent',
     label: 'Privacy',
@@ -390,6 +478,50 @@ const de: DeepStringify<typeof pl> = {
     emptyTitle: 'Keine Serien anzuzeigen.',
     emptyHint: 'Fügen Sie Serien im CMS-Panel hinzu unter',
     artworkCount: (n: number) => `${n} Gemälde`,
+  },
+  artwork: {
+    label: 'Gemälde',
+    breadcrumbHome: 'Startseite',
+    breadcrumbGallery: 'Galerie',
+    technique: 'Technik',
+    dimensions: 'Maße',
+    price: 'Preis',
+    ask: 'Nach diesem Gemälde fragen',
+    back: 'Zurück zur Galerie',
+    interiorHeading: 'Das Gemälde im Interieur',
+    detailsAria: 'Gemäldedetails',
+    breadcrumbAria: 'Brotkrümelnavigation',
+  },
+  faq: {
+    label: 'FAQ',
+    title: 'Häufige Fragen',
+    subtitle: 'Aufträge, Preise, Versand und Atelierbesuche',
+    items: [
+      {
+        q: 'Wie kann ich ein Gemälde in Auftrag geben?',
+        a: 'Schreiben Sie einfach über das Kontaktformular oder per E-Mail. Wir besprechen Maße, Farben und den Charakter des Interieurs — es entsteht ein Werk, das auf Ihren Raum zugeschnitten ist.',
+      },
+      {
+        q: 'Was kosten die Gemälde?',
+        a: 'Der Preis hängt von Format und Technik ab (Öl, Acryl, Mischtechnik). Die Preise einiger Werke sind direkt in der Galerie angegeben; andere werden individuell kalkuliert — fragen Sie über das Kontaktformular.',
+      },
+      {
+        q: 'Kann ich die Gemälde in Poznań persönlich ansehen?',
+        a: 'Ja. Die Gemälde können im Atelier in der Serbska-Straße 9 in Poznań (Winogrady) besichtigt werden — nach vorheriger Terminvereinbarung per Telefon oder E-Mail.',
+      },
+      {
+        q: 'Haben die Gemälde ein Echtheitszertifikat?',
+        a: 'Ja — jedes Gemälde ist vom Künstler signiert und wird mit einem Echtheitszertifikat verkauft.',
+      },
+      {
+        q: 'Ist ein Versand möglich?',
+        a: 'Ja. Sie können das Gemälde in Poznań abholen oder einen sicheren, versicherten Versand bestellen — Details und Kosten werden individuell bei der Bestellung vereinbart.',
+      },
+      {
+        q: 'Wie wähle ich ein Gemälde für mein Interieur aus?',
+        a: 'Am einfachsten senden Sie ein Foto des Interieurs und die Wandmaße — der Künstler berät zu Format und Farben. Viele Werke haben in der Galerie eine „im Interieur"-Vorschau.',
+      },
+    ],
   },
   cookies: {
     regionAria: 'Cookie-Einwilligung',

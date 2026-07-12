@@ -244,6 +244,12 @@ export async function getAllSeriesSlugs() {
   )
 }
 
+export async function getAllArtworkSlugs() {
+  return sanityFetch<{ slug: string }[]>(
+    `*[_type == "artwork" && defined(slug.current)] { "slug": slug.current }`
+  )
+}
+
 export async function getNavbarFooterData() {
   const [artist, settings, featured] = await Promise.all([
     getArtist().catch(() => null),

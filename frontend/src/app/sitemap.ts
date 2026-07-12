@@ -24,16 +24,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]
 
   let seriesRoutes: MetadataRoute.Sitemap = []
+  let artworkRoutes: MetadataRoute.Sitemap = []
   try {
-    const { getAllSeriesSlugs } = await import('@/lib/queries')
-    const slugs = (await getAllSeriesSlugs()) || []
-    seriesRoutes = slugs.map(({ slug }) => ({
+    const { getAllSeriesSlugs, getAllArtworkSlugs } = await import('@/lib/queries')
+    const [seriesSlugs, artworkSlugs] = await Promise.all([
+      getAllSeriesSlugs().catch(() => []),
+      getAllArtworkSlugs().catch(() => []),
+    ])
+    seriesRoutes = (seriesSlugs || []).map(({ slug }) => ({
       url: `${BASE_URL}/projekty/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     }))
+    artworkRoutes = (artworkSlugs || []).map(({ slug }) => ({
+      url: `${BASE_URL}/obrazy/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }))
   } catch { /* Sanity not configured — statyczne trasy wystarczą */ }
 
-  return [...staticRoutes, ...seriesRoutes]
+  return [...staticRoutes, ...seriesRoutes, ...artworkRoutes]
 }

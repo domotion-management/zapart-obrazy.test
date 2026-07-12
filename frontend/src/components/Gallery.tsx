@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import RevealOnScroll from './RevealOnScroll'
 import Lightbox from './Lightbox'
 import { useLocale } from '@/lib/LocaleContext'
@@ -9,6 +10,7 @@ import { localized, formatPrice, type Locale } from '@/lib/dictionaries'
 
 export interface ArtworkItem {
   _id: string
+  slug?: string
   title: string
   title_en?: string
   title_de?: string
@@ -224,7 +226,13 @@ function GalleryCard({
         </div>
       </div>
       <div className="listing-card__body">
-        <h3 className="listing-card__title">{title}</h3>
+        <h3 className="listing-card__title">
+          {art.slug ? (
+            <Link href={`/obrazy/${art.slug}`} className="listing-card__title-link">{title}</Link>
+          ) : (
+            title
+          )}
+        </h3>
         {desc && <p className="listing-card__desc">{desc}</p>}
         <div className="listing-card__price">
           {art.price && art.price > 0 ? (

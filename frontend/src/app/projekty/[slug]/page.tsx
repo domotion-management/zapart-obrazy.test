@@ -71,6 +71,7 @@ export default async function SeriesDetailPage({ params }: { params: Promise<{ s
 
     return {
       _id: a._id as string,
+      slug: (a.slug as { current?: string } | undefined)?.current,
       title: a.title as string,
       title_en: a.title_en as string | undefined,
       title_de: a.title_de as string | undefined,
